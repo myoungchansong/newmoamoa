@@ -25,7 +25,6 @@
 
 #imgbox .box
 {
-	
 	height: 300px;
 	width:90%;
 	color: #000;
@@ -50,19 +49,11 @@
 }
 
 
-
-
-
-
-
-
-
 #hotellist{
 	width: 70%;
 	height: 1200px;
 	margin: 0px auto;
 	padding-bottom: 100px;
-	border: 1px solid #BDBDBD;
 }
 
 
@@ -87,43 +78,57 @@
 #hotelimg{
  width: 100%;
  height: 400px;
- border-bottom: 1px solid #BDBDBD;
 }
 #hotelimg img{
 	width: 250px;
 	height: 250px;
-	margin: 75px 40px;
+	margin-left: 50px;
 }
-#hotelborder h2{
+.title_box
+{
+	width: 1000px;
+}
+
+.title_box h2{
 	padding-top: 25px;
 	padding-left: 10px;
-	font-size: 48px;
+	font-size: 30px;
 	color: #757575;
-	 border-bottom: 1px solid #BDBDBD;
-	 mar
+	
 }
 
 #border{
 	width: 100%;
-	height: 300px;
- 	border-bottom: 1px solid #BDBDBD;
+	height: 200px;
 }
-#border h3{
-	display:inline-block;
- 	width: 100px;
-	 height: 100%;
-	line-height: 100px;
-	margin-left: 10px;
-	border-right: 1px solid #BDBDBD;
+#title{
+	width: 1000px;
+	display: inline-block;
 }
-
-#border h1{
-	display:inline-block;
-	margin:0 50px;
+#title h1{
+	padding: 10px 0 0 20px;
+	display: inline-block;
 }
-
-#border p{
-	display:inline-block;
+#content{
+	height: 150px;
+	width: 1000px;
+	display: inline-block;
+}
+#content p{
+	display: inline-block;
+	padding-left: 30px;
+}
+#list_img{
+	position: relative;
+	width: 225px;
+	height: 225px;
+	right: -1000px;
+	top: -225px;
+}
+#img img{
+	display: inline-block;
+	width: 225px;
+	height: 225px;
 }
 </style>
 </head>
@@ -138,7 +143,7 @@
 			20 정상회의를 개최한 국제적인 도시이다. 서울의 GDP는 런던과 파리보다 높은 세계 4위이다.</p>
 		</div>
 	</section>
-	
+		
 	
 	
 	
@@ -150,46 +155,40 @@
 			<a href="#">select</a>
 		</div>
 		
+		<div id="hotelborder">
+			<div class="title_box">
+				<h2>TITLE</h2>
+			</div>
+			
+			
+			<div id="border">
+			
+				<div id="title">
+					<h1>HotelName</h1>
+				</div>
+				
+				<div id="content">
+					<p>Content</p>
+				</div>
+				
+				<div id="list_img">
+					<img src="img/login.png"> 
+				</div>
+			</div>
+		</div>
+		
+		
 		<div id="hotelimg">
+			<div class="title_box">
+				<h2>이미지</h2>
+			</div>
 			<img src="img/login.png"> 
 			<img src="img/login.png"> 
 			<img src="img/login.png"> 
 			<img src="img/login.png"> 
 		</div>
 		
-		<div id="hotelborder">
-			<h2>TITLE</h2>
-			
-			<div id="border">
-				<h3 >게시글 번호<Br>　　1</h3>
-				<h1>HotelName</h1>
-				<p>Content</p>
-			</div>
-		</div>
 	</section>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 </body>
 <%@ include file= "include/footer.jsp" %>
