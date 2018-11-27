@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com/moamoa/mybatis/moamoaMapper.xml">
+
+<!-- review insert -->
+
+	<insert id="hotelinsert" parameterType="com.moamoa.dto.hotelDTO">
+		INSERT INTO moamoa(hotelname, hoteladdr, summary, hotelimg)
+		VALUES(#{hotelname}, #{hoteladdr}, #{summary}, #{hotelimg})
+	</insert>
+ 
+ 	<insert id="hotelupdate" parameterType="com.moamoa.dto.hotelDTO">
+ 		INSERT INTO moamoa(hotelname, writer, score, title, review_neg, review_pos, Write_date)
+		VALUES(#{hotelname}, #{writer}, #{score}, #{title}, #{review_neg}, #{review_pos}, #{write_date}) 
+ 	</insert>
+ 
+ 
+</mapper>
