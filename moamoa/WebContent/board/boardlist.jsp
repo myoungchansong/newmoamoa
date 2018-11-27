@@ -31,12 +31,14 @@
 	.custom-select {
 	  position: relative;
 	  font-family: Arial;
+	  display: inline-block;
+	  margin: 10px 0px;
 	}
 	.custom-select select {
 	  display: none; /*hide original SELECT element:*/
 	}
 	.select-selected {
-	  background-color: DodgerBlue;
+	  background-color:#212121;
 	}
 	/*style the arrow inside the select element:*/
 	.select-selected:after {
@@ -57,7 +59,7 @@
 	/*style the items (options), including the selected item:*/
 	.select-items div,.select-selected {
 	  color: #ffffff;
-	  padding: 8px 16px;
+	  padding: 4px 16px;
 	  border: 1px solid transparent;
 	  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
 	  cursor: pointer;
@@ -66,7 +68,7 @@
 	/*style items (options):*/
 	.select-items {
 	  position: absolute;
-	  background-color: DodgerBlue;
+	  background-color: #212121;
 	  top: 100%;
 	  left: 0;
 	  right: 0;
@@ -77,9 +79,9 @@
 	  display: none;
 	}
 	.select-items div:hover, .same-as-selected {
-	  background-color: rgba(0, 0, 0, 0.1);
+	  background-color: #757575;
 	}
-	
+	 
 	.notice_classify{
 		display :inline-block;
 	    margin: 10px 5px;
@@ -132,7 +134,6 @@
 	}
 	#pagination a {
 	    color: black;
-	    float: left;
 	    padding: 8px 16px;
 	    text-decoration: none;
 	    transition: background-color .3s;
@@ -153,10 +154,10 @@
 	<div id="board_wrap">
 		<form action="" id="board_frm">
 			<div class="custom-select" style="width:100px;">
-				<select >
+				<select>
 					<option>분류</option>
 					<option>정보</option>
-					<option>상세리뷰</option>
+					<option>리뷰</option>
 					<option>잡담</option>
 				</select>
 			</div>
