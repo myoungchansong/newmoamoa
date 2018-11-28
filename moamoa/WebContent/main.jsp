@@ -98,7 +98,7 @@ input{
 </head>
 <body>
 	<div>
-		<img src="img/main.png" id="mainimg">
+		<img src="${path}/img/main.png" id="mainimg">
 		<div id="moa">MoAMoA</div>
 	</div>
 	
@@ -115,7 +115,7 @@ input{
 	
 	
 	<div id="map">
-		<img src="img/map.png" id="mapimg">
+		<img src="${path}/img/map.png" id="mapimg">
 	</div>
 	
 	<div></div>
@@ -123,6 +123,6 @@ input{
 
 	
 	
-</body>
 <%@ include file ="include/footer.jsp" %>
+</body>
 </html>

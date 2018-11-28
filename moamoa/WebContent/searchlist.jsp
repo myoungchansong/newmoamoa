@@ -172,7 +172,7 @@
 				</div>
 				
 				<div id="list_img">
-					<img src="img/login.png"> 
+					<img src="${path}/img/login.png"> 
 				</div>
 			</div>
 		</div>
@@ -182,14 +182,14 @@
 			<div class="title_box">
 				<h2>이미지</h2>
 			</div>
-			<img src="img/login.png"> 
-			<img src="img/login.png"> 
-			<img src="img/login.png"> 
-			<img src="img/login.png"> 
+			<img src="${path}/img/login.png"> 
+			<img src="${path}/img/login.png"> 
+			<img src="${path}/img/login.png"> 
+			<img src="${path}/img/login.png"> 
 		</div>
 		
 	</section>
 	
+<%@ include file="include/footer.jsp" %>
 </body>
-<%@ include file= "include/footer.jsp" %>
 </html>

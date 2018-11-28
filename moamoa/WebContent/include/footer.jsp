@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ include file ="include.jsp" %> 
+<c:set var="path" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,10 +61,10 @@
 						
 				</div>
 				<div id="icon">
-					<img src="img/agoda.png">
-					<img src="img/booking.png">
-					<img src="img/expedia.png">
-					<img src="img/hotels.png">
+					<img src="${path}/img/agoda.png">
+					<img src="${path}/img/booking.png">
+					<img src="${path}/img/expedia.png">
+					<img src="${path}/img/hotels.png">
 				</div>
 				
 		</div>
