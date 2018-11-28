@@ -46,8 +46,6 @@
 
 #icon img{
 	margin-left: 20px;
-	width:100px;
-	height: 30px;
 }
 </style>
 </head>
@@ -61,10 +59,10 @@
 						
 				</div>
 				<div id="icon">
-					<img src="${path}/img/agoda.png">
-					<img src="${path}/img/booking.png">
-					<img src="${path}/img/expedia.png">
-					<img src="${path}/img/hotels.png">
+					<img src="${path}/img/agoda.png" style="height: 70px; width: 100px;"">
+					<img src="${path}/img/booking.png" style="height: 35px; width: 100px;padding-bottom:18px;">
+					<img src="${path}/img/expedia.png" style="height: 70px; width: 100px;">
+					<img src="${path}/img/hotelscom.png" style="height: 70px; width: 100px;">
 				</div>
 				
 		</div>
