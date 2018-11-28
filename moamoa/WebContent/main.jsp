@@ -118,7 +118,7 @@ input{
 		<img src="img/map.png" id="mapimg">
 	</div>
 	
-	
+	<div></div>
 	
 
 	
