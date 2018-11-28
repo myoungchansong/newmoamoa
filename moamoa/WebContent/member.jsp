@@ -44,14 +44,14 @@
 		border-radius:10px; 
 		align-items: center;
 	}
-	#login_layout{
+	#member_layout{
 		display: inline-block;
 		width:600px;
 		height:899px;
 		background: white;
 		
 	}
-	/*header(호버드론로고)*/
+	/*header(로고)*/
 	#content_layout{
 		width:300px;
 		margin:0 auto;
@@ -64,16 +64,15 @@
 	    height: 137px;
 	    width: 148px;
 	}
-	#header_login{
+	#header_member{
 		font-size: 33px;
-    	margin:30px auto;
+    	margin:50px auto;
     	color: #707374;
     	font-weight: 300;
     	text-align: center;
 	}
 	
-	/*section(input(id,pw),로그인버튼,find)  */
-	
+	/*section(input(id,pw,rpw),확인버튼)  */
 	#insert_id{
 		background-color: white;
 		border: 1px solid #dadada;
@@ -115,7 +114,6 @@
 		box-sizing: border-box;
 		margin-top: 20px;
 		position: relative;
-		display: flex;
 	}
 	#insert_label_pw{
 		font-size: 15px;
@@ -149,7 +147,6 @@
 		box-sizing: border-box;
 		margin-top: 20px;
 		position: relative;
-		display: flex;
 	}
 	#insert_label_rpw{
 		font-size: 15px;
@@ -175,21 +172,7 @@
 		z-index: 9;
  		background-color: #ffffff00;	
 	}
-	#find_pw>span{
-		float: right;
-		text-align: center;
-    	align-items: center;
-    	display: flex;
-    	font-size: 12px;
-    	width: 95px;
-    	height: 48px;
-    	color: #707374;
-	}
-	#find_pw>span:hover{
-		text-decoration: underline;
-		color: #44a8f2;
-		cursor: pointer;
-	}
+	
 	/*체크박스 */
 	#ckbWrap{
 		margin: 30px 0px;
@@ -258,14 +241,7 @@
 	    border-width: 0 3px 3px 0;
 	    transform: rotate(45deg);
 	}
-	.input_login{
-		width:408px;
-		height:16px;
-		border-width:0px;
-		padding: 7px 0px 6px 0px;
-		cursor: pointer;
-	}
-	
+	/*확인버튼 */
 	#btn_next{
 		display:block;
 		width:298px;
@@ -284,7 +260,7 @@
 	#btn_next:hover{
 		box-shadow: 0 0 4px rgba(0,0,0,0.2);
 	}
-	
+	/* id,pw 전부 입력확인 메세지 */
 	#err_check_msg{
 		display:inline-block;
 		width:428px;
@@ -300,9 +276,11 @@
 	#err_check{
 		display:none;
 	}
+	/*float잡기 */
 	#clr_div{
 		clear:both;
 	}
+	/*지금 로그인 버튼  */
 	#nowlogin>a{
 		display: block;
 		text-align: center;
@@ -314,6 +292,7 @@
 	#nowlogin>a:hover{
 		text-decoration: underline;
 	}
+	/*저작권안내 */
 	#copyright{
 		display: inline-block;
 		font-size: 12px;
@@ -327,10 +306,19 @@
 		text-decoration: underline;
 		cursor: pointer;
 	}
+	/* errorcheck */
+	.error{
+		color:#f46665;
+		font-size: 12px;
+		font-weight: 300;
+		padding: 5px 10px;
+		display: none;
+	}
 </style>  
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
+		/*입력창 효과 */
 		$("#insert_id").focus(function(){
 			$(this).css("font-size", "17px");
 			$("#insert_label").css("top","5px").css("font-size","12px");
@@ -379,6 +367,19 @@
 			}
 		});
 	
+		/*입력값 없으면 error메세지 뜨게하기  */
+		$(".input_join").on("blur",function(){
+			var inputVal = $(this).val();
+			
+			if(inputVal ==""){
+				$(this).next().css("display","block");
+				$(this).parent().css({"margin-bottom": "30px","border":"1px solid red"});	
+				$(this).prev().css("color","red")
+			}else{
+				 $(this).next().css("display","none");
+				 $(this).parent().css("margin-bottom", "30px");	
+			}
+		});	 
 		
 		/*확인 버튼을 클릭했을 때 유효성 체크  */
 		$("#btn_next").on("click",function(){
@@ -441,16 +442,16 @@
 			}
 		});
 			
-		
+		/*체크박스 모두 체크해야 확인 버튼 클릭되게하기  */
 		$(".ckboxs").on("click",function(){
 			if($(".ckboxs:checked").length==2){
-				$("#cbox1","#cbox2").prop("checked",true); 
 				$("#btn_next").css({"background":"#00BCD4","border":"1px solid #00BCD4","cursor":"pointer","disabled":"none"}); 
 			}else{
-			/* 	$("#cbox1","#cbox2").prop("checked",false); */
 				$("#btn_next").css({"background":"#00bcd482","border":"1px solid #00bcd482","disabled":"disabled","cursor":"not-allowed"});
 			}
 		});
+		
+		/*값 모두 입력후 체크박스 모두 체크 후 확인버튼 클릭 했을 때 이동  */
 		$("#btn_next").on("click",function(){
 			/* alert("test"); */
 			var ck1 = $("#cbox1").is(":checked");
@@ -498,31 +499,34 @@
 			<!-- End WOWSlider.com BODY section -->
 
 		</div>
-		<div id="login_layout">
+		<div id="member_layout">
 			<div id="content_layout">
 				<header>
 					<div id="header_div">
 						<a href=""><img alt="로고" src="img/main.png"></a> 
 						
 					</div>
-					<div id="header_login">등록하기</div>
+					<div id="header_member">등록하기</div>
 				</header>
 	
 				<section>
 					<form action="" method="POST" name="frm_login" id="frm_login">
 						<div id="insert_id">
 							<label for="insert_id" id="insert_label"> ID/이메일 주소를 입력해주세요.</label> 
-							<input type="text" id="input_id" name="inputid">
+							<input type="text" id="input_id" name="inputid" class="input_join">
+							<span class="error">ID/이메일 주소를 입력해주세요</span>
 						</div>
 		
 						<div id="insert_pw">
 							<label for="insert_pw" id="insert_label_pw"> 비밀번호</label> 
-							<input type="password" id="input_pw" name="inputpw">
+							<input type="password" id="input_pw" name="inputpw" class="input_join">
+							<span class="error">비밀번호를 입력해주세요</span>
 						</div>
 						
 						<div id="insert_rpw">
 							<label for="insert_rpw" id="insert_label_rpw"> 비밀번호 재입력</label> 
-							<input type="password" id="input_rpw" name="inputrpw">
+							<input type="password" id="input_rpw" name="inputrpw" class="input_join">
+							<span class="error">비밀번호를 재입력해주세요</span>
 						</div>							
 					</form>
 	
