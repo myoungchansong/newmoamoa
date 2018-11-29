@@ -11,7 +11,6 @@
 
 #hotellist{
 	width: 70%;
-	height: 1200px;
 	margin: 0px auto;
 	padding-bottom: 100px;
 }
@@ -29,7 +28,10 @@
 	line-height: 50px;
 /* 	border-bottom: 1px solid #BDBDBD; */
 }
-
+#hotelborder{
+	border-bottom: 1px solid #BDBDBD;
+	height: 727px;
+}
 .title_box{
 	width: 1000px;
 }
@@ -80,7 +82,7 @@
 }
 #hotelimg{
 	 width: 100%;
-	 height: 400px;
+	 height: 780px;
 	 border-bottom: 1px solid #BDBDBD;
 }
 #hotelimg img{
@@ -116,8 +118,53 @@
 	font-size: 50px;
 	font-weight: 500;
 }
-
+#hotelreview{
+	height: 750px;
+}
+#wordcount{
+	height: 750px;
+	border-bottom: 1px solid #BDBDBD;
+}
+#scoregraph{
+	height: 750px;
+	border-bottom: 1px solid #BDBDBD;
+}
 </style>
+<script type="text/javascript">
+        window.onload = function () {
+            $(".box").each(function () {
+                // 개별적으로 Wheel 이벤트 적용
+                $(this).on("mousewheel DOMMouseScroll", function (e) {
+                    e.preventDefault();
+                    var delta = 0;
+                    if (!event) event = window.event;
+                    if (event.wheelDelta) {
+                        delta = event.wheelDelta / 120;
+                        if (window.opera) delta = -delta;
+                    } else if (event.detail) delta = -event.detail / 3;
+                    var moveTop = null;
+                    // 마우스휠을 위에서 아래로
+                    if (delta < 0) {
+                        if ($(this).next() != undefined) {
+                            moveTop = $(this).next().offset().top;
+                        }
+                    // 마우스휠을 아래에서 위로
+                    } else {
+                        if ($(this).prev() != undefined) {
+                            moveTop = $(this).prev().offset().top;
+                        }
+                    }
+                    // 화면 이동 0.8초(800)
+                    $("html,body").stop().animate({
+                        scrollTop: moveTop + 'px'
+                    }, {
+                        duration: 800, complete: function () {
+                        }
+                    });
+                });
+            });
+        }
+    </script>
 </head>
 <body>
 <section id="hotellist">
@@ -128,7 +175,7 @@
 			<a href="#">select</a>
 		</div>
 		
-		<div id="hotelborder">
+		<div id="hotelborder" class="box">
 			<div class="title_box">
 				<h2>TITLE</h2>
 			</div>
@@ -151,7 +198,7 @@
 		</div>
 		
 		
-		<div id="hotelimg">
+		<div id="hotelimg" class="box">
 			<div class="title_box">
 				<h2>WORDCLOUD</h2>
 				<h3>_빅데이터 기반으로 리뷰 분석</h3>
@@ -170,7 +217,44 @@
 			</section>
 		</div>
 		
-		<div id="hotelreview">
+		<div id="wordcount" class="box">
+			<div id="wordcount_title">
+				<h2>WORDCOUNT</h2>
+			</div>
+			<section id="wordcount_pos">
+				<div class="wctype">pos+</div>
+				<div class="wclist">
+					<ul>
+						<li>1</li>
+						<li>2</li>
+						<li>3</li>
+						<li>4</li>
+						<li>5</li>
+					</ul>
+				</div>
+			</section>
+			<section id="wordcount_neg">
+				<div class="wctype">neg-</div>	
+				<div class="wclist">
+					<ul>
+						<li>1</li>
+						<li>2</li>
+						<li>3</li>
+						<li>4</li>
+						<li>5</li>
+					</ul>
+				</div>
+			</section>
+		</div>
+		
+		<div id="scoregraph" class="box">
+			<div calss="title_graph">
+				<h2>강남구 호텔 평점 비교 그래프</h2>
+			</div id="img_graph">
+			<div id=""><img alt="" src=""></div>
+		</div>
+		
+		<div id="hotelreview" class="box">
 			<div class="title_box">
 				<h2>DETAIL REVIEW</h2>
 			</div>
