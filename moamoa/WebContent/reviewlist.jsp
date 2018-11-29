@@ -39,6 +39,12 @@
 	font-size: 30px;
 	color: #757575;
 }
+.title_box h3{
+	padding-top: 4px;
+    padding-left: 19px;
+    font-size: 15px;
+    color: #757575;
+}
 #border{
 	width: 100%;
 	height: 200px;
@@ -73,15 +79,44 @@
 	height: 225px;
 }
 #hotelimg{
- width: 100%;
- height: 400px;
- border-bottom: 1px solid #BDBDBD;
+	 width: 100%;
+	 height: 400px;
+	 border-bottom: 1px solid #BDBDBD;
 }
 #hotelimg img{
-	width: 250px;
-	height: 250px;
+	width: 500px;
+    height: 210px;
 	margin-left: 50px;
 }
+#wordC_sec_pos{
+	display: inline-block;
+    width: 500px;
+    height: 282px;
+    margin-left: 137px;
+}
+#wordC_sec_neg{
+	display: inline-block;
+    width: 500px;
+    height: 282px;
+    margin-left: 40px;
+}
+.wordcloudimg{
+	display: inline-block;
+}
+.wordtype{
+	font-size: 50px;
+	font-weight: 400;
+	color: #00BCD4;
+
+}
+
+.reviewtype{
+	margin: 74px;
+	color: #757575;
+	font-size: 50px;
+	font-weight: 500;
+}
+
 </style>
 </head>
 <body>
@@ -118,19 +153,29 @@
 		
 		<div id="hotelimg">
 			<div class="title_box">
-				<h2>IMAGE</h2>
+				<h2>WORDCLOUD</h2>
+				<h3>_빅데이터 기반으로 리뷰 분석</h3>
 			</div>
-			<img src="${path}/img/login.png"> 
-			<img src="${path}/img/login.png"> 
-			<img src="${path}/img/login.png"> 
-			<img src="${path}/img/login.png"> 
+			<section id="wordC_sec_pos">
+				<div class="wordcloudimg">
+					<div class="wordtype">pos+</div>
+					<img src="${path}/img/pos_059.png">
+				</div>
+			</section> 
+			<section id="wordC_sec_neg">
+				<div class="wordcloudimg">
+					<div class="wordtype">neg-</div>
+					<img src="${path}/img/neg_059.png">
+				</div> 
+			</section>
 		</div>
 		
 		<div id="hotelreview">
 			<div class="title_box">
 				<h2>DETAIL REVIEW</h2>
 			</div>
-			
+			<div class="reviewtype"><i class="fa fa-plus"></i></div>
+			<div class="reviewtype"><i class="fa fa-minus"></i></div>
 		</div>
 		
 	</section>
