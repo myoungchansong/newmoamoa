@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 import com.moamoa.action.Action;
 import com.moamoa.action.ActionForward;
+import com.moamoa.action.IndexAction;
 
 
 
@@ -51,14 +51,14 @@ public class BizpollFrontController extends HttpServlet {
 		
 		System.out.println("uri:" +uri);
 		System.out.println("ctx:"+ ctx);
-		System.out.println("페이지 이동====> "+command);
+		System.out.println("페이지 이동====>★ "+command);
 		
 		//Action단 이동
 		//Action단 이동
 		if(command.equals("/index.bizpoll")) {
-			/*action = new IndexAction();*/ //객체생성
-			forward = action.excute(request, response); //객체(인스턴스)사용 //데이터 받을때 request, 데이터보낼때 response
-			//web에서는 무조건 requset, response를 매개변수로 받아야한다. 
+			action = new IndexAction();
+			forward = action.excute(request, response);
+			// WEB에서는 무조건 REQUEST, RESPONSE를 매개변수로 받아야한다
 		}
 		
 		//공통 분기작업(페이지 이동)

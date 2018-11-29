@@ -201,10 +201,10 @@ nav #menu li a {
 		</span>
 		
 		<ul id="menu">
-			<li><a href="#">HOME</a></li>
-			<li><a href="#">About</a></li>
-			<li><a href="#">Conteact</a></li>
+			<li><a href="#">ALL</a></li>
+			<li><a href="#">WISH LIST</a></li>
 			<li><a href="#">FAQ</a></li>
+			<li><a href="#">LOGIN</a></li>
 		</ul>
 		
 		<div id="toggle">

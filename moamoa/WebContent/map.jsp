@@ -1,249 +1,37 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ include file ="include/include.jsp" %> 
-     <%@ include file ="include/header.jsp" %> 
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-* {
-	margin: 0;
-	padding: 0;
-	text-decoration: none;
-	list-style: none;
-	font-family: sans-srif;
+
+.mapArea{
+    width:300px;
+    height:300px;
+    background:#00BCD4;
+  	margin: 0 auto;
 }
-
-body {
-	background: #00BCD4;
+#locName{
+    width:100px;
+    height:50px;
+    line-height: 50px;
+    text-align:center;
+    background:#00BCD4;
+    font-weight: bold;
+    color: white;
+    float: right;
 }
-
-#mainimg {
-	height: 200px;
-	width: 200px;
-	margin: 0px auto;
-	display: block;
-	margin-top: 50px;
-}
-
-#moa {
-	color: white;
-	font-size: 50px;
-	font-weight: 500px;
-	text-align: center;
-	font-family:
-}
-
-#mapimg {
-	height: 300px;
-	width: 400px;
-	margin: 50px auto;
-	display: block;
-}
-
-/*===========seach===============================================  */
-#search {
-	width: 600px;
-	height: 100px;
-	margin: 10px auto;
-}
-
-.box {
-	position: relative;
-	top: 50%;
-	left: 50%;
-	width: 500px;
-	transform: translate(-50%, -50%);
-}
-
-input {
-	position: relative;
-	display: inline-block;
-	font-size: 20px;
-	box-sizing: border-box;
-	transition: .5s;
-}
-
-#input-text {
-	background: #fff;
-	width: 430px;
-	height: 50px;
-	border: none;
-	outline: none;
-	padding: 0 25px;
-	border-radius: 5px 0 0 5px;
-}
-
-#input-submit {
-	position: relative;
-	left: -5px;
-	border-radius: 0 5px 5px 0;
-	width: 60px;
-	height: 50px;
-	border: none;
-	outline: none;
-	cursor: pointer;
-	background: #ffc107;
-	color: #fff;
-}
-
-#input-submit:hover {
-	background: #ff5722;
-}
-
-.mapArea {
-	width: 300px;
-	height: 300px;
-	background: #00BCD4;
-	margin: 0 auto;
-}
-
-#locName {
-	width: 100px;
-	height: 50px;
-	line-height: 50px;
-	text-align: center;
-	background: #00BCD4;
-	font-weight: bold;
-	color: white;
-	float: right;
-}
-
-.wrapper {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	grid-gap: 10px;
-	grid-auto-rows: minmax(100px, auto);
-}
-
-.one {
-	grid-column: 1;
-	grid-row: 1;
-}
-
-.two {
-	grid-column: 2/4;
-	grid-row: 1/3;
-}
-
-#More {
-	grid-column: 3/4;
-	grid-row: 1/3;
-	width: 600px;
-	height: 898px;
-	background: #0097A7;
-}
-
-
-
-.three {
-	grid-column: 1;
-	grid-row: 2/5;
-}
-
-.three-1 {
-	grid-column: 1;
-	grid-row: 4;
-}
-
-.four {
-	grid-column: 3;
-	grid-row: 3;
-}
-
-.five {
-	grid-column: 2;
-	grid-row: 4;
-}
-
-.six {
-	grid-column: 3;
-	grid-row: 4;
-	width: 100%;
-	height: 100%;
-	background: #0097A7;
-	line-height: 755px;
-	text-align: center;
-	font-size: 100px;
-	font-weight: bold;
-	color: white;
-}
-
-
-#teamlogo {
-	grid-column: 1;
-	grid-row: 4;
-}
-
-
-#qwer-1 {
-	grid-column: 1;
-	grid-row: 1/2;
-}
-
-section {
-	margin-top: 150px;
-}
-
-#logo {
-	background: #0097A7;
-	color: white;
-	font-size: 50px;
-	font-weight: bold;
-	text-align: center;
-	line-height: 749px;
-	height: 749px
-}
-
-
-#More img{
-	width: 100%;
-	height: 100%;
-}
-
-
-
-#teamlogo img {
-	width: 100%;
-	height: 100%;
-}
-
-#seoul{
-/* 	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; */
-	color: white;
-	font-size: 60px;
-	font-weight: bold;
-	padding: 0px 0px 50px 150px;
-	outline: black;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
 </style>
+
+
+
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js" type="text/javascript" charset="utf-8"></script>
-
 <script type="text/javascript">
 $(function(){
 	
@@ -331,52 +119,14 @@ $(function(){
 });
 
 
+
 </script>
 </head>
+
 <body>
-	<div>
-		<img src="${path}/img/main.png" id="mainimg">
-		<div id="moa">MoAMoA</div>
-	</div>
-	
-	
-	<div id="search">
-		<div class="box">
-			<form>
-				<input type="text" name="" placeholder="Type..." id="input-text">
-				<input type="submit" name="" value="GO" id="input-submit">
-			</form>
-			
-		</div>
-	</div>
-	
-	
-	<div id="map">
-		<div class="mapArea">
+	<div class="mapArea">
 			<div id="locName"></div>
 			<div id="paper"></div>
-		</div>
 	</div>
-	
-	
-	<section style="padding-top: 50px; background: #B2EBF2;">
-		<h2 id="seoul">서울 추천 여행지</h2>
-		<div class="wrapper">
-			<div class="one"><img src="seoulimg/001.PNG"></div>
-			<div class="two"><img src="seoulimg/002.PNG"></div>
-			<div id="More"><img src="seoulimg/007.PNG"></div>
-			<div class="three"><img src="seoulimg/003.PNG"></div>
-			<div class="four"><img src="seoulimg/004.PNG"></div>
-			<div class="five"><img src="seoulimg/005.PNG"></div>
-			<div class="six" style="height: 750px;">+</div>
-			<div id="teamlogo" style="height: 750px;"><img src="seoulimg/009.PNG"></div>
-			<div id="logo">MOAMOA</div>
-		</div>
-		
-		
-	</section>
-
-	
-<%@ include file ="include/footer.jsp" %>
 </body>
 </html>
