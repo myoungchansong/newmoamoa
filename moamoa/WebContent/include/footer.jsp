@@ -17,7 +17,7 @@
 #footerdiv{
 	background: #B2EBF2;
 	width: 100%;
-	height: 200px;
+	height: 223px;
 }
 #email{
 	width: 500px;
@@ -38,14 +38,29 @@
 	
 }
 #icon{
-	margin: 0px auto;
-	width: 500px;
-	text-align: center;
-	margin-top: 20px; 
+	margin: 20px auto;
+    width: 570px;
+    text-align: center;
 }
 
 #icon img{
-	margin-left: 20px;
+	margin-left: 30px;
+}
+#logo_agoda{
+	width: 100px;
+    height: 40px;
+}
+#logo_booking{
+	width: 133px;
+    height: 31px;
+}
+#logo_expedia{
+	width: 100px;
+    height: 30px;
+}
+#logo_hotelscom{
+	width: 100px;
+    height: 64px;
 }
 </style>
 </head>
@@ -59,10 +74,10 @@
 						
 				</div>
 				<div id="icon">
-					<img src="${path}/img/agoda.png" style="height: 70px; width: 100px;"">
-					<img src="${path}/img/booking.png" style="height: 35px; width: 100px;padding-bottom:18px;">
-					<img src="${path}/img/expedia.png" style="height: 70px; width: 100px;">
-					<img src="${path}/img/hotelscom.png" style="height: 70px; width: 100px;">
+					<img src="${path}/img/agoda.png" id="logo_agoda">
+					<img src="${path}/img/booking.png" id="logo_booking">
+					<img src="${path}/img/expedia.png" id="logo_expedia">
+					<img src="${path}/img/hotelscom.png" id="logo_hotelscom">
 				</div>
 				
 		</div>
