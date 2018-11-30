@@ -203,7 +203,7 @@ nav #menu li a {
 		<ul id="menu">
 			<li><a href="#">ALL</a></li>
 			<li><a href="#">WISH LIST</a></li>
-			<li><a href="#">FAQ</a></li>
+			<li><a href="#">COMMNUITY</a></li>
 			<li><a href="#">LOGIN</a></li>
 		</ul>
 		

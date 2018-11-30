@@ -220,7 +220,7 @@ font-weight: 400;
 font-size: 23px;
 padding: 0.5% 0 0.5% 2%;
 color: #555555c9;
-background-image: linear-gradient(to right , rgba(255,255,255,0.8), rgba(189,189,189,0.4));
+background-image: linear-gradient(to right , rgba(255,255,255,0.8), rgba(0,188,212,0.4));
 }
 
 
@@ -340,23 +340,24 @@ text-align: center;
 
 </head>
 <body>
+	<!--로고 -->
 	<div>
 		<img src="${path}/img/main.png" id="mainimg">
 		<div id="moa">MoAMoA</div>
 	</div>
 
-
+	<!--검색창 -->
 	<div id="search">
 		<div class="box">
 			<form>
-				<input type="text" name="" placeholder="Type..." id="input-text">
+				<input type="text" name="" placeholder="Hotel Name..." id="input-text">
 				<input type="submit" name="" value="GO" id="input-submit">
 			</form>
 
 		</div>
 	</div>
 
-
+	<!--지도  -->
 	<div id="map">
 		<div class="mapArea">
 			<div id="locName"></div>
@@ -365,11 +366,8 @@ text-align: center;
 	</div>
 	
 	<div class="img_collection_title">
-		
 		<h3>서울 주요 여행지</h3>
-	
 	</div>
-	
 
 <!--메인 페이지 이미지 모음  -->
  <section id="img_section">
@@ -378,7 +376,7 @@ text-align: center;
 	<!--첫번째 컬럼  -->
 		<div class="column">
 		 	<div class="img_hover_wrapper">
-				<img class="img-responsive" src="seoulimg/lottetower.jpg">
+				<img class="img-responsive" src="${path}/seoulimg/lottetower.jpg">
 				<div class="overlay">
 					<div class="img_content" style="flex: 25%;">
 				 		<h1>롯데월드타워</h1>
@@ -388,17 +386,17 @@ text-align: center;
 		  	</div>
 		  	
 		  	<div class="img_hover_wrapper">
-				<img class="img-responsive" src="seoulimg/002.PNG">
+				<img class="img-responsive" src="${path}/seoulimg/coex.jpg">
 				<div class="overlay">
 					<div class="img_content" style="flex: 25%;">
-				 		<h1>충무로</h1>
-				 		<p>서울 중구</p>
+				 		<h1>COEX</h1>
+				 		<p>서울 강남구</p>
 				 	</div>
 			 	</div>
 			</div>
 			
 			<div class="img_hover_wrapper">
-				<img src="seoulimg/hanok_vilege.jpg">
+				<img src="${path}/seoulimg/hanok_vilege.jpg">
 				<div class="overlay">
 					<div class="img_content" style="flex: 25%;">
 				 		<h1>서울 한옥 마을</h1>
@@ -406,52 +404,63 @@ text-align: center;
 				 	</div>
 			 	</div>
 			</div>	
+			
 			<div class="img_hover_wrapper">
-				<a href="http://korean.visitseoul.net/index">
-				<img class="edited_img" src="seoulimg/seoul_net_logo_edited.png" style="width: 100%;"></a>
+				<img src="${path}/seoulimg/market.jpg">
+				<div class="overlay">
+					<div class="img_content" style="flex: 25%;">
+				 		<h1>노량진 수산시장</h1>
+				 		<p>서울 동작구</p>
+				 	</div>
+			 	</div>
 			</div>
 		 </div><!--column end  -->	
 		 <!--두번째 컬럼  -->	
 		<div class="column">
-			<div class="img_hover_wrapper">
-				<img src="seoulimg/003.PNG">
+			<div class="img_hover_wrapper">	
+				<img src="${path}/seoulimg/namsan.jpg">
 				<div class="overlay">
 					<div class="img_content" style="flex: 25%;">
-				 		<h1>서울 홍대 거리</h1>
-				 		<p>서울 마포구</p>
+				 		<h1>N서울타워</h1>
+				 		<p>서울 용산구</p>
 				 	</div>
 			 	</div>
-			</div>
+			</div>	
+			
 			
 			<div class="img_hover_wrapper">
-				<img src="seoulimg/moa.PNG">
+				<img src="${path}/seoulimg/moa.PNG">
 			</div>	
 			
 			<div class="img_hover_wrapper">
-				<img src="seoulimg/festival2.PNG">
+				<img src="${path}/seoulimg/festival2.PNG">
 				<div class="overlay">
 					<div class="img_content" style="flex: 25%;">
 				 		<h1>여의도</h1>
 				 		<p>영등포구</p>
 				 	</div>
 			 	</div>
+			</div>
+			<div class="img_hover_wrapper">
+				<a href="http://korean.visitseoul.net/index">
+				<img class="edited_img" src="${path}/seoulimg/seoul_net_logo_edited.png" style="width: 100%;"></a>
 			</div>	
 		</div><!--column end  -->
 		
 		<!--세번째 컬럼  -->
 		<div class="column">
 			<div class="img_hover_wrapper">
-				<img src="seoulimg/009.PNG">
+				<img src="${path}/seoulimg/ddp.jpg">
 				<div class="overlay">
 					<div class="img_content" style="flex: 25%;">
-				 		<h1>한강 국회의사당</h1>
-				 		<p>서울 여의도구</p>
+				 		<h1 style="width: 300px;">동대문 디자인 플라자</h1>
+				 		<p>서울 중구</p>
 				 	</div>
 			 	</div>
 			</div>	
 			
 			<div class="img_hover_wrapper">
-				<img src="seoulimg/004.PNG">
+				<img src="${path}/seoulimg/004.PNG">
 				<div class="overlay">
 					<div class="img_content" style="flex: 25%;">
 				 		<h1>경복궁</h1>
@@ -460,15 +469,15 @@ text-align: center;
 			 	</div>
 			</div>
 			
-			<div class="img_hover_wrapper">	
-				<img src="seoulimg/namsan.jpg">
+			<div class="img_hover_wrapper">
+				<img src="${path}/seoulimg/003.PNG">
 				<div class="overlay">
 					<div class="img_content" style="flex: 25%;">
-				 		<h1>서울 남산</h1>
-				 		<p>서울 용산구</p>
+				 		<h1>서울 홍대 거리</h1>
+				 		<p>서울 마포구</p>
 				 	</div>
 			 	</div>
-			</div>	
+			</div>
 			
 		</div><!--column end  -->
 	</div><!--row end  -->	
