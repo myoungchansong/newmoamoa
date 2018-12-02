@@ -259,13 +259,10 @@ content: "\f002";
 		
 		<div class="menu">
 			<ul>
-				<li><a href="#" class="menu-item">menu1</a></li>
-				<li><a href="#" class="menu-item">menu2</a></li>
-				<li><a href="#" class="menu-item">menu3</a></li>
-				<li><a href="#" class="menu-item">menu4</a></li>
-				<li><a href="#" class="menu-item">menu5</a></li>
-				<li><a href="#" class="menu-item">menu6</a></li>
-				<li><a href="#" class="menu-item">Support</a></li>
+				<li><a href="#" class="menu-item">ALL</a></li>
+				<li><a href="#" class="menu-item">BIGDATA</a></li>
+				<li><a href="#" class="menu-item">COMMUNITY</a></li>
+				<li><a href="#" class="menu-item">LOGIN</a></li>
 				<li><a href="#" id="search"><i class="fa fa-search"></i></a></li>
 				<li><a href="#"><i class="fa fa-user"></i></a></li>
 			</ul>

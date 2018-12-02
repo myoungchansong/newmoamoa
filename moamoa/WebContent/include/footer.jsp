@@ -76,10 +76,10 @@
 						
 				</div>
 				<div id="icon">
-					<img src="${path}/img/agoda.png" id="logo_agoda">
-					<img src="${path}/img/booking.png" id="logo_booking">
-					<img src="${path}/img/expedia.png" id="logo_expedia">
-					<img src="${path}/img/hotelscom.png" id="logo_hotelscom">
+					<a href="https://www.agoda.com"><img src="${path}/img/agoda.png" id="logo_agoda"></a>
+					<a href="https://www.booking.com"><img src="${path}/img/booking.png" id="logo_booking"></a>
+					<a href="https://www.expedia.co.kr"><img src="${path}/img/expedia.png" id="logo_expedia"></a>
+					<a href="https://kr.hotels.com"><img src="${path}/img/hotelscom.png" id="logo_hotelscom"></a>
 				</div>
 				
 		</div>

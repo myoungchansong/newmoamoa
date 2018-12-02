@@ -197,7 +197,7 @@ nav #menu li a {
 <body>
 	<nav>
 		<span id="brand">
-			<a href="index.html">MoAMoA</a>
+			<a href="index.jsp">MoAMoA</a>
 		</span>
 		
 		<ul id="menu">

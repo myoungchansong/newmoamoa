@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>board_list</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style type="text/css">
 	*{
@@ -23,8 +23,9 @@
 		text-decoration:none;
 	}
 	#board_wrap{
-    	margin: 180px auto 30px;
-    	width:60%;
+	    margin: 4% auto 3%;
+	    width: 55%;
+	    margin-left: 15%;
 	}
 	
 	/*select */
@@ -64,6 +65,7 @@
 	  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
 	  cursor: pointer;
 	  user-select: none;
+	  font-size: 14px;
 	}
 	/*style items (options):*/
 	.select-items {
@@ -105,7 +107,7 @@
 		display: inline-block;
 	    float: right;
 	    margin: 10px 5px;
-	    font-size: 17px;
+	    font-size: 14px;
 	    background-color: #212121;
 	    width: 61px;
 	    height: 32px;
@@ -117,6 +119,7 @@
 	    border-collapse: collapse;
 	    width: 100%;
 	}
+	th{background-color: #20d1d12b;}
 	table, tr{
 		border: 1px solid #ededed;
 	}
@@ -157,7 +160,7 @@
 				<select>
 					<option>분류</option>
 					<option>정보</option>
-					<option>리뷰</option>
+					<option>상세리뷰</option>
 					<option>잡담</option>
 				</select>
 			</div>
