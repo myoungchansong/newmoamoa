@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.moamoa.action.Action;
 import com.moamoa.action.ActionForward;
 import com.moamoa.action.IndexAction;
+import com.moamoa.action.SearchListAction;
+import com.moamoa.action.SearchListPlayAction;
 import com.moamoa.action.boardAction;
 import com.moamoa.action.idCheckAction;
 import com.moamoa.action.logindAction;
@@ -77,7 +79,10 @@ public class BizpollFrontController extends HttpServlet {
 		} else if(command.equals("/idCheck.bizpoll")) {
 			action = new idCheckAction();
 			forward = action.excute(request, response);
-		}
+		} else if(command.equals("/searchhtl.bizpoll")) {
+			action = new SearchListAction();
+			forward = action.excute(request, response);
+		} 
 		
 		
 		

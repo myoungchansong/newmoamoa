@@ -6,6 +6,7 @@ import com.moamoa.mybatis.sqlMapConfig;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -62,5 +63,22 @@ public class hotelDAO {
 			sqlSession.close();
 		}
 	}
+	
+	//Best상품 목록 출력(Index 페이지)
+		public List<hotelDTO> hotelView(){
+			sqlSession = sqlSessionFactory.openSession();
+			List<hotelDTO> hotelList = null;
+			
+			try {
+				
+				hotelList = sqlSession.selectList("hotelView");
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				sqlSession.close();
+			}
+			return hotelList;
+		}
 		
 }

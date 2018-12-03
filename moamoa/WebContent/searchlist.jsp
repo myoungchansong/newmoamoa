@@ -146,7 +146,6 @@
 		
 	
 	
-	
 	<section id="hotellist">
 		<div id="selectbox">
 			<a href="#">select</a>
@@ -154,17 +153,17 @@
 			<a href="#">select</a>
 			<a href="#">select</a>
 		</div>
-		
+	<c:forEach items="${htlsearchList }" var = "htlDTO">
 		<div id="hotelborder">
 			<div class="title_box">
 				<h2>TITLE</h2>
 			</div>
 			
-			
+	
 			<div id="border">
 			
 				<div id="title">
-					<h1>HotelName</h1>
+					<h1>${htlDTO.hotelname }</h1>
 				</div>
 				
 				<div id="content">
@@ -176,11 +175,10 @@
 				</div>
 			</div>
 		</div>
-		
-		
+	</c:forEach>
 		<div id="hotelimg">
 			<div class="title_box">
-				<h2>이미지</h2>
+				${htlDTO.hotelimg }
 			</div>
 			<img src="${path}/img/login.png"> 
 			<img src="${path}/img/login.png"> 

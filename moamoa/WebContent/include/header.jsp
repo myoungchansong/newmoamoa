@@ -201,7 +201,7 @@ nav #menu li a {
 		</span>
 		
 		<ul id="menu">
-			<li><a href="#">ALL</a></li>
+			<li><a href="searchhtl.bizpoll">ALL</a></li>
 			<li><a href="#">WISH LIST</a></li>
 			<li><a href="board.bizpoll">board</a></li>
 			<li><a href="login.bizpoll">LOGIN</a></li>
@@ -218,7 +218,7 @@ nav #menu li a {
 		<ul id="menu">
 			<li><a href="#">HOME</a></li>
 			<li><a href="#">About</a></li>
-			<li><a href="#">Conteact</a></li>
+			<li><a href="#">Contract</a></li>
 			<li><a href="#">FAQ</a></li>
 		</ul>
 	</div>
