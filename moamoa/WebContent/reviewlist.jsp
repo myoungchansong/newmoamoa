@@ -142,8 +142,10 @@
 	font-weight: 500;
 }
 #hotelreview{
-	height: 804px;
-    padding: 0px 80px 100px;
+	height:804px;
+	border-bottom: 1px solid #BDBDBD;
+	background-color: rgba(33,33,33,0.4);
+	padding: 0px 80px 100px;
 }
 #allscoregraph{
 	height:804px;
@@ -173,7 +175,7 @@
 #summary p{margin-bottom:5px;}
 
 .sec_bg{
-	background-image: url(img/bgimg1.jpg);
+	background-image: url(img/wcbgimg.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
     opacity: 0.7;
@@ -252,15 +254,35 @@
 	padding: 20px 0 0 48px;
 }
 .graphwrap{
-	width: 70%;
-	height: 50%;
+	width: 100%;
+    margin-top: 20px;
+    height: 90%;
 }
 .graphwrap img{
-	width: 141%;
-    height: 156%;
-    background-color: rgba(249, 249, 249, 0.9);
+	width: 96%;
+    height: 86%;
     margin: 5% auto;
 }
+/*top 버튼  */
+button#mybtn{
+		display: none;
+		position: fixed;
+		bottom: 20px;
+		right:30px;
+		z-index: 99;
+		font-size: 18px;
+		border: 1px solid #6799FF;
+		outline: none;
+		background-color: white;
+		color: #6799FF;
+		cursor: pointer;
+		padding: 15px;
+		border-radius: 30px;
+	}
+	button#mybtn:hover{
+		background-color: #B2EBF4;
+		color:white;
+	}
 </style>
 <script type="text/javascript">
         window.onload = function () {
@@ -304,7 +326,7 @@
 			<div id="selectbox">
 				<a href="#hotelborder">HOTEL INFO</a>
 				<a href="#hotelimg">DATA VISUALIZATION</a>
-				<a href="#scoregraph">ALL&GRAPH</a>
+				<a href="#allscoregraph">ALL&GRAPH</a>
 				<a href="#sec_scoregraph">PART&GRAPH</a>
 				<a href="#hotelreview">DETAIL REVIEW</a>
 			</div>
@@ -431,7 +453,7 @@
 					<h2>ALL & GRAPH<span>_서울시 구별 호텔 평점 평균 비교 그래프</span>&nbsp;</h2>					
 				</div>
 				<div class="graphwrap">
-					<img alt="" src="${path}/img/allhotelavg.png">
+					<img alt="" src="${path}/img/scoreavg.png">
 				</div>
 			</div>
 		</section>
@@ -451,13 +473,32 @@
 				<div class="title_box">
 					<h2>DETAIL REVIEW&nbsp;</h2>
 				</div>
-				<div class="reviewtype"><i class="fa fa-plus"></i></div>
+				<div class="reviewtype">
+					<i class="fa fa-plus"></i>
+					<div></div>	
+				</div>
 				<div class="reviewtype"><i class="fa fa-minus"></i></div>
 			</div>
 		</section>
 			
 		
 	</div>
+	<button id="mybtn">Top</button>
 </body>
+<script type="text/javascript">
+$(document).ready(function(){
+	$(window).scroll(function(){
+		if($(document).scrollTop()>20){
+			$("#mybtn").css("display","block");
+		}else{
+			$("#mybtn").css("display","none");
+		}
+	});
+	$(document).on("click","#mybtn",function(){
+		$(document).scrollTop(0);
+		$("html,body").animate({scrollTop:0},1000);
+	});
+});
+</script>
 </html>
 <%@ include file= "include/footer.jsp" %>
