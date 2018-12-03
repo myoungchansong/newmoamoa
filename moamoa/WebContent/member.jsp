@@ -173,6 +173,64 @@
  		background-color: #ffffff00;	
 	}
 	
+	
+	#insert_nik{
+		background-color: white;
+		border: 1px solid #dadada;
+		width : 300px;
+		height: 50px;
+		box-sizing: border-box;
+		margin-top: 20px;
+		position: relative;
+	}
+	#insert_label_nik{
+		font-size: 15px;
+		position: absolute;
+		z-index: 1;
+		transition: all .4s cubic-bezier(.25,.8,.25,1);
+		transition-duration: 0.3s;
+		color :#979797;
+		top: 13px;
+		left: 10px;
+	}
+	#input_nik{
+		width: 298px;
+		height: 48px;
+		display: block;
+		position: relative;
+		border: none;
+		overflow: visible;
+		padding: 20px 0px 0px 10px;
+		box-sizing: border-box;
+		transition: all .4s cubic-bezier(.25,.8,.25,1);
+		outline : none;	
+		z-index: 9;
+ 		background-color: #ffffff00;	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	/*체크박스 */
 	#ckbWrap{
 		margin: 30px 0px;
@@ -317,7 +375,6 @@
 </style>  
 <script type="text/javascript">
 	$(document).ready(function(){
-		
 		/*입력창 효과 */
 		$("#insert_id").focus(function(){
 			$(this).css("font-size", "17px");
@@ -367,6 +424,26 @@
 				$("#insert_label_rpw").css("top","15px").css("font-size","15px");
 			}
 		});
+		
+		
+		$("#insert_nik").focus(function(){
+			$(this).css("font-size", "17px");
+			$("#insert_label_nik").css("top","5px").css("font-size","12px");
+		});
+		$("#input_nik").focus(function(){
+			$(this).css("font-size", "17px");
+			$("#insert_label_nik").css("top","5px").css("font-size","12px");
+		});
+		$("#input_nik").blur(function(){
+			var idVal2 = $(this).val();
+			if(idVal2 == ""){
+				$(this).css("font-size","5px");
+				$("#insert_label_nik").css("top","15px").css("font-size","15px");
+			}
+		});
+	
+		
+		
 	
 		/*입력값 없으면 error메세지 뜨게하기  */
 		$(".input_join").on("blur",function(){
@@ -379,8 +456,50 @@
 			}else{
 				 $(this).next().css("display","none");
 				 $(this).parent().css("margin-bottom", "30px");	
+				 
 			}
 		});	 
+		
+		
+		$("#input_id").blur(
+				function() {
+					var idVal = $(this).val();
+					alert(idVal);
+					if (idVal != "") {
+						
+						$.ajax({
+							url : "idCheck.bizpoll",
+							type : "POST",
+							dataType : "json",
+							data : "id=" + idVal,
+							success : function(data) {
+								if (data.message == 1) {
+									$("#input_id").next().text(
+											"멋진 아이디네요").css("display",
+											"block").css("color",
+											"#F46665");
+									$("#input_pw").focus();
+								} else if (data.message == -1) {
+									$("#input_id").next().text(
+											"이미사용중인 아이디입니다").css(
+											"display", "block").css(
+											"color", "#F46665");
+									$("#input_id").select();
+								}
+
+							},
+							error : function() {
+								alert("System Error");
+							}
+						});
+					}
+				});
+		
+		
+		
+		
+		
+		
 		
 		/*확인 버튼을 클릭했을 때 유효성 체크  */
 		$("#btn_next").on("click",function(){
@@ -390,10 +509,10 @@
 			var val2 = $("#input_pw").val();
 			var val3 = $("#input_rpw").val();
 			
+		    	
 			/* 유효성 체크 
 		    id와 pw, rpw 하나라도 값이 없으면 경고문 출력*/
-		    if(val1 !="" && val2 !="" && val3 !=""){
-		    	/* $("#frm_login").submit(); */
+		  if(val1 !="" && val2 !="" && val3 !=""){
 		    	
 		    	$.ajax({
 				url : "",
@@ -416,7 +535,7 @@
 		    	$("#err_check").css("display","block");
 		    	return;
 		    }
-			
+			 
 		});
 		
 		/* enter 눌렀을때 다음칸으로 넘어가기  */
@@ -444,26 +563,49 @@
 		});
 			
 		/*체크박스 모두 체크해야 확인 버튼 클릭되게하기  */
-		$(".ckboxs").on("click",function(){
-			if($(".ckboxs:checked").length==2){
-				$("#btn_next").css({"background":"#00BCD4","border":"1px solid #00BCD4","cursor":"pointer","disabled":"none"}); 
-			}else{
-				$("#btn_next").css({"background":"#00bcd482","border":"1px solid #00bcd482","disabled":"disabled","cursor":"not-allowed"});
-			}
-		});
 		
-		/*값 모두 입력후 체크박스 모두 체크 후 확인버튼 클릭 했을 때 이동  */
+			
+	
+			/*값 모두 입력후 체크박스 모두 체크 후 확인버튼 클릭 했을 때 이동  */
 		$("#btn_next").on("click",function(){
-			 alert("test");
 			var ck1 = $("#cbox1").is(":checked");
 			var ck2 = $("#cbox2").is(":checked");
-			if(ck1==true && ck2 ==true){
-				location.href =""; 
-			}else{			
-				$("#err_check").css("display","block");
-				$("#btn_next").css({"backgroud":"#00bcd482","border":"1px solid #00bcd482","disabled":"disabled","cursor":"not-allowed"});
+			if(ck1 == true && ck2 == true){
+				alert("11111111111111111111111111111111");
+				$("#btn_next").css({"background":"#00BCD4","border":"1px solid #00BCD4","cursor":"pointer"}); 
+				$("#frm_login").submit();
+			}else{
+				$("#btn_next").css({"background":"#00bcd482","border":"1px solid #00bcd482" ,"cursor":"not-allowed"});
+				return false;
 			}
+
 		});		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	});
 	
 
@@ -511,13 +653,19 @@
 				</header>
 	
 				<section>
-					<form action="" method="POST" name="frm_login" id="frm_login">
+					<form action="memberplay.bizpoll" method="POST" name="frm_login" id="frm_login">
 						<div id="insert_id">
 							<label for="insert_id" id="insert_label"> ID/이메일 주소를 입력해주세요.</label> 
 							<input type="text" id="input_id" name="inputid" class="input_join">
 							<span class="error">ID/이메일 주소를 입력해주세요</span>
 						</div>
-		
+						
+						<div id="insert_nik">
+							<label for="insert_nik" id="insert_label_nik"> 닉네임 </label> 
+							<input type="text" id="input_nik" name="inputnik" class="input_join">
+							<span class="error"> 닉네임을 입력해세요</span>
+						</div>
+						
 						<div id="insert_pw">
 							<label for="insert_pw" id="insert_label_pw"> 비밀번호</label> 
 							<input type="password" id="input_pw" name="inputpw" class="input_join">
@@ -546,7 +694,7 @@
 						</label>
 					</div>
 					<div>
-						<a href="#"><button type="button" id=btn_next disabled="disabled">확인</button></a>
+						<button type="button" id="btn_next">확인</button>
 					</div>
 					
 					<div id="nowlogin">

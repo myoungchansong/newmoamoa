@@ -13,6 +13,7 @@ import com.moamoa.action.Action;
 import com.moamoa.action.ActionForward;
 import com.moamoa.action.IndexAction;
 import com.moamoa.action.boardAction;
+import com.moamoa.action.idCheckAction;
 import com.moamoa.action.logindAction;
 import com.moamoa.action.memberAction;
 import com.moamoa.action.memberplayAction;
@@ -72,6 +73,9 @@ public class BizpollFrontController extends HttpServlet {
 			forward = action.excute(request, response);
 		} else if(command.equals("/memberplay.bizpoll")) {
 			action = new memberplayAction();
+			forward = action.excute(request, response);
+		} else if(command.equals("/idCheck.bizpoll")) {
+			action = new idCheckAction();
 			forward = action.excute(request, response);
 		}
 		

@@ -17,5 +17,16 @@
 		VALUES(#{hotelname}, #{writer}, #{score}, #{title}, #{review_neg}, #{review_pos}, #{write_date}) 
  	</insert>
  
+ <!-- member inser   -->
  
+ 	<insert id="memberinsert" parameterType="com.moamoa.dto.memberDTO" >
+		INSERT INTO moamoamember(id, nik, pw)
+		VALUES(#{id}, #{nik}, #{pw})
+	</insert>
+ 
+ 	<select id="confirmID" parameterType="String" resultType="String"> 
+		SELECT * FROM moamoamember
+	 	WHERE id= #{userid}
+	</select>
+	
 </mapper>
