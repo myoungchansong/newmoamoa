@@ -6,22 +6,26 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.moamoa.action.ActionForward;
-import com.moamoa.action.Action;
-
-public class MapAction implements Action{
+public class memberplayAction implements Action{
 
 	@Override
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String url ="";
 		
-		String url ="map.jsp";
-		System.out.println("1111111111111111111111111111111");
-		String data = request.getParameter("data");
-		System.out.println("==============="+data);
+		
+		String id = request.getParameter("inputid");
+		String pw = request.getParameter("inputpw");
+		
+		System.out.println("id = "+id);
+		System.out.println("pw = "+pw);
+		
+		
+		
+		
 		ActionForward forward =new ActionForward();
 		forward.setPath(url);
-		forward.setRedirect(false);
+		forward.setRedirect(true);
 		return forward;
 	}
 

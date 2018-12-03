@@ -472,7 +472,7 @@
 						<legend>&nbsp;계정이 없으신가요?&nbsp;</legend>
 					</fieldset>
 					<div>
-						<a href="constract.jsp" id="btn_creatid">MOAMOA 계정 만들기</a>
+						<a href="member.bizpoll" id="btn_creatid">MOAMOA 계정 만들기</a>
 					</div>
 				</section>
 			</div>

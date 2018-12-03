@@ -12,6 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import com.moamoa.action.Action;
 import com.moamoa.action.ActionForward;
 import com.moamoa.action.IndexAction;
+import com.moamoa.action.boardAction;
+import com.moamoa.action.logindAction;
+import com.moamoa.action.memberAction;
+import com.moamoa.action.memberplayAction;
 
 
 
@@ -51,15 +55,27 @@ public class BizpollFrontController extends HttpServlet {
 		
 		System.out.println("uri:" +uri);
 		System.out.println("ctx:"+ ctx);
-		System.out.println("페이지 이동====>★ "+command);
+		System.out.println("페이지 이동====>"+command);
 		
-		//Action단 이동
 		//Action단 이동
 		if(command.equals("/index.bizpoll")) {
 			action = new IndexAction();
 			forward = action.excute(request, response);
-			// WEB에서는 무조건 REQUEST, RESPONSE를 매개변수로 받아야한다
+		} else if(command.equals("/board.bizpoll")) {
+			action = new boardAction();
+			forward = action.excute(request, response);
+		} else if(command.equals("/login.bizpoll")) {
+			action = new logindAction();
+			forward = action.excute(request, response);
+		} else if(command.equals("/member.bizpoll")) {
+			action = new memberAction();
+			forward = action.excute(request, response);
+		} else if(command.equals("/memberplay.bizpoll")) {
+			action = new memberplayAction();
+			forward = action.excute(request, response);
 		}
+		
+		
 		
 		//공통 분기작업(페이지 이동)
 		if(forward !=null) {

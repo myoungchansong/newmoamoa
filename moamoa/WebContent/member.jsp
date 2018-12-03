@@ -315,9 +315,9 @@
 		display: none;
 	}
 </style>  
-<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
+		
 		/*입력창 효과 */
 		$("#insert_id").focus(function(){
 			$(this).css("font-size", "17px");
@@ -334,6 +334,7 @@
 				$("#insert_label").css("top","15px").css("font-size","15px");
 			}
 		});
+	
 		
 		$("#insert_pw").focus(function(){
 			$(this).css("font-size", "17px");
@@ -383,7 +384,7 @@
 		
 		/*확인 버튼을 클릭했을 때 유효성 체크  */
 		$("#btn_next").on("click",function(){
-		
+			alert("test");
 			/*input의 id와 pw값을 입력. */
 			var val1 = $("#input_id").val();
 			var val2 = $("#input_pw").val();
@@ -453,7 +454,7 @@
 		
 		/*값 모두 입력후 체크박스 모두 체크 후 확인버튼 클릭 했을 때 이동  */
 		$("#btn_next").on("click",function(){
-			/* alert("test"); */
+			 alert("test");
 			var ck1 = $("#cbox1").is(":checked");
 			var ck2 = $("#cbox2").is(":checked");
 			if(ck1==true && ck2 ==true){

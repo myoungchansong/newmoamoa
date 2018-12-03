@@ -32,9 +32,12 @@
 	line-height: 50px;
 /* 	border-bottom: 1px solid #BDBDBD; */
 }#selectbox a:hover{color:#212121;}
+
 #hotelborder{
 	border-bottom: 1px solid #BDBDBD;
-	height: 700px;
+	height: 500px;
+	margin-top: 100px;
+	 margin-bottom: 100px; 
 }
 .title_box{
 	width: 100%;
@@ -78,9 +81,9 @@
 #list_img{
 	position: relative;
     width: 47%;
-    height: 360px;
+    height: 450px;
     float: right;
-    top: 16px;
+    top: -120px;
     display: inline-block;
     /* background-image: url(img/hotelimg.jpg);
     background-size: 100%;
@@ -350,26 +353,32 @@
 					  <tr>
 					    <th>Rank</th>
 					    <th>Word</th>
+					    <th>Value</th>
 					  </tr>
 					  <tr>
 					    <td>1</td>
 					    <td>위치</td>
+					    <td>20</td>
 					  </tr>
 					  <tr>
 					    <td>2</td>
 					    <td>이용</td>
+					     <td>17</td>
 					  </tr>
 					  <tr>
 					    <td>3</td>
 					    <td>조식</td>
+					     <td>14</td>
 					  </tr>
 					  <tr>
 					    <td>4</td>
 					    <td>친절</td>
+					     <td>11</td>
 					  </tr>
 					  <tr>
 					    <td>5</td>
 					    <td>경복궁</td>
+					     <td>8</td>
 					  </tr>
 				    </table>
 				</section> 
@@ -383,26 +392,32 @@
 					  <tr>
 					    <th>Rank</th>
 					    <th>Word</th>
+					    <th>Value</th>
 					  </tr>
 					  <tr>
 					    <td>1</td>
 					    <td>조식</td>
+					    <td>20</td>
 					  </tr>
 					  <tr>
 					    <td>2</td>
 					    <td>수영장</td>
+					    <td>16</td>
 					  </tr>
 					  <tr>
 					    <td>3</td>
 					    <td>직원</td>
+					    <td>13</td>
 					  </tr>
 					  <tr>
 					    <td>4</td>
 					    <td>호텔</td>
+					    <td>10</td>
 					  </tr>
 					  <tr>
 					    <td>5</td>
 					    <td>객실</td>
+					    <td>5</td>
 					  </tr>
 				    </table> 
 				</section>

@@ -197,14 +197,14 @@ nav #menu li a {
 <body>
 	<nav>
 		<span id="brand">
-			<a href="index.jsp">MoAMoA</a>
+			<a href="index.bizpoll">MoAMoA</a>
 		</span>
 		
 		<ul id="menu">
 			<li><a href="#">ALL</a></li>
 			<li><a href="#">WISH LIST</a></li>
-			<li><a href="#">COMMNUITY</a></li>
-			<li><a href="#">LOGIN</a></li>
+			<li><a href="board.bizpoll">board</a></li>
+			<li><a href="login.bizpoll">LOGIN</a></li>
 		</ul>
 		
 		<div id="toggle">
