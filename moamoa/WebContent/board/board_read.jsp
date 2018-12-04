@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file = "../include/header.jsp" %>  
+<%@ include file="../include/include.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +13,7 @@
 		border: 1px solid #e5e5e5;
     	background: #fff;
     	width: 55%;
-    	margin: 4% 0 2% 14%;
+    	margin: 4% 0 0% 14%;
 	}
 	#read_header{
 	    display: block;
@@ -113,11 +114,11 @@
 	}
 	.fa-heart:before{content:"\f004";}
 	.navigation{
-		margin: 12px 0;
-    	padding: 0;
-    	display: block;
-    	position: relative;
-    	clear: both;
+	 	margin: 12px 14%;
+	    padding: 0;
+	    display: block;
+	    position: relative;
+	    width: 55%;
 	}
 	.navigation>a{
 	    display: inline-block;
@@ -133,6 +134,7 @@
 	    float: right;
 	    transition: all .2s ease;
 	    text-decoration: none;	
+	    margin-top: 20px;
 	}
 	.navigation>a>i{
 		margin-left: 12px;
@@ -144,6 +146,30 @@
 	.ion-ios-list-outline:before{content: "\f453";}
 	.ion-ios-arrow-left:before{content: "\f3d2";}
 	.clear{clear: both;}
+	
+	/*댓글*/
+	.rpwrap{
+		width: 55%;
+	    height: 300px;
+	    border: 1px solid #e5e5e5;;
+	    margin: 1% 0 0 14%;
+	}
+	#reply_header{
+		width: 96.7%;
+	    height: 44px;
+	    line-height: 44px;
+	    background: #fafafa;
+	    border: 1px solid #e5e5e5;
+	    padding: 0 16px;
+	    font-size: 13px;
+	}
+	#reply_list{
+		padding: 12px 16px;
+    	border-bottom: 1px solid #f1f1f1;
+	}
+	.rpcontent{
+		position: relative;
+	}
 </style>
 </head>
 <body>
@@ -189,20 +215,37 @@
 				</div>
 			</article>
 		</div>
+	</div>	
+		<div class="clear"></div>
+		
 		<!-- navigation -->
 		<div class="navigation">
 			<a href="">다음글
-				<i style="margin-left: 12px;" class="ion-ios-arrow-right"></i>
+				<i style="margin-left: 12px;" class="fa fa-angle-double-right"></i>
 			</a>
 			<a href="" style="margin-left: 0; float: left;">
-				<i class="ion-ios-list-outline"></i>목록으로
+				<i class="fa fa-th-list"></i> 목록으로
 			</a>
 			<a href="">
-				<i style="margin-right:12px;"class="ion-ios-arrow-left"></i>이전글
+				<i style="margin-right:12px;"class="fa fa-angle-double-left"></i>이전글
 			</a>
+			<div style="clear:both"></div>
 		</div>
-	</div>	
-		<div class="clear"></div>
+		<!-- 댓글창 -->
+	 	<div class="rpwrap">
+			<div id="reply_header">
+				<span>댓글</span><b>4</b>
+			</div>
+			 <div id="reply_list">
+				<div class="rpcontent">
+					<div class="rpctwrap">
+						<div></div>
+						<div></div>
+					</div>
+				</div>
+				<div style="clear:both"></div>
+			</div>
+		</div> 
 </body>
 </html>
 <%@ include file = "../include/footer.jsp" %> 
