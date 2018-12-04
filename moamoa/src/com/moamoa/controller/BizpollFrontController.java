@@ -13,7 +13,6 @@ import com.moamoa.action.Action;
 import com.moamoa.action.ActionForward;
 import com.moamoa.action.IndexAction;
 import com.moamoa.action.SearchListAction;
-import com.moamoa.action.SearchListPlayAction;
 import com.moamoa.action.boardAction;
 import com.moamoa.action.idCheckAction;
 import com.moamoa.action.logindAction;

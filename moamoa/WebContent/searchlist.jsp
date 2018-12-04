@@ -8,13 +8,28 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-	body {
-	padding: 0;
-	margin: 0;
-	text-decoration: none;
-	list-style: none;
-	
+body a{
+padding: 0;
+margin: 0;
+text-decoration: none;
+list-style: none;
+color: black;
 }
+
+#search {
+	width: 600px;
+	height: 100px;
+	margin: 10px auto;
+}
+.box {
+	position: relative;
+	top: 290%;
+	left: 50%;
+	width: 500px;
+	transform: translate(-50%, -50%);
+}
+
+
 #imgbox{
 	height: 400px;
 	background-image: url(img/1234.JPG);
@@ -49,15 +64,48 @@
 }
 
 
-#hotellist{
-	width: 70%;
-	height: 1200px;
-	margin: 0px auto;
-	padding-bottom: 100px;
+input {
+	position: relative;
+	display: inline-block;
+	font-size: 20px;
+	box-sizing: border-box;
+	transition: .5s;
 }
 
+#input-text {
+	background: #fff;
+	width: 430px;
+	height: 50px;
+	border: none;
+	outline: none;
+	padding: 0 25px;
+	border-radius: 5px 0 0 5px;
+}
 
+#input-submit {
+	position: relative;
+	left: -5px;
+	border-radius: 0 5px 5px 0;
+	width: 60px;
+	height: 50px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	background: #ffc107;
+	color: #fff;
+}
 
+#input-submit:hover {
+	background: #ff5722;
+}
+
+/*호텔 리스트  */
+#hotellist{
+	width: 70%;
+	height: 100%;
+	margin: 0px auto;
+	padding-bottom: 40px;
+}
 
 
 #selectbox{
@@ -75,9 +123,14 @@
 /* 	border-bottom: 1px solid #BDBDBD; */
 }
 
+#hotelborder{
+	width:100%;
+	height: 280px;
+}
+
 #hotelimg{
- width: 100%;
- height: 400px;
+	 width: 100%;
+	 height: 400px;
 }
 #hotelimg img{
 	width: 250px;
@@ -100,58 +153,114 @@
 #border{
 	width: 100%;
 	height: 200px;
+	margin-bottom: 30px;
+}
+.title_wrap{
+	width: 100%;
+	height: 70px;
 }
 #title{
-	width: 1000px;
+	width: 35%;
 	display: inline-block;
 }
 #title h1{
 	padding: 10px 0 0 20px;
 	display: inline-block;
 }
+#htl_addr{
+	width: 300px;
+	display: inline-block;
+	font-size: 12px;
+	color: #0283df;
+}
+#htl_score h2{
+	padding: 10px 0 0 20px;
+	display: inline-block;
+
+}
 #content{
-	height: 150px;
+	position:relative;
+	height: 220px;
 	width: 1000px;
 	display: inline-block;
+	right: -270px;
+	top:74px;
 }
 #content p{
+	overflow: hidden; 
+  	text-overflow: ellipsis;
+  	white-space: nowrap; 
+  	width: 1000px;
+  	height: 100px;
 	display: inline-block;
 	padding-left: 30px;
+	white-space: normal; 
+	line-height: 1.2; 
+	height: 3.6em; 
+	text-align: left; 
+	word-wrap: break-word; 
+	display: -webkit-box; 
+	-webkit-line-clamp: 3; 
+	-webkit-box-orient: vertical;
+
 }
 #list_img{
 	position: relative;
 	width: 225px;
 	height: 225px;
-	right: -1000px;
 	top: -225px;
+	margin-left: 30px;
 }
 
 #list_img > img{
-width: 100%;
-height: 100%;
-border-radius: 50%;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
 }
 #img img{
 	display: inline-block;
 	width: 225px;
 	height: 225px;
 }
+
+/*pagination */
+
+#pagination {
+		text-align: center;	
+		height: 100px;
+    	font-size: 23px;
+		padding: 20px;
+	    color: black;
+	    padding: 8px 16px;
+	    text-decoration: none;
+	    transition: background-color .3s;
+	}
+	
+#pagination a.active {
+	    background-color: #757575;
+	    color: white;
+	    border-radius: 32px;
+	}
+.pagination a:hover:not(.active) {background-color: #ddd;}
+.clr{clear:both;}
 </style>
 </head>
 <body>
+	<!-- 검색창 -->
 	<section id="imgbox">
-		<div class="box">
-			<h2> Local Seoul</h2>
-			<p>서울특별시(서울特別市)는 대한민국의 수도이자 최대 도시이다. 백제의 첫 수도인 위례성이었고, 고려 때는 남경(南京)이었으며, 조선의 수도가 된 이후로 현재까지 대한민국
-			 정치·경제·사회·문화의 중심지 역할을 하고 있다. 도시의 중앙으로 한강이 흐르고, 북한산, 관악산, 도봉산, 불암산, 인능산, 인왕산, 청계산 등의 여러 산들로 둘러싸인 분지
-			  지형의 도시이다. 동서 간의 거리는 36.78 km, 남북 간의 거리는 30.3 km이며, 넓이는 605.25 km²이다. 면적은 대한민국 국토의 0.6%이지만, 약 970만 명이 살고 있어서 인구밀도가 높다.
-			시청 소재지는 중구이며, 25개의 자치구로 이루어져 있다. 1986년 아시안 게임, 1988년 하계 올림픽, 2010년 서울 G
-			20 정상회의를 개최한 국제적인 도시이다. 서울의 GDP는 런던과 파리보다 높은 세계 4위이다.</p>
+		<div id="search">
+			<div class="box">
+				<form>
+					<input type="text" name="" placeholder="Hotel Name..." id="input-text">
+					<input type="submit" name="" value="GO" id="input-submit">
+				</form>
+	
+			</div>
 		</div>
 	</section>
 		
 	
-	
+	<!--호텔 필터  -->
 	<section id="hotellist">
 		<div id="selectbox">
 			<a href="#">select</a>
@@ -159,42 +268,68 @@ border-radius: 50%;
 			<a href="#">select</a>
 			<a href="#">select</a>
 		</div>
+		
+	<!--호텔 리스트  -->	
 	<c:forEach items="${htlsearchList }" var = "htlDTO">
 		<div id="hotelborder">
-			
-		<c:if test="${!empty htlDTO.hotelname }">
-			<div id="border">
-			
-				<div id="title">
-						<h1>${htlDTO.hotelname }</h1>
-				</div>
+		
+			<c:choose>	
+				<c:when test="${empty htlDTO.hotelname}">
+				</c:when>
 				
-				<div id="content">
-					<p>Content</p>
-				</div>
-				
-				<div id="list_img">
-					<img src="${htlDTO.hotelimg }"> 
-				</div>
-			</div>
-		</c:if>	
-			
+				<c:otherwise>
+					<div id="border">
+						<div class="title_wrap">
+							<div id="title">
+									<h1><a href="#">${htlDTO.hotelname }</a></h1>
+							</div>
+							<div id="htl_addr">
+									<h2>${htlDTO.hoteladdr }</h2>
+							</div>
+						</div>
+						<div id="content">
+							<p>${htlDTO.summary }</p>
+						</div>
+						
+						<div id="list_img">
+							<img src="${htlDTO.hotelimg }"> 
+						</div>
+					</div>
+					
+					
+				</c:otherwise>	
+			</c:choose>	
+		
 		</div>
+		<br>
+		<br>
+		<br>	
+		<hr>
 	</c:forEach>
 		
-		
 	</section>
+	
+	<!--pagination  -->
+			<div id="pagination">
+			  <a href="#">&laquo;</a>
+			  <a href="#">1</a>
+			  <a class="active" href="#">2</a>
+			  <a href="#">3</a>
+			  <a href="#">4</a>
+			  <a href="#">5</a>
+			  <a href="#">6</a>
+			  <a href="#">&raquo;</a>
+			</div>
+			<div class="clr"></div>
 	
 <%@ include file="include/footer.jsp" %>
 </body>
 <script type="text/javascript">
 
-$(document).ready(function () {
-	var htl_name = ${htlDTO.hotelname};
-
-	alert(htl_name);
+ $(document).ready(function () {
+	
 });
-
+  
 
 
 </script>

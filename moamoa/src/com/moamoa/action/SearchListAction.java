@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.moamoa.crawling.hotel;
 import com.moamoa.dao.hotelDAO;
 import com.moamoa.dto.hotelDTO;
 
@@ -20,6 +21,11 @@ public class SearchListAction implements Action {
 		hotelDAO dao = hotelDAO.getInstance();
 		List<hotelDTO> hotelList = dao.hotelView();
 		request.setAttribute("htlsearchList", hotelList);
+		
+		for (hotelDTO hotelDTO : hotelList) {
+			System.out.println(hotelDTO.toString());
+			
+		}
 		
 		ActionForward forward = new ActionForward();
 		forward.setPath(url);		//index.jsp로 이동

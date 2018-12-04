@@ -45,23 +45,11 @@
 	</select>
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	<!-- htl list  -->
 	<select id="hotelView" resultType="com.moamoa.dto.hotelDTO">
  	<![CDATA[
 	  	SELECT * FROM moamoa
-		WHERE ROWNUM <=20
+		WHERE ROWNUM <= 10 AND hotelname is not null
 	]]>
   </select>
 	
