@@ -15,7 +15,35 @@ public class hotelDTO {
 	public hotelDTO() {
 		super();
 	}
+	
+	
+	
+	
 
+
+
+
+
+	public hotelDTO(String writer, String score, String title, String review_neg, String review_pos,
+			String write_date) {
+		super();
+		this.writer = writer;
+		this.score = score;
+		this.title = title;
+		this.review_neg = review_neg;
+		this.review_pos = review_pos;
+		this.write_date = write_date;
+	}
+
+
+
+
+
+
+
+
+
+	//전체
 	public hotelDTO(String hotelname, String hoteladdr, String writer, String score, String title, String review_neg,
 			String review_pos, String write_date, String summary, String hotelimg) {
 		super();

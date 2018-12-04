@@ -17,8 +17,11 @@ import com.moamoa.action.SearchListPlayAction;
 import com.moamoa.action.boardAction;
 import com.moamoa.action.idCheckAction;
 import com.moamoa.action.logindAction;
+import com.moamoa.action.loginplayAction;
+import com.moamoa.action.logoutplayAction;
 import com.moamoa.action.memberAction;
 import com.moamoa.action.memberplayAction;
+import com.moamoa.action.nikCheckAction;
 
 
 
@@ -79,12 +82,47 @@ public class BizpollFrontController extends HttpServlet {
 		} else if(command.equals("/idCheck.bizpoll")) {
 			action = new idCheckAction();
 			forward = action.excute(request, response);
-		} else if(command.equals("/searchhtl.bizpoll")) {
-			action = new SearchListAction();
+		} else if(command.equals("/nikCheck.bizpoll")) {
+			action = new nikCheckAction();
+			forward = action.excute(request, response);
+		} else if(command.equals("/LoginPlay.bizpoll")) {
+			action = new loginplayAction();
+			forward = action.excute(request, response);
+		} else if(command.equals("/logout.bizpoll")) {
+			action = new logoutplayAction();
 			forward = action.excute(request, response);
 		} 
 		
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		else if(command.equals("/searchhtl.bizpoll")) {
+			action = new SearchListAction();
+			forward = action.excute(request, response);
+		} 
+		
+	
 		
 		//공통 분기작업(페이지 이동)
 		if(forward !=null) {

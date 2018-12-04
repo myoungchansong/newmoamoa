@@ -13,9 +13,13 @@
 	</insert>
  
  	<insert id="hotelupdate" parameterType="com.moamoa.dto.hotelDTO">
- 		INSERT INTO moamoa(hotelname, writer, score, title, review_neg, review_pos, Write_date)
-		VALUES(#{hotelname}, #{writer}, #{score}, #{title}, #{review_neg}, #{review_pos}, #{write_date}) 
+ 		INSERT INTO moamoa(writer, score, title, review_neg, review_pos, Write_date)
+		VALUES(#{writer}, #{score}, #{title}, #{review_neg}, #{review_pos}, #{write_date}) 
  	</insert>
+ 
+ 
+ 
+ 
  
  <!-- member inser   -->
  
@@ -28,5 +32,37 @@
 		SELECT * FROM moamoamember
 	 	WHERE id= #{userid}
 	</select>
+	
+	
+	<select id="confirmnik" parameterType="String" resultType="String"> 
+		SELECT * FROM moamoamember
+	 	WHERE nik= #{nik}
+	</select>
+	
+	<select id="login" parameterType="com.moamoa.dto.memberDTO" resultType="com.moamoa.dto.memberDTO">
+		SELECT * FROM moamoamember
+		WHERE id=#{id} AND pw=#{pw}
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- htl list  -->
+	<select id="hotelView" resultType="com.moamoa.dto.hotelDTO">
+ 	<![CDATA[
+	  	SELECT * FROM moamoa
+		WHERE ROWNUM <=20
+	]]>
+  </select>
 	
 </mapper>

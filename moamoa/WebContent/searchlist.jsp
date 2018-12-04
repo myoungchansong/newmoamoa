@@ -125,6 +125,12 @@
 	right: -1000px;
 	top: -225px;
 }
+
+#list_img > img{
+width: 100%;
+height: 100%;
+border-radius: 50%;
+}
 #img img{
 	display: inline-block;
 	width: 225px;
@@ -155,15 +161,12 @@
 		</div>
 	<c:forEach items="${htlsearchList }" var = "htlDTO">
 		<div id="hotelborder">
-			<div class="title_box">
-				<h2>TITLE</h2>
-			</div>
 			
-	
+		<c:if test="${!empty htlDTO.hotelname }">
 			<div id="border">
 			
 				<div id="title">
-					<h1>${htlDTO.hotelname }</h1>
+						<h1>${htlDTO.hotelname }</h1>
 				</div>
 				
 				<div id="content">
@@ -171,23 +174,28 @@
 				</div>
 				
 				<div id="list_img">
-					<img src="${path}/img/login.png"> 
+					<img src="${htlDTO.hotelimg }"> 
 				</div>
 			</div>
+		</c:if>	
+			
 		</div>
 	</c:forEach>
-		<div id="hotelimg">
-			<div class="title_box">
-				${htlDTO.hotelimg }
-			</div>
-			<img src="${path}/img/login.png"> 
-			<img src="${path}/img/login.png"> 
-			<img src="${path}/img/login.png"> 
-			<img src="${path}/img/login.png"> 
-		</div>
+		
 		
 	</section>
 	
 <%@ include file="include/footer.jsp" %>
 </body>
+<script type="text/javascript">
+
+$(document).ready(function () {
+	var htl_name = ${htlDTO.hotelname};
+
+	alert(htl_name);
+});
+
+
+
+</script>
 </html>

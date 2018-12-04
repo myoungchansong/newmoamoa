@@ -204,7 +204,28 @@ nav #menu li a {
 			<li><a href="searchhtl.bizpoll">ALL</a></li>
 			<li><a href="#">WISH LIST</a></li>
 			<li><a href="board.bizpoll">board</a></li>
-			<li><a href="login.bizpoll">LOGIN</a></li>
+			
+			
+			<c:choose> 
+					<c:when test="${empty sessionScope.loginUser}">
+						<li><a href="member.bizpoll">회원가입</a></li>
+						<li><a class ="active" href="login.bizpoll">Log IN</a></li>	
+					</c:when>
+					<c:otherwise>
+						<li>
+						<%-- <a href="#">${sessionScope.loginUser.nik}(${sessionScope.loginUser.id})</a> --%>
+						<a href="#"><i class="fa fa-user"></i></a>
+						</li>
+						<li><a  class ="active" href="logout.bizpoll">LogOut</a></li>
+						
+					</c:otherwise>
+						
+				</c:choose>
+			
+			
+			
+			
+			
 		</ul>
 		
 		<div id="toggle">

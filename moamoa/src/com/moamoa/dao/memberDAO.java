@@ -64,5 +64,51 @@ public class memberDAO {
 		
 		return result;
 	}
+
+	public String confirmnik(String userid) {
+		String result = null;
+		System.out.println("confirmnik===>"+userid);
+		sqlSession = sqlSessionFactory.openSession();
+		try {
+			
+			result = sqlSession.selectOne("confirmnik", userid);
+			System.out.println("======================="+result);
+			if (result != null) {
+				result = "-1";
+			} else {
+				result = "1";
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		
+		return result;
+	}
 	
+	
+	public memberDTO login(memberDTO dto) {
+		String result =null;
+		
+		System.out.println("dao===>"+dto.toString());
+	
+		
+		sqlSession = sqlSessionFactory.openSession();
+		
+		try {
+			
+			dto = sqlSession.selectOne("login", dto);
+			System.out.println("======================="+dto.toString());
+		
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		
+		return dto;
+	}
 }

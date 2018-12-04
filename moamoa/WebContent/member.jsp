@@ -460,11 +460,10 @@
 			}
 		});	 
 		
-		
+		/* ID 중복 체크 */
 		$("#input_id").blur(
 				function() {
 					var idVal = $(this).val();
-					alert(idVal);
 					if (idVal != "") {
 						
 						$.ajax({
@@ -495,8 +494,40 @@
 					}
 				});
 		
-		
-		
+		/* 닉네임 중복 체크 */
+			$("#input_nik").blur(
+				function() {
+					var nikVal = $("#input_nik").val();
+					alert(nikVal);
+				 	if (nikVal != "") {
+						
+						$.ajax({
+							url : "nikCheck.bizpoll",
+							type : "POST",
+							dataType : "json",
+							data : "nik=" + nikVal,
+							success : function(data) {
+								if (data.message == 1) {
+									$("#input_nik").next().text(
+											"멋진 아이디네요").css("display",
+											"block").css("color",
+											"#F46665");
+									$("#input_nik").focus();
+								} else if (data.message == -1) {
+									$("#input_nik").next().text(
+											"이미사용중인 아이디입니다").css(
+											"display", "block").css(
+											"color", "#F46665");
+									$("#input_nik").select();
+								}
+
+							},
+							error : function() {
+								alert("System Error");
+							}
+						});
+					} 
+				});
 		
 		
 		

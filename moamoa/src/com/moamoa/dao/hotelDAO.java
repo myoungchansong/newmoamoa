@@ -64,7 +64,32 @@ public class hotelDAO {
 		}
 	}
 	
-	//Best상품 목록 출력(Index 페이지)
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 		public List<hotelDTO> hotelView(){
 			sqlSession = sqlSessionFactory.openSession();
 			List<hotelDTO> hotelList = null;
