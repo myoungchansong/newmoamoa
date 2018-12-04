@@ -450,12 +450,14 @@
 			var inputVal = $(this).val();
 			
 			if(inputVal ==""){
+				$(this).next().text("아이디를 입력해주세요")
 				$(this).next().css("display","block");
 				$(this).parent().css({"margin-bottom": "30px","border":"1px solid red"});	
 				$(this).prev().css("color","red")
 			}else{
 				 $(this).next().css("display","none");
 				 $(this).parent().css("margin-bottom", "30px");	
+				 $(this).parent().css({"margin-bottom": "30px","border":"1px solid #00BCD4"});	
 				 
 			}
 		});	 
@@ -473,11 +475,8 @@
 							data : "id=" + idVal,
 							success : function(data) {
 								if (data.message == 1) {
-									$("#input_id").next().text(
-											"멋진 아이디네요").css("display",
-											"block").css("color",
-											"#F46665");
-									$("#input_pw").focus();
+									$("#input_id").next().text("멋진 아이디네요").css("display","block").css("color","#00BCD4");
+									$("#input_nik").focus();
 								} else if (data.message == -1) {
 									$("#input_id").next().text(
 											"이미사용중인 아이디입니다").css(
@@ -498,7 +497,6 @@
 			$("#input_nik").blur(
 				function() {
 					var nikVal = $("#input_nik").val();
-					alert(nikVal);
 				 	if (nikVal != "") {
 						
 						$.ajax({
@@ -509,13 +507,13 @@
 							success : function(data) {
 								if (data.message == 1) {
 									$("#input_nik").next().text(
-											"멋진 아이디네요").css("display",
+											"멋진 닉네임").css("display",
 											"block").css("color",
-											"#F46665");
-									$("#input_nik").focus();
+											"#00BCD4");
+									$("#input_pw").focus();
 								} else if (data.message == -1) {
 									$("#input_nik").next().text(
-											"이미사용중인 아이디입니다").css(
+											"이미사용중인 닉네임입니다").css(
 											"display", "block").css(
 											"color", "#F46665");
 									$("#input_nik").select();
@@ -714,6 +712,14 @@
 						<span id="err_check_msg">ID와 PW를 모두 입력해 주세요.</span>
 					</div>
 					
+					
+					
+					
+					
+					
+					
+					
+					
 					<div id="ckbWrap">
 						<label for="cbox1" class="container"> MoaMoa의 서비스, 호텔리뷰 업데이트 등의 최신 소식을 받아보세요.
 						  <input type="checkbox" id="cbox1" class="ckboxs">
@@ -731,6 +737,15 @@
 					<div id="nowlogin">
 						<a href="#">지금 로그인하기</a>
 					</div>
+					
+					
+					
+					
+					
+					
+					
+					
+					
 					
 				</section>
 			</div>
