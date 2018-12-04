@@ -41,7 +41,7 @@ color: black;
 #imgbox .box
 {
 	height: 300px;
-	width:90%;
+	width:100%;
 	color: #000;
 	margin: 0 auto;
 }
@@ -74,8 +74,8 @@ input {
 
 #input-text {
 	background: #fff;
-	width: 430px;
-	height: 50px;
+	width: 87%;
+	height: 67px;
 	border: none;
 	outline: none;
 	padding: 0 25px;
@@ -86,8 +86,8 @@ input {
 	position: relative;
 	left: -5px;
 	border-radius: 0 5px 5px 0;
-	width: 60px;
-	height: 50px;
+	width: 66px;
+	height: 67px;
 	border: none;
 	outline: none;
 	cursor: pointer;
@@ -243,6 +243,28 @@ input {
 	}
 .pagination a:hover:not(.active) {background-color: #ddd;}
 .clr{clear:both;}
+
+/*top button  */
+
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: #FF6C6C;
+  color: #00BCD4;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+#myBtn:hover {
+  background-color: #555;
+}
 </style>
 </head>
 <body>
@@ -310,24 +332,51 @@ input {
 	</section>
 	
 	<!--pagination  -->
-			<div id="pagination">
-			  <a href="#">&laquo;</a>
-			  <a href="#">1</a>
-			  <a class="active" href="#">2</a>
-			  <a href="#">3</a>
-			  <a href="#">4</a>
-			  <a href="#">5</a>
-			  <a href="#">6</a>
-			  <a href="#">&raquo;</a>
+			<div id="pagination"> <!--pageMakerㅇDTO-->
+				<c:if test="${pageMaker.prev}">
+					<a href="searchhtl.bizpoll?page=${pageMaker.startPage-1}">&laquo;</a>
+				</c:if>
+				<c:if test="${pageMaker.prev}">
+					<a href="searchhtl.bizpoll?page=${pageMaker.firstPage}">${pageMaker.firstPage}</a>
+					<a>...</a>
+				</c:if>
+				
+				<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
+					<a href="searchhtl.bizpoll?page=${idx}&flag=${flag}&keyword=${keyword}&key=${code}" <c:out value="${pageMaker.criDto.page == idx? 'class=active':''}"/>>${idx}</a>
+				</c:forEach>
+				
+				<c:if test="${pageMaker.next}">
+					<a>...</a>
+					<a href="searchhtl.bizpoll?page=${pageMaker.finalPage}">${pageMaker.finalPage}</a>
+				</c:if>
+				
+				<c:if test="${pageMaker.next}">
+					<a href="searchhtl.bizpoll?page=${pageMaker.endPage +1}">&raquo;</a>
+			    </c:if>
 			</div>
-			<div class="clr"></div>
+			
+			<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 	
-<%@ include file="include/footer.jsp" %>
 </body>
+<%@ include file="include/footer.jsp" %>
 <script type="text/javascript">
 
- $(document).ready(function () {
-	
+$(document).ready(function () {
+	$("#myBtn").css("display" , "none");
+
+	$(window).scroll(function() {
+	if($(document).scrollTop() > 20){
+	$("#myBtn").css("display" , "block");
+	}else{
+	$("#myBtn").css("display" , "none");
+	}
+	});
+
+	$(document).on("click" , "#myBtn" , function() {
+	/* $(document).scrollTop(0); */
+	$("html , body" ).animate({scrollTop: 0} , 1000);
+	});
+
 });
   
 

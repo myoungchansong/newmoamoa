@@ -1,5 +1,6 @@
 package com.moamoa.dao;
 
+import com.moamoa.dto.CriteriaDTO;
 import com.moamoa.dto.hotelDTO;
 import com.moamoa.mybatis.sqlMapConfig;
 
@@ -104,6 +105,21 @@ public class hotelDAO {
 				sqlSession.close();
 			}
 			return hotelList;
+		}
+		
+		public int totalCount(CriteriaDTO criDto) {
+			sqlSession = sqlSessionFactory.openSession();
+			int result = 0;
+			try {
+				
+				result = sqlSession.selectOne("countPaging" ,criDto);
+				System.out.println("Result :" + result);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				sqlSession.close();
+			}
+			return result;
 		}
 		
 }
