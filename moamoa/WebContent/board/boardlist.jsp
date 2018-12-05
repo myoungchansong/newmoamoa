@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style type="text/css">
 	*{
-		box-sizing:inherit; 
+		box-sizing: border-box; 
 	}
 	#board body,ul{
 		margin:0px;
@@ -23,9 +23,49 @@
 		text-decoration:none;
 	}
 	#board_wrap{
-	    margin: 4% auto 3%;
+	    margin: 1% auto 3%;
 	    width: 55%;
 	    margin-left: 15%;
+	    height: 700px;
+	}
+	
+	/* index */
+	#board #con_wrap{
+		background-color: white;
+		padding-top: 10px;
+	}
+	#board .index_section{
+	    position: relative;
+    	width: 100%;
+    	min-width: 1200px;
+    	padding: 20px 0;
+    	box-sizing: border-box;
+	}
+	#board .section_con{
+	    margin-left: auto;
+	   	margin-right: auto;
+	   	position: relative;
+	    max-width: 1200px;
+	    min-width: 1200px;
+	}	
+	#board .index_sec_ul{
+		display: flex;
+		justify-content: flex-start;
+	    text-transform: capitalize;
+	    font-size: 15px;
+	}
+	#board .index_li>a{
+	   color: #707473;
+	}
+	#board .index_li:before{
+		content: "/\A0";
+    	margin: 0 5px;
+    	color: #ccc;
+	}
+	#board .index_li:last-child{
+		cursor: default;
+    	pointer-events: none;
+    	color: #979797;
 	}
 	
 	/*select */
@@ -114,6 +154,111 @@
 	    text-align: center;
 	    line-height: 29px;
 	}.btn_header>a{color: white;}
+	
+	/* 검색  */
+.search {
+  width: 56px;
+  height: 32px;
+  background-color: #242628;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  float: right;
+  margin: 10px 5px 0px 0px;
+}
+.search:before {
+  content: '';
+  display: block;
+  width: 3px;
+  height: 100%;
+  position: relative;
+  background-color: #00fede;
+  transition: all 0.5s ease;
+}
+.search.open {
+  width: 270px;
+}
+.search.open:before {
+  height: 14px;
+  margin: 9px 0 9px 20px;
+  position: absolute;
+}
+.search-box {
+  width: 100%;
+  height: 100%;
+  box-shadow: none;
+  border: none;
+  background: transparent;
+  color: #fff;
+  padding: 3px 40px 3px 27px;
+  font-size: 11px;
+}
+.search-box:focus {
+  outline: none;
+}
+.search-button {
+  	width: 45px;
+    height: 32px;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 6px;
+    cursor: pointer;
+}
+.search-icon {
+  width: 17px;
+  height: 17px;
+  border-radius: 40px;
+  border: 3px solid #00fede;
+  display: block;
+  position: relative;
+  margin-left: 5px;
+  transition: all 0.5s ease;
+}
+.search-icon:before {
+ 	content: '';
+    width: 3px;
+    height: 4px;
+    position: absolute;
+    right: -4px;
+    top: 9px;
+    display: block;
+    background-color: #00fede;
+    transform: rotate(-45deg);
+    transition: all 0.5s ease;
+}
+.search-icon:after {
+  content: '';
+  width: 3px;
+  height: 4px;
+  position: absolute;
+  right: -7px;
+  top: 12px;;
+  display: block;
+  background-color: #00fede;
+  transform: rotate(-45deg);
+  transition: all 0.5s ease;
+}
+.open .search-icon {
+ 	margin: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 60px;
+}
+.open .search-icon:before {
+  transform: rotate(52deg);
+  right: 5px;
+  top: 6px;
+  height: 6px;
+}
+.open .search-icon:after {
+  transform: rotate(-230deg);
+  right: 5px;
+  top: 3px;
+  height: 6px;
+}
+
 	/*board table  */
 	table {
 	    border-collapse: collapse;
@@ -122,6 +267,11 @@
 	th{background-color: #20d1d12b;}
 	table, tr{
 		border: 1px solid #ededed;
+		height: 45px;
+	}
+	.tabletd_title{
+		text-align: left;
+		padding-left: 10px;
 	}
 	.tablestyle{
 		margin: 0;
@@ -151,10 +301,31 @@
 	.pagination a:hover:not(.active) {background-color: #ddd;}
 	.clr{clear:both;}
 </style>
+<script type="text/javascript">
+ $(document).ready(function(){
+	 $('.search-button').click(function(){
+		  $(this).parent().toggleClass('open');
+		});
+ });
 
+
+</script>
 </head>
 <body id="board">
 	<div id="board_wrap">
+	
+		<div id="con_wrap">
+			<section class="index_section">
+				<div class="section_con">
+					<ul class="index_sec_ul">
+						<li class="index_li"><a href="#">COMMUNITY</a></li>
+						<li class="index_li"><a href="#">자유게시판</a></li>
+						<li class="index_li"><a href="#">게시글 수정</a></li>
+					</ul>
+				</div>
+			</section>
+		</div>
+		
 		<form action="" id="board_frm">
 			<div class="custom-select" style="width:100px;">
 				<select>
@@ -183,11 +354,15 @@
 				<a href="" id="write_btn">쓰기</a>		
 			</div>
 			<div class="btn_header">
-				<a href="" id="search_btn">검색</a>		
-			</div>
-			<div class="btn_header">
 				<a href="" id="alllist_btn">목록</a>		
 			</div>
+			<div class="search">
+			  <input type="search" class="search-box" />
+			  <span class="search-button">
+			    <span class="search-icon"></span>
+			  </span>
+			</div>
+			
 			<div id="notice_container">
 				<table class="tablestyle">
 				  <thead>
@@ -203,7 +378,7 @@
 				  <tbody>
 				  	<tr>
 				  		<td>1</td>
-				  		<td>ㅋㅋㅋㅋㅋㅋ</td>
+				  		<td class="tabletd_title">ㅋㅋㅋㅋㅋㅋ</td>
 				  		<td>글쓴이냣</td>
 				  		<td>11.29</td>
 				  		<td>4</td>
