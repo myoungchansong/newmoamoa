@@ -365,6 +365,13 @@
 		    }
 			
 		});
+		
+		
+		
+		
+		
+		
+		
 		var input1= document.getElementById("input_id");
 		var input2= document.getElementById("input_pw");
 

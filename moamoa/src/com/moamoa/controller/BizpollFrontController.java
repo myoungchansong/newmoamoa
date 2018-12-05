@@ -15,6 +15,7 @@ import com.moamoa.action.IndexAction;
 import com.moamoa.action.SearchListAction;
 import com.moamoa.action.boardAction;
 import com.moamoa.action.deleteAction;
+import com.moamoa.action.deleteplayAction;
 import com.moamoa.action.deleteruleAction;
 import com.moamoa.action.idCheckAction;
 import com.moamoa.action.logindAction;
@@ -23,7 +24,11 @@ import com.moamoa.action.logoutplayAction;
 import com.moamoa.action.memberAction;
 import com.moamoa.action.memberplayAction;
 import com.moamoa.action.nikCheckAction;
+import com.moamoa.action.nikupdateAction;
+import com.moamoa.action.nikupdatplayAction;
+import com.moamoa.action.pwCheckAction;
 import com.moamoa.action.pwupdateAction;
+import com.moamoa.action.pwupdateplayAction;
 import com.moamoa.action.updateAction;
 
 
@@ -87,6 +92,15 @@ public class BizpollFrontController extends HttpServlet {
 		} else if(command.equals("/nikCheck.bizpoll")) {
 			action = new nikCheckAction();
 			forward = action.excute(request, response);
+		} else if(command.equals("/nikupdate.bizpoll")) {
+			action = new nikupdateAction();
+			forward = action.excute(request, response);
+		} else if(command.equals("/nikupdateplay.bizpoll")) {
+			action = new nikupdatplayAction();
+			forward = action.excute(request, response);
+		}  else if(command.equals("/pwCheck.bizpoll")) {
+			action = new pwCheckAction();
+			forward = action.excute(request, response);
 		} else if(command.equals("/LoginPlay.bizpoll")) {
 			action = new loginplayAction();
 			forward = action.excute(request, response);
@@ -99,13 +113,19 @@ public class BizpollFrontController extends HttpServlet {
 		} else if(command.equals("/pwupdate.bizpoll")) {
 			action = new pwupdateAction();
 			forward = action.excute(request, response);
+		} else if(command.equals("/pwupdateaction.bizpoll")) {
+			action = new pwupdateplayAction();
+			forward = action.excute(request, response);
 		} else if(command.equals("/deleterule.bizpoll")) {
 			action = new deleteruleAction();
 			forward = action.excute(request, response);
 		} else if(command.equals("/delete.bizpoll")) {
 			action = new deleteAction();
 			forward = action.excute(request, response);
-		} else if(command.equals("/searchhtl.bizpoll")) {
+		} else if(command.equals("/deleteplay.bizpoll")) {
+			action = new deleteplayAction();
+			forward = action.excute(request, response);
+		}else if(command.equals("/searchhtl.bizpoll")) {
 			action = new SearchListAction();
 			forward = action.excute(request, response);
 		} 

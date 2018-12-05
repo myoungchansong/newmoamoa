@@ -450,7 +450,7 @@
 			var inputVal = $(this).val();
 			
 			if(inputVal ==""){
-				$(this).next().css("display","block");
+				$(this).next().css("display","block").css("color","red");
 				$(this).parent().css({"margin-bottom": "30px","border":"1px solid red"});	
 				$(this).prev().css("color","red");
 			}else{
@@ -576,39 +576,20 @@
 		
 		/*확인 버튼을 클릭했을 때 유효성 체크  */
 		$("#btn_next").on("click",function(){
-			alert("test");
 			/*input의 id와 pw값을 입력. */
 			var val1 = $("#input_id").val();
 			var val2 = $("#input_pw").val();
 			var val3 = $("#input_rpw").val();
 			
 		    	
-			/* 유효성 체크 
-		    id와 pw, rpw 하나라도 값이 없으면 경고문 출력*/
 		  if(val1 !="" && val2 !="" && val3 !=""){
-		    	
-		    	$.ajax({
-				url : "",
-				type : "POST",
-				dataType : "json",
-				data : "id="+val1+"&pw="+val2,
-				success : function(data){
-					if(data.message =="1"){
-						location.href="<%=referer%>";
-					}else{
-						$("#err_check_msg").text("아이디 또는 패스워드가 일치하지 않습니다.");
-						$("#err_check").css("display","block");
-					}
-				},
-				error : function(){
-					alert("system error!");
-				}
-				})
-		    }else{
-		    	$("#err_check").css("display","block");
-		    	return;
+			  $("#frm_login").submit(); 	
+			 }else{
+				$("#err_check_msg").text("아이디 또는 패스워드가 일치하지 않습니다.");
+				$("#err_check").css("display","block");
+		    	return false;
 		    }
-			 
+		
 		});
 		
 		
@@ -652,27 +633,32 @@
 			}
 		});
 			
-		/*체크박스 모두 체크해야 확인 버튼 클릭되게하기  */
+		
 		
 			
 	
-			/*값 모두 입력후 체크박스 모두 체크 후 확인버튼 클릭 했을 때 이동  */
+		$(".ckboxs").on("click",function(){
+			if($(".ckboxs:checked").length==2){
+				$("#cbox1","#cbox2").prop("checked",true); 
+				$("#btn_next").css({"background":"#00BCD4","border":"1px solid #00BCD4","cursor":"pointer"}); 
+				$('#btn_next').attr('disabled',false);   /* delete버튼 활성화   */
+			}else{
+				$("#btn_next").css({"background":"#00bcd482","border":"1px solid #00bcd482", "cursor":"not-allowed"});
+				$('#btn_next').attr('disabled',true); /* delete버튼 비활성화   */
+			}
+		});
+		
 		$("#btn_next").on("click",function(){
 			var ck1 = $("#cbox1").is(":checked");
 			var ck2 = $("#cbox2").is(":checked");
-			if(ck1 == true && ck2 == true){
-				alert("11111111111111111111111111111111");
-				$("#btn_next").css({"background":"#00BCD4","border":"1px solid #00BCD4","cursor":"pointer"}); 
-				$("#frm_login").submit();
-			}else{
-				$("#btn_next").css({"background":"#00bcd482","border":"1px solid #00bcd482" ,"cursor":"not-allowed"});
-				return false;
+			if(ck1==true && ck2 ==true){
+				$("#btn_next").css({"backgroud":"#00BCD4","border":"1px solid #00BCD4","cursor":"not-allowed"});
+			 	
+			}else{			
+				$("#err_check").css("display","block"); 
+				$("#btn_next").css({"backgroud":"#red","border":"1px solid #red", "cursor":"not-allowed"});
 			}
-
 		});		
-		
-		
-		
 		
 		
 		
@@ -792,7 +778,7 @@
 						</label>
 					</div>
 					<div>
-						<button type="button" id="btn_next">확인</button>
+						<button type="button" id="btn_next" disabled="disabled">확인</button>
 					</div>
 					
 					<div id="nowlogin">

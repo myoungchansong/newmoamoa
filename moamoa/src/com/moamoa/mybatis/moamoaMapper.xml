@@ -33,6 +33,11 @@
 	 	WHERE id= #{userid}
 	</select>
 	
+	<select id="confirmpw" parameterType="com.moamoa.dto.memberDTO" resultType="String">
+		SELECT id FROM moamoamember 
+	 	WHERE pw= #{pw} AND id= #{id}
+	</select>
+	
 	
 	<select id="confirmnik" parameterType="String" resultType="String"> 
 		SELECT * FROM moamoamember
@@ -43,6 +48,30 @@
 		SELECT * FROM moamoamember
 		WHERE id=#{id} AND pw=#{pw}
 	</select>
+	
+	
+	<update id="pwupdate" parameterType="com.moamoa.dto.memberDTO">
+		UPDATE moamoamember SET
+		pw = #{pw}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="nikupdate" parameterType="com.moamoa.dto.memberDTO">
+		UPDATE moamoamember SET
+		nik = #{nik}
+		WHERE id = #{id}
+	</update>
+	
+	
+	
+	
+	<delete id="delete" parameterType="String">
+		DELETE FROM moamoamember
+		WHERE id = #{id}
+	</delete>
+	
+	
+	
 	
 	
 	<!-- htl list  -->

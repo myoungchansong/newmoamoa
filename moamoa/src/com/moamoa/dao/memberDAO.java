@@ -65,13 +65,14 @@ public class memberDAO {
 		return result;
 	}
 
-	public String confirmnik(String userid) {
+	public String confirmnik(String nik) {
 		String result = null;
-		System.out.println("confirmnik===>"+userid);
+		System.out.println("confirmnik===>"+nik);
 		sqlSession = sqlSessionFactory.openSession();
 		try {
 			
-			result = sqlSession.selectOne("confirmnik", userid);
+			result = sqlSession.selectOne("confirmnik", nik);
+			
 			System.out.println("======================="+result);
 			if (result != null) {
 				result = "-1";
@@ -89,8 +90,97 @@ public class memberDAO {
 	}
 	
 	
+	public int delete(String id) {
+		int result =0;
+		System.out.println("delete id ===>"+id);
+		sqlSession = sqlSessionFactory.openSession();
+		try {
+			
+			result = sqlSession.delete("delete", id);
+			sqlSession.commit(); 
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		
+		return result;
+	}
+	
+	public String confirmpw(memberDTO dto) {
+		String result = null;
+		System.out.println("confirmpw===>"+dto.toString());
+		sqlSession = sqlSessionFactory.openSession();
+		try {
+			
+			result = sqlSession.selectOne("confirmpw", dto);
+			System.out.println("======================="+result);
+			if (result != null) {
+				result = "-1";
+			} else {
+				result = "1";
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		
+		return result;
+	}
+	
+	
+	public int pwupdate(memberDTO dto) {
+		int result = 0;
+		System.out.println("confirmpw===>"+dto.toString());
+		sqlSession = sqlSessionFactory.openSession();
+		try {
+			
+			result = sqlSession.update("pwupdate", dto);
+			sqlSession.commit(); 
+			System.out.println("======================="+result);
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		
+		return result;
+	}
+	
+	
+	public int nikupdate(memberDTO dto) {
+		int result = 0;
+		System.out.println("confirmnik===>"+dto.toString());
+		sqlSession = sqlSessionFactory.openSession();
+		try {
+			
+			result = sqlSession.update("nikupdate", dto);
+			sqlSession.commit(); 
+			System.out.println("======================="+result);
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		
+		return result;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	public memberDTO login(memberDTO dto) {
-		String result =null;
 		
 		System.out.println("dao===>"+dto.toString());
 	

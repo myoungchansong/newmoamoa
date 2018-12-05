@@ -153,7 +153,8 @@ $(document).ready(function() {
 		<div id="myinfo">
 			<h1>내 정보</h1>
 			<a href="update.bizpoll" style="color: #2196F3; text-decoration: underline; font-weight: bold;">회원 정보 수정</a>
-			<a href="pwdate.bizpoll">비밀번호 수정</a>
+			<a href="pwupdate.bizpoll">비밀번호 수정</a>
+			<a href="nikupdate.bizpoll">닉네임 수정</a>
 			<a href="deleterule.bizpoll">회원 회원 탈퇴</a>
 		</div>
 		
@@ -175,7 +176,7 @@ $(document).ready(function() {
 						최소 6개월에 1회 이상 비밀번호 변경을 권장합니다 
 					</span>
 				</p>
-				<a href="pwuserdate.bizpoll">바로가기</a>
+				<a href="pwupdate.bizpoll">바로가기</a>
 			</div>
 		</div>
 		

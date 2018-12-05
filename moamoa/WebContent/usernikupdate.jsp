@@ -172,7 +172,7 @@
 		
 	}
 	
-	.error{
+		.error{
 		color:#f46665;
 		font-size: 12px;
 		font-weight: 300;
@@ -199,30 +199,27 @@ $(document).ready(function(){
 	});		
 	
 	
+	
 
-	
-	
-	$("#input_pw").blur(
+	$("#input_newpw").blur(
 			function() {
-				var pwVal = $(this).val(); /*비밀번호 값 */
-				if (pwVal != "") {
+				var nikVal = $(this).val(); /*비밀번호 값 */
+				if (nikVal != "") {
 					$.ajax({
-						url : "pwCheck.bizpoll",
+						url : "nikCheck.bizpoll",
 						type : "POST",
 						dataType : "json",
-						data : "id=${sessionScope.loginUser.id}&pw="+pwVal,
+						data : "nik="+nikVal,
 						success : function(data) {
 							if (data.message == -1) {
-								$("#input_pw").next().text("비밀번호가 일치합니다").css("display", "block").css("color","#00BCD4");
-								$("#insert_pw").css("border", "1px solid #00BCD4");
-								$("#input_newpw").focus();
-								$('#update').attr('disabled',false);  
+								$('#update').attr('disabled',true);
+								$("#insert_newpw").css("border", "1px solid red");
+								$(".error").text("다른 닉네임을 사용해 주세요").css("display", "block").css("color", "red");
+								$("#input_newpw").select();
 							} else if (data.message == 1) {
-								$("#input_pw").next().text("비밀번호가 일치하지 않습니다").css("display", "block").css("color", "red");
-								$("#insert_pw").css("border", "1px solid red");
-								$("#input_pw").select();
-								$("#input_pw").focus();
-								$('#update').attr('disabled',true);	
+								$('#update').attr('disabled',false); 
+								$("#insert_newpw").css("border", "1px solid #B2EBF2");
+								$(".error").text("중복된 닉네임이 존재하지 않습니다").css("display", "block").css("color", "#00BCD4");
 							}
 
 						},
@@ -235,9 +232,9 @@ $(document).ready(function(){
 	
 	$("#update").on("click",function(){
 		var pw = $("#input_newpw").val();
+		alert(pw);
 		
 		if(pw !=''){
-			alert("닉네임이 변경되었습니다");
 			$("#pw_form").submit();
 		}else{
 			alert("값이 없습니다 확인해주세요");
@@ -245,8 +242,9 @@ $(document).ready(function(){
 		}
 		
 	});	
-	
-	
+
+
+
 	
 });
 
@@ -259,33 +257,36 @@ $(document).ready(function(){
 	<section id="headersection">
 		<div id="myinfo">
 			<h1>내 정보</h1>
-			<a href="update.bizpoll" >회원 정보 수정</a>
-			<a href="pwdate.bizpoll" style="color: #2196F3; text-decoration: underline; font-weight: bold;">비밀번호 수정</a>
-			<a href="nikupdate.bizpoll">닉네임 수정</a>
+			<a href="update.bizpoll">회원 정보 수정</a>
+			<a href="pwupdate.bizpoll">비밀번호 수정</a>
+			<a href="nikupdate.bizpoll" style="color: #2196F3; text-decoration: underline; font-weight: bold;">닉네임 수정</a>
 			<a href="deleterule.bizpoll">회원 회원 탈퇴</a>
 		</div>
 	</section>
 	
 	
 	<section id="bodysection">
-		<H3>주기적인<span style="color: red">(6개월)</span> 비밀번호 변경을 통해 개인정보를 안전하게 보호 하세요</H3>
+		<H3>변경할 <span style="color: #B2EBF2">닉네임</span>을 입력해주세요</H3>
 		<div id="passdiv">
 		
 			<div>
 			
-				<form action="pwupdateaction.bizpoll" id="pw_form">
-					<p>현재 비밀번호를 입력해주세요 </p>
+				<form action="nikupdateplay.bizpoll" id="pw_form">
+					<p>현재 닉네임 </p>
 						<div id="insert_pw">	
-							<input type="password" id="input_pw" name="inputpw"  placeholder="현재 비밀번호를 입력해주세요">
-							<span class="error">비밀번호를 정확하게 입력해주세요</span>
+							<input type="text" id="input_pw" name="inputpw"value="${sessionScope.loginUser.nik}">
 						</div>
 					
-					<p>변경할 비밀번호를 입력해주세요 </p>
+					<p>변경할 닉네임 </p>
 						<div id="insert_newpw">
-							<input type="password" id="input_newpw" name="inpunewpw"  placeholder="새로운 비밀번호를 입력해주세요">
-							<span class="error">비밀번호를 정확하게 입력해주세요</span>
+							<input type="text" id="input_newpw" name="inpunewpw"  placeholder="새로운 닉네임을 입력해주세요">
+							
+							
+							
+							<input type="hidden" id="inputid" name="inputid" value="${sessionScope.loginUser.id}">
+							<input type="hidden" id="inputpw2" name="inputpw2" value="${sessionScope.loginUser.pw}">
+							<span class="error">중복된 닉네임이 존재합니다</span>
 						</div>
-						<input type="hidden" id="input_id" name="input_id" value="${sessionScope.loginUser.id}">
 				</form>
 				
 			</div>
@@ -294,11 +295,6 @@ $(document).ready(function(){
 			
 		</div>
 		
-		<div id="tip">
-			<p>비밀번호는 8~32자의 영문 대/소문자, 숫자, 특수문자를 조합하여 사용하실 수 있어요</p>
-			<p>쉬운 비밀번호나 자주 쓰는 사이트의 비밀번호가 같은 결우, 도용되기 쉬워 주기적으로 변경하여 사용하는 것도 좋습니다</p>
-			<p>비밀번호에 특수문자를 추가하여 사용하시면 기억하기도 쉽고, 비밀번호 안전도가 높아져 도용의 위험이 줄어 듭니다</p>
-		</div>
 		<div id="button_div">
 			<button style="background: white; color:  #2196F3;"id="before">이전으로</button>
 			<button style="background: #2196F3; color: white; margin-left: 10px;" id="update">변경하기</button>
