@@ -41,18 +41,18 @@ public class PageMakerDTO {
 	
 	private void calcData() {
 		//math 클래스의 ceil 메서드는 무조건 소수점을 올림함 0.1 = 1로 처리
-		endPage = (int)Math.ceil(criDto.getPage() / (double)displayPageNum)*displayPageNum;
+		endPage = (int)Math.ceil(criDto.getPage()/(double)displayPageNum)*displayPageNum;
 		startPage = (endPage - displayPageNum)+1;
 		finalPage =(int)Math.ceil(totalCount/(double)displayPageNum);
 		
-		int tempEndPage = (int)(Math.ceil(totalCount / (double)(criDto.getPerPageNum() / criDto.getPage())));
+		int tempEndPage = (int)(Math.ceil(totalCount/(double)(criDto.getPerPageNum()/criDto.getPage())));
 				
 		if(endPage > tempEndPage) {
 			endPage = tempEndPage;
 		}
 		
-		prev = startPage == 1 ? false :  true;
-		next =(endPage*(criDto.getPerPageNum() / criDto.getPage())) >= totalCount ? false : true;
+		prev = startPage == 1 ? false : true;
+		next =(endPage*(criDto.getPerPageNum()/criDto.getPage())) >= totalCount ? false : true;
 	}
 
 	public int getStartPage() {

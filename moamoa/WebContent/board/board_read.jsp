@@ -180,25 +180,26 @@
 				<h2>
 					<span>정보</span>
 				</h2>
-				<div id="br_title">코엑스 카카오프렌즈 샵</div>
+				<div id="br_num">${boardview.bno}</div>
+				<div id="br_title">| ${boardview.title}</div>
 			</div>
 			<!--작성자, 조회수, 추천수, 댓글수, 날짜  -->
 			<div id="read_condition">
-				<div id="rd_witer">라이언</div>
+				<div id="rd_witer">${boardview.writer}</div>
 					<div class="divider"></div>
-				<span>조회수 340</span>
+				<span>조회수 ${boardview.viewcnt}</span>
 					<div class="divider"></div>
-				<span>추천수 10</span>	
+				<span>추천수 ${boardview.goodcnt}</span>	
 				 	<div class="divider"></div>
 				 <span>댓글 9</span>
 				 	<div class="divider"></div>
-				 <span class="fa fa-clock-o">4시간전</span>
+				 <span class="fa fa-clock-o">${boardview.regdate}</span>
 			</div>
 		</div>
 		<!--게시글 내용 -->
 		<div id="read_content">
 			<article>
-				<div id="bcontent">겨울 한정판 눈사람 라이언 출시!!!</div>
+				<div id="bcontent">${boardview.content}</div>
 				<!--추천 수 -->
 				<div class="vote">
 					<br>

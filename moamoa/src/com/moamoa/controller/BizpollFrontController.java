@@ -11,9 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.moamoa.action.Action;
 import com.moamoa.action.ActionForward;
+import com.moamoa.action.BoardListAction;
+import com.moamoa.action.BoardReadAction;
+import com.moamoa.action.BoardSearchAction;
+import com.moamoa.action.BoardViewcntAction;
 import com.moamoa.action.IndexAction;
 import com.moamoa.action.SearchListAction;
-import com.moamoa.action.boardAction;
 import com.moamoa.action.deleteAction;
 import com.moamoa.action.deleteplayAction;
 import com.moamoa.action.deleteruleAction;
@@ -74,8 +77,8 @@ public class BizpollFrontController extends HttpServlet {
 		if(command.equals("/index.bizpoll")) {
 			action = new IndexAction();
 			forward = action.excute(request, response);
-		} else if(command.equals("/board.bizpoll")) {
-			action = new boardAction();
+		} else if(command.equals("/boardList.bizpoll")) { 
+			action = new BoardListAction();
 			forward = action.excute(request, response);
 		} else if(command.equals("/login.bizpoll")) {
 			action = new logindAction();
@@ -129,6 +132,20 @@ public class BizpollFrontController extends HttpServlet {
 			action = new SearchListAction();
 			forward = action.excute(request, response);
 		} 
+		
+		
+		else if(command.equals("/boardSearch.bizpoll")) {
+			action = new BoardSearchAction();
+			forward = action.excute(request, response);
+		}else if(command.equals("/boardread.bizpoll")) {
+			action = new BoardReadAction();
+			forward = action.excute(request, response);
+		}else if(command.equals("/boardViewcnt.bizpoll")){
+			action = new BoardViewcntAction();
+			forward = action.excute(request, response);
+		}
+			
+		
 		
 		//공통 분기작업(페이지 이동)
 		if(forward !=null) {

@@ -83,7 +83,7 @@
   </select>
   
   <!--pagination  -->
-  	<select id="countPaging" resultType="int">
+<!--   	<select id="countPaging" resultType="int">
   		<![CDATA[
 			SELECT count(hotelbno) 
 			FROM moamoa 
@@ -102,6 +102,77 @@
      	<if test='flag == "4"'>
    		 <![CDATA[AND writer LIKE '%'||#{keyword}||'%']]>
      	</if>
-  	</select>
+  	</select> -->
+  	
+  	<!-- BoardDAO -->
+	<select id="boardList" resultType="com.moamoa.dto.BoardDTO">
+		<![CDATA[
+			SELECT * FROM (SELECT rownum rnum, 
+	                a.*
+	                FROM (SELECT *
+	                      FROM moaboard
+	                      WHERE bno > 0 ]]>	
+
+	                      <if test='flag == "1"'>
+	                      <![CDATA[AND title LIKE '%'||#{keyword}||'%']]>
+	                      </if>
+	                      <if test='flag == "2"'>
+	                      <![CDATA[AND content LIKE '%'||#{keyword}||'%']]>
+	                      </if>
+	                      <if test='flag == "3"'>
+	                      <![CDATA[AND title LIKE '%'||#{keyword}||'%' OR content LIKE '%'||#{keyword}||'%']]>
+	                      </if>
+	                      <if test='flag == "4"'>
+	                      <![CDATA[AND writer LIKE '%'||#{keyword}||'%']]>
+	                      </if>
+	                      
+	                      <if test='code == "new"'>
+	                      		ORDER BY bno DESC	                      
+	                      </if>
+	                      <if test='code == "good"'>
+	                      		ORDER BY goodcnt DESC, bno DESC
+	                      </if>
+	                      <if test='code == "reply"'>
+	                      		ORDER BY replycnt DESC, bno DESC
+	                      </if>
+	                      <if test='code == "cnt"'>
+	                      		ORDER BY viewcnt DESC, bno DESC
+	                      </if>
+	           <![CDATA[  
+	                      )a
+	                )
+			WHERE rnum BETWEEN #{pageStart} AND #{perPageNum}
+		]]>	
+	</select>
+	<select id="countPaging" resultType="int">
+		<![CDATA[	
+		  	SELECT count(bno)
+		  	FROM moaboard
+			WHERE bno>0
+		]]>	
+		<if test='flag == "1"'>
+       		<![CDATA[AND title LIKE '%'||#{keyword}||'%']]>
+        </if>
+        <if test='flag == "2"'>
+        	<![CDATA[AND content LIKE '%'||#{keyword}||'%']]>
+        </if>
+        <if test='flag == "3"'>
+        	<![CDATA[AND title LIKE '%'||#{keyword}||'%' OR content LIKE '%'||#{keyword}||'%']]>
+        </if>
+        <if test='flag == "4"'>
+        	<![CDATA[AND writer LIKE '%'||#{keyword}||'%']]>
+        </if>
+	</select>
 	
+	<select id="boardReadView" resultType="com.moamoa.dto.BoardDTO">
+		SELECT *
+		FROM moaboard
+		WHERE bno =#{bno}
+	</select>
+	
+	<update id="viewCnt">
+		UPDATE moaboard
+			SET viewcnt = viewcnt +1
+			WHERE bno = #{bno}
+	</update>
 </mapper>

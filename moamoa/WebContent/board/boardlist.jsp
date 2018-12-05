@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file = "../include/header.jsp" %>  
-
+<%@ include file="../include/include.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -300,11 +300,27 @@
 	
 	.pagination a:hover:not(.active) {background-color: #ddd;}
 	.clr{clear:both;}
+	.new_time{
+		background-color: #FFA7A7;
+	    color: white;
+	    font-size: 10px;
+	    font-weight: 600;
+  	 	border: 1px solid #FF5E00;
+  	 	border-radius: 5px;
+	}
 </style>
+<script type="text/javascript" src="${path}../js/selecttag.js"></script>
 <script type="text/javascript">
  $(document).ready(function(){
 	 $('.search-button').click(function(){
 		  $(this).parent().toggleClass('open');
+		});
+	 $("#btn_search_submit").click(function(){
+			var flag = $("#search_category").val();
+			var keyword = $("#btn_search").val();
+			location.href ="boardList.bizpoll?flag="+flag+"&keyword="+keyword;	
+			alert(flag + keyword);
+			$("#search_ment").css("display","block");
 		});
  });
 
@@ -320,7 +336,6 @@
 					<ul class="index_sec_ul">
 						<li class="index_li"><a href="#">COMMUNITY</a></li>
 						<li class="index_li"><a href="#">자유게시판</a></li>
-						<li class="index_li"><a href="#">게시글 수정</a></li>
 					</ul>
 				</div>
 			</section>
@@ -335,8 +350,6 @@
 					<option>잡담</option>
 				</select>
 			</div>
-								
-			
 			
 			<div class="custom-select" style="width:100px;">
 				<select>
@@ -348,26 +361,27 @@
 				</select>
 			</div>
 			
-					
-			
-			<div class="btn_header">
-				<a href="" id="write_btn">쓰기</a>		
-			</div>
-			<div class="btn_header">
-				<a href="" id="alllist_btn">목록</a>		
-			</div>
+			<!--검색 -->
 			<div class="search">
 			  <input type="search" class="search-box" />
 			  <span class="search-button">
 			    <span class="search-icon"></span>
 			  </span>
 			</div>
+			<div class="btn_header">
+				<a href="" id="write_btn">쓰기</a>		
+			</div>
+			<div class="btn_header">
+				<a href="" id="alllist_btn">목록</a>		
+			</div>
+			
 			
 			<div id="notice_container">
 				<table class="tablestyle">
 				  <thead>
 					  <tr>
 					    <th>번호</th>
+					    <th>분류</th>
 					    <th>제목</th> 
 					    <th>글쓴이</th>
 					    <th>날짜</th>
@@ -376,58 +390,64 @@
 					  </tr>
 				  </thead>
 				  <tbody>
-				  	<tr>
-				  		<td>1</td>
-				  		<td class="tabletd_title">ㅋㅋㅋㅋㅋㅋ</td>
-				  		<td>글쓴이냣</td>
-				  		<td>11.29</td>
-				  		<td>4</td>
-				  		<td>1</td>
-				  	</tr>
-				  	<tr>
-				  		<td>2</td>
-				  		<td>잠온다 ㅋㅋㅋㅋ</td>
-				  		<td>잠만보</td>
-				  		<td>11.29</td>
-				  		<td>4</td>
-				  		<td>1</td>
-				  	</tr>	
-				  	<tr>
-				  		<td>3</td>
-				  		<td>ㅋㅋ눈사람만들고싶다ㅋ</td>
-				  		<td>올라프</td>
-				  		<td>11.29</td>
-				  		<td>4</td>
-				  		<td>1</td>
-				  	</tr>	
-				  	<tr>
-				  		<td>4</td>
-				  		<td>혁신적인 또라이닷!</td>
-				  		<td>도비</td>
-				  		<td>11.29</td>
-				  		<td>4</td>
-				  		<td>1</td>
-				  	</tr>					  	
+				  	<c:forEach items = "${boardList}" var="bDto">
+					  	<fmt:formatDate value="${today}" pattern="yy-MM-dd" var="today2"/>
+						<fmt:formatDate value="${bDto.regdate}" pattern="yy-MM-dd" var="regdate2"/>
+					  	<tr>
+					  		<td>${bDto.bno}</td>
+					  		<td>정보</td>
+					  		<td class="tabletd_title"><a href="boardViewcnt.bizpoll?bno=${bDto.bno}">${bDto.title}</a>
+					  			<c:if test="${today2== regdate2}">
+					  				<span class = "new_time">New</span>
+					  			</c:if>
+					  		</td>
+					  		<td>${bDto.writer}</td>
+					  		<td>
+						  		<c:choose>
+						  			<c:when test="${today2 == regdate2}">
+						  				<fmt:formatDate pattern="HH:mm:ss" value="${bDto.regdate}"/>
+						  			</c:when>
+						  			<c:otherwise>
+						  				<fmt:formatDate pattern="yy-MM-dd" value="${bDto.regdate}"/>
+						  			</c:otherwise>
+						  		</c:choose>
+					  		</td>
+					  		<td>${bDto.viewcnt}</td>
+					  		<td>${bDto.goodcnt}</td>
+					  	</tr>
+				  	</c:forEach>					  	
 				  </tbody>
 				</table>
 			</div>
 			
 			<!--pagination  -->
-			<div id="pagination">
-			  <a href="#">&laquo;</a>
-			  <a href="#">1</a>
-			  <a class="active" href="#">2</a>
-			  <a href="#">3</a>
-			  <a href="#">4</a>
-			  <a href="#">5</a>
-			  <a href="#">6</a>
-			  <a href="#">&raquo;</a>
+			<div id="pagination"> <!--pageMakerDTO-->
+				<c:if test="${pageMaker.prev}">
+					<a href="boardList.bizpoll?page=${pageMaker.startPage-1}">&laquo;</a>
+				</c:if>
+				<c:if test="${pageMaker.prev}">
+					<a href="boardList.bizpoll?page=${pageMaker.firstPage}">${pageMaker.firstPage}</a>
+					<a>...</a>
+				</c:if>
+				
+				<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
+					<a href="boardList.bizpoll?page=${idx}&flag=${flag}&keyword=${keyword}&key=${code}" <c:out value="${pageMaker.criDto.page == idx? 'class=active':''}"/>>${idx}</a>
+				</c:forEach>
+				
+				<c:if test="${pageMaker.next}">
+					<a>...</a>
+					<a href="boardList.bizpoll?page=${pageMaker.finalPage}">${pageMaker.finalPage}</a>
+				</c:if>
+				
+				<c:if test="${pageMaker.next}">
+					<a href="boardList.bizpoll?page=${pageMaker.endPage +1}">&raquo;</a>
+			    </c:if>
 			</div>
 			<div class="clr"></div>
 		</form>
 	</div>
 
 </body>
-<script type="text/javascript" src="../js/selecttag.js"></script>
+
 </html>
 <%@ include file = "../include/footer.jsp" %> 
