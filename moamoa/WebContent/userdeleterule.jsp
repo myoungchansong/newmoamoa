@@ -190,16 +190,24 @@ $(document).ready(function(){
 		var ck1 = $("#cbox1").is(":checked");
 		var ck2 = $("#cbox2").is(":checked");
 		var ck3 = $("#cbox3").is(":checked");
-		if(ck1 == true && ck2 == true && ck3){
-			alert("11111111111111111111111111111111");
-			
+		if(ck1 == true && ck2 == true && ck3 == true){
+			location.href="delete.bizpoll";
 		}else{
 			alert("모든 유의 사항에 동의 해주세요");
 			return false;
 		}
 
-	});		
-	
+	});	
+
+		if('${sessionScope.loginUser.id}' !=''){
+			
+			
+		} else {
+			alert('로그인후 사용이 가능합니다 ');
+			location.href="index.bizpoll";
+		}
+			
+		
 });
 
 </script>
@@ -209,9 +217,9 @@ $(document).ready(function(){
 	<section id="headersection">
 		<div id="myinfo">
 			<h1>내 정보</h1>
-			<a href="#">회원 정보 수정</a>
-			<a href="#">비밀번호 수정</a>
-			<a href="#"style="color: #2196F3; text-decoration: underline; font-weight: bold;">회원 회원 탈퇴</a>
+			<a href="update.bizpoll">회원 정보 수정</a>
+			<a href="pwupdate.bizpoll">비밀번호 수정</a>
+			<a href="deleterule.bizpoll"style="color: #2196F3; text-decoration: underline; font-weight: bold;">회원 회원 탈퇴</a>
 		</div>
 	</section>
 	

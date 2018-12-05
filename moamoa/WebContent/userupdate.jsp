@@ -35,7 +35,7 @@
 	}
 	#myinfo a{
 		width: 100px;
-		height: 100%;
+		height: 100%;	
 		line-height: 50px;
 		padding-left: 50px;
 		font-weight: bold;
@@ -131,13 +131,30 @@
 	
 </style>
 </head>
+<script type="text/javascript">
+$(document).ready(function() {
+	
+	if('${sessionScope.loginUser.id}' !=''){
+		
+		
+	} else {
+		alert('로그인후 사용이 가능합니다 ');
+		location.href="index.bizpoll";
+	}
+		
+	
+	
+});
+
+</script>
+
 <body>
 	<section id="headersection">
 		<div id="myinfo">
 			<h1>내 정보</h1>
-			<a href="#" style="color: #2196F3; text-decoration: underline; font-weight: bold;">회원 정보 수정</a>
-			<a href="#">비밀번호 수정</a>
-			<a href="#">회원 회원 탈퇴</a>
+			<a href="update.bizpoll" style="color: #2196F3; text-decoration: underline; font-weight: bold;">회원 정보 수정</a>
+			<a href="pwdate.bizpoll">비밀번호 수정</a>
+			<a href="deleterule.bizpoll">회원 회원 탈퇴</a>
 		</div>
 		
 	</section>
@@ -148,7 +165,7 @@
 	<div style="width: 1000px; height: 100%; margin: 0 auto;">
 		<div class="top2">
 			<div id="toplogo">
-				<p style="font-size: 70px; margin-top: 120px;">MOAMOA</p>
+				<p style="font-size: 70px; margin-top: 120px;">${sessionScope.loginUser.nik}</p>
 				<p style="font-size: 35px;">회원 정보 변경</p>
 			</div>
 			
@@ -158,7 +175,7 @@
 						최소 6개월에 1회 이상 비밀번호 변경을 권장합니다 
 					</span>
 				</p>
-				<a href="#">바로가기</a>
+				<a href="pwuserdate.bizpoll">바로가기</a>
 			</div>
 		</div>
 		
@@ -177,11 +194,12 @@
 			
 			<div>
 				<p >회원 탈퇴<br><span>회원 탈퇴에 앞서 유희상항을 및 안내를 <br>읽고 반드시 진행해 주세요</span></p>
-				<a href="#">바로가기</a>
+				<a href="deleterule.bizpoll">바로가기</a>
 			</div>
 		</div>
 		
 	</div>	
+	
 	</section>
 	
 		<%@ include file="include/footer.jsp"%>

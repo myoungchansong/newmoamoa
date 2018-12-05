@@ -14,6 +14,8 @@ import com.moamoa.action.ActionForward;
 import com.moamoa.action.IndexAction;
 import com.moamoa.action.SearchListAction;
 import com.moamoa.action.boardAction;
+import com.moamoa.action.deleteAction;
+import com.moamoa.action.deleteruleAction;
 import com.moamoa.action.idCheckAction;
 import com.moamoa.action.logindAction;
 import com.moamoa.action.loginplayAction;
@@ -21,6 +23,8 @@ import com.moamoa.action.logoutplayAction;
 import com.moamoa.action.memberAction;
 import com.moamoa.action.memberplayAction;
 import com.moamoa.action.nikCheckAction;
+import com.moamoa.action.pwupdateAction;
+import com.moamoa.action.updateAction;
 
 
 
@@ -61,7 +65,6 @@ public class BizpollFrontController extends HttpServlet {
 		System.out.println("uri:" +uri);
 		System.out.println("ctx:"+ ctx);
 		System.out.println("페이지 이동====>"+command);
-		
 		//Action단 이동
 		if(command.equals("/index.bizpoll")) {
 			action = new IndexAction();
@@ -90,38 +93,22 @@ public class BizpollFrontController extends HttpServlet {
 		} else if(command.equals("/logout.bizpoll")) {
 			action = new logoutplayAction();
 			forward = action.excute(request, response);
-		} 
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		else if(command.equals("/searchhtl.bizpoll")) {
+		} else if(command.equals("/update.bizpoll")) {
+			action = new updateAction();
+			forward = action.excute(request, response);
+		} else if(command.equals("/pwupdate.bizpoll")) {
+			action = new pwupdateAction();
+			forward = action.excute(request, response);
+		} else if(command.equals("/deleterule.bizpoll")) {
+			action = new deleteruleAction();
+			forward = action.excute(request, response);
+		} else if(command.equals("/delete.bizpoll")) {
+			action = new deleteAction();
+			forward = action.excute(request, response);
+		} else if(command.equals("/searchhtl.bizpoll")) {
 			action = new SearchListAction();
 			forward = action.excute(request, response);
 		} 
-		
-	
 		
 		//공통 분기작업(페이지 이동)
 		if(forward !=null) {

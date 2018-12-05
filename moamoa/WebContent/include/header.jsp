@@ -214,7 +214,7 @@ nav #menu li a {
 					<c:otherwise>
 						<li>
 						<%-- <a href="#">${sessionScope.loginUser.nik}(${sessionScope.loginUser.id})</a> --%>
-						<a href="#"><i class="fa fa-user"></i></a>
+						<a href="update.bizpoll"><i class="fa fa-user"></i></a>
 						</li>
 						<li><a  class ="active" href="logout.bizpoll">LogOut</a></li>
 						

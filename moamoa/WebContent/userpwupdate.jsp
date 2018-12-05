@@ -176,15 +176,28 @@
 	
 	
 </style>
+<script type="text/javascript">
+$(document).ready(function(){
+	if('${sessionScope.loginUser.id}' !=''){
+			
+	} else {
+		alert('로그인후 사용이 가능합니다 ');
+		location.href="index.bizpoll";
+	}
+});
+
+</script>
+
+
 </head>
 
 <body>
 	<section id="headersection">
 		<div id="myinfo">
 			<h1>내 정보</h1>
-			<a href="#" >회원 정보 수정</a>
-			<a href="#" style="color: #2196F3; text-decoration: underline; font-weight: bold;">비밀번호 수정</a>
-			<a href="#">회원 회원 탈퇴</a>
+			<a href="update.bizpoll" >회원 정보 수정</a>
+			<a href="pwdate.bizpoll" style="color: #2196F3; text-decoration: underline; font-weight: bold;">비밀번호 수정</a>
+			<a href="deleterule.bizpoll">회원 회원 탈퇴</a>
 		</div>
 	</section>
 	
