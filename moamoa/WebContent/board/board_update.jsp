@@ -1,15 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
  <%@ include file = "../include/header.jsp" %>  
- <%@ include file="../include/include.jsp" %> 
+ <%@ include file="../include/include.jsp" %>   
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>board_update</title>
+<title>board_regist</title>
 <style type="text/css">
 	#board_insert #con_wrap{
 		background-color: white;
-		padding-top: 103px;
+		padding-top: 25px;
 	}
 	#board_insert .index_section{
 	    position: relative;
@@ -49,10 +49,11 @@
 		width: 60%;
 		margin: 0 auto;
 		border-radius: 10px;
-		margin-top: 20px;
+		margin-bottom: 50px;
 	}
 	#insert_name{
 		display: block;
+		margin-bottom: 20px;
 		border-bottom: 2px solid gray;
 	}
 	#insert_name>h2{
@@ -64,10 +65,8 @@
 	}
 	#insert_fst{
 		display: block;
-		margin-top: 14px;
-    	border-bottom: 1px solid gray;
-    	padding-bottom: 14px;
-    	padding-left: 20px;
+		padding: 14px 0 14px 20px;
+    	border: 1px solid gray;
 	}
 	#insert_ct{
 		display: inline-block;
@@ -79,6 +78,7 @@
 		display: inline-block;
 		padding: 5px;
     	margin-right: 5px;
+    	outline: none;
 	}
 	#insert_title{
 		display: inline-block;
@@ -110,6 +110,8 @@
 	#insert_scd{
 		display: block;
 		border-bottom: 1px solid gray;
+	    border-right: 1px solid gray;
+	    border-left: 1px solid gray;
 		
 	}
 	#insert_content{
@@ -123,21 +125,25 @@
 		width: 96%;
 		margin: 0 auto;
 	    padding-bottom: 26px;
+	    padding-left: 26px;
 	}
 	#insert_thr{
 		border-bottom: 1px solid gray;	
+		border-left: 1px solid gray;
+    	border-right: 1px solid gray;
 		padding: 10px;
 	}
 	.btn{
 		border: none;
-	    background-color: #dcb878;
+	    background-color: #14a58aa3;
 	    display: inline-block;
-	    height: 25px;
+	    height: 34px;
+	    width: 75px;
 	    margin-left: 19px;
 	    margin-right: 8px;
 	    cursor: pointer;
 	    outline: none;
-	    border-radius: 15px;
+	    padding: 5px;
 	}
 	#input_attach{
 		width: 915px;
@@ -145,18 +151,16 @@
 		outline: none;
 	}
 	#insert_four{
-		border-bottom: 2px solid gray;	
-		padding: 14px;
+		padding: 14px 0px;
 		height: 30px;
 	}
 	#btn_insert{
 		border: none;
-	    background-color: #639be0;
+	    background-color: #639be0b8;
 	    width: 80px;
-	    height: 25px;
+	    height: 33px;
 	    cursor: pointer;
 	    outline: none;
-	    border-radius: 15px;
 	    float: right;
 	}
 	.clr{clear:both;}
@@ -168,8 +172,8 @@
     	margin-left: 11px;
     	font-weight: 600;
     	display: none;
-   
 	}
+	
 </style>
 <script type="text/javascript" src="${path}/smarteditor/js/service/HuskyEZCreator.js" charset="utf-8"></script>
 <script type="text/javascript">
@@ -247,7 +251,7 @@
 				<ul class="index_sec_ul">
 					<li class="index_li"><a href="#">COMMUNITY</a></li>
 					<li class="index_li"><a href="#">자유게시판</a></li>
-					<li class="index_li"><a href="#">글쓰기</a></li>
+					<li class="index_li"><a href="#">게시글 수정</a></li>
 				</ul>
 			</div>
 		</section>
@@ -264,7 +268,7 @@
 					<option>상세리뷰</option>
 					<option>정보</option>	
 				</select>
-			<div id="insert_title">
+				<div id="insert_title">
 				<span>제목</span><input type="text" name ="title"id="input_title" value="${boardview.title}">
 			</div>
 			<div id="insert_writer">

@@ -150,7 +150,7 @@
 #allscoregraph{
 	height:804px;
 	border-bottom: 1px solid #BDBDBD;
-	background-color: rgba(33,33,33,0.4);
+	/* background-color: rgba(33,33,33,0.4); */
 	padding: 0px 80px 100px;
 }
 #sec_scoregraph{
@@ -230,7 +230,7 @@
     text-align: center;
 }
 .sec_gbg{
-	background-image: url(img/graphimg.jpg);
+	background-image: url(img/h_allbgimg.png);
 	background-repeat: no-repeat;
 	background-size: cover;
     opacity: 0.7;
@@ -259,6 +259,11 @@
     height: 90%;
 }
 .graphwrap img{
+	width: 96%;
+    height: 86%;
+    margin: 5% auto;
+}
+.graphimg{
 	width: 96%;
     height: 86%;
     margin: 5% auto;
@@ -452,12 +457,14 @@ button#mybtn{
 				<div class="title_box">
 					<h2>ALL & GRAPH<span>_서울시 구별 호텔 평점 평균 비교 그래프</span>&nbsp;</h2>					
 				</div>
-				<div class="graphwrap">
+				<div id="chart_div" class="graphimg"style="width:1200px; height: 700px;"></div>
+				
+				<%-- <div class="graphwrap">
 					<img alt="" src="${path}/img/scoreavg.png">
-				</div>
+				</div> --%>
 			</div>
 		</section>
-		<section class="box sec_gbg2">	
+		<section class="box sec_gbg2"> 	
 			<div id="sec_scoregraph" class="hotellist">
 				<div class="title_box">
 					<h2>PART & GRAPH<span>_종로구 호텔 평점 평균 비교 그래프</span>&nbsp;</h2>
@@ -499,6 +506,54 @@ $(document).ready(function(){
 		$("html,body").animate({scrollTop:0},1000);
 	});
 });
+</script>
+<!--Load the AJAX API-->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+		google.charts.load('current', {'packages':['corechart']});
+		google.charts.setOnLoadCallback(drawVisualization);
+
+	
+	function drawVisualization(){
+		var data = google.visualization.arrayToDataTable([
+	         ['Element', '평점', { role: 'style', }],
+	         ['성동구', 8.51, '#8041D9'],            // RGB value
+	         ['구로구', 8.27, '#8041D9'],            // English color name
+	         ['강서구', 8.27, '#8041D9'],
+	         ['마포구', 8.22, '#8041D9'],
+	         ['동작구', 8.21, '#8041D9'],
+	         ['금천구', 8.19, '#8041D9'],
+	         ['중구', 8.14, '#8041D9'],
+	         ['송파구', 8.13, '#8041D9'],
+	         ['종로구', 7.99, '#8041D9'],
+	         ['용산구', 7.97, '#8041D9'],
+	         ['성북구', 7.96, '#8041D9'],
+	         ['강남구', 7.91, '#8041D9'],
+	         ['영등포구', 7.86, '#8041D9'],
+	         ['광진구', 7.85, '#8041D9'],
+	         ['서대문구',7.85, '#8041D9'],
+	         ['강북구', 7.63, '#8041D9'],
+	         ['서초구', 7.61, '#8041D9'],
+	         ['관악구', 7.46, '#8041D9'],
+	         ['은평구', 7.39, '#8041D9'],
+	         ['동대문구', 7.31, '#8041D9'],
+	      ]);
+
+		var options= {
+				title:'서울시 구별 3-5성급 호텔 평점 평균',
+				vAxis: {},
+				hAxis: {},
+				seriesType :'bars',
+				series: {10: {type: 'line'}},
+				colors : ['#8041D9'],
+				
+		};
+		var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+		chart.draw(data, options);
+
+	}
+
+
 </script>
 </html>
 <%@ include file= "include/footer.jsp" %>
