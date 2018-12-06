@@ -274,10 +274,15 @@ input {
 	<section id="imgbox">
 		<div id="search">
 			<div class="box">
-				<form>
+				<select name="searchType" class="custom-select" id="inputGroupSelect01" style="width: 120pxl">
+					<option value="1">제목</option>
+					<option value="2">내용</option>
+					<option value="3">제목+내용</option>
+					<option value="4">작성자</option>
+				</select>
 					<input type="text" name="" placeholder="Hotel Name..." id="input-text">
 					<input type="submit" name="" value="GO" id="input-submit">
-				</form>
+				
 	
 			</div>
 		</div>
@@ -379,6 +384,14 @@ $(document).ready(function () {
 	/* $(document).scrollTop(0); */
 	$("html , body" ).animate({scrollTop: 0} , 1000);
 	});
+	
+	 $("#input-submit").on("click", function(){
+		 	var flag= $("#inputGroupSelect01").val();
+		 	var keyword= $("#input-text").val();
+		 	
+			location.href="searchhtl.bizpoll?flag="+flag+"&keyword="+keyword;
+	});
+	
 
 });
   

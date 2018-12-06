@@ -7,10 +7,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.jasper.tagplugins.jstl.core.ForEach;
+
 
 import com.moamoa.dao.HotelListDAO;
-import com.moamoa.dao.hotelDAO;
+
 import com.moamoa.dto.CriteriaDTO;
 import com.moamoa.dto.HotelListDTO;
 import com.moamoa.dto.PageMakerDTO;
@@ -24,7 +24,8 @@ public class HotelListAction implements Action{
 		
 		
 		String url ="Hotellist.jsp";
-		
+		HotelListDAO hdao = HotelListDAO.getInstance();
+		HotelListDAO dao = HotelListDAO.getInstance();
 		CriteriaDTO criDto = new CriteriaDTO();
  		int page = 1;
 		if(request.getParameter("page")!=null) {
@@ -60,15 +61,7 @@ public class HotelListAction implements Action{
 			request.setAttribute("keyword", keyword);
 		}
 		
-		HotelListDTO hldto = new HotelListDTO();
-		
-		HotelListDAO hdao = HotelListDAO.getInstance();
-		
-		
-		
-
 	
-		HotelListDAO dao = HotelListDAO.getInstance();
 		List<HotelListDTO> hotellist = dao.hotelView(criDto);
 	
 		
