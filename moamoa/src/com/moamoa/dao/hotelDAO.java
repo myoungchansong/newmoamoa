@@ -1,30 +1,29 @@
 package com.moamoa.dao;
 
 import com.moamoa.dto.CriteriaDTO;
+import com.moamoa.dto.HotelListDTO;
 import com.moamoa.dto.hotelDTO;
 import com.moamoa.mybatis.sqlMapConfig;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 public class hotelDAO {
-	Connection conn = null;
-	PreparedStatement pstmt = null;
-	ResultSet rs = null;
-	int result = 0;
-	SqlSessionFactory sqlSessionFactory = sqlMapConfig.getSqlSession();
-	SqlSession sqlSession;
-	private hotelDAO() {}
-	private static hotelDAO instance = new hotelDAO();
-	
-	public static hotelDAO getInstance() {
-		return instance;
-	}
+			SqlSessionFactory sqlSessionFactory = sqlMapConfig.getSqlSession();
+			
+			SqlSession sqlSession;
+			
+
+			private hotelDAO() {}
+			private static hotelDAO instance = new hotelDAO();
+			
+			public static hotelDAO getInstance() {
+				return instance;
+			}
+			
+			
 
 	public void hotelinsert(hotelDTO mDto)	{
 		sqlSession = sqlSessionFactory.openSession();
@@ -66,39 +65,19 @@ public class hotelDAO {
 	}
 	
 	
+	/*=============================================================================*/
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-		public List<hotelDTO> hotelView(){
+
+		public List<HotelListDTO> hotelView(CriteriaDTO criDto){
 			sqlSession = sqlSessionFactory.openSession();
-			List<hotelDTO> hotelList = null;
+			
+			List<HotelListDTO> hotelList = null;
 			
 			try {
 				
 				hotelList = sqlSession.selectList("hotelView");
-				
+				System.out.println("=============================");
+				System.out.println(hotelList.toString());
 			} catch (Exception e) {
 				e.printStackTrace();
 			}finally {
@@ -107,8 +86,27 @@ public class hotelDAO {
 			return hotelList;
 		}
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		public int totalCount(CriteriaDTO criDto) {
+			
+			
 			sqlSession = sqlSessionFactory.openSession();
+			
+			
 			int result = 0;
 			try {
 				
@@ -121,5 +119,9 @@ public class hotelDAO {
 			}
 			return result;
 		}
+		
+		
+		
+		
 		
 }

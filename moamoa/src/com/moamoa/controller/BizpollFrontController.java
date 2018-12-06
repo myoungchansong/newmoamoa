@@ -15,8 +15,8 @@ import com.moamoa.action.BoardListAction;
 import com.moamoa.action.BoardReadAction;
 import com.moamoa.action.BoardSearchAction;
 import com.moamoa.action.BoardViewcntAction;
+import com.moamoa.action.HotelListAction;
 import com.moamoa.action.IndexAction;
-import com.moamoa.action.SearchListAction;
 import com.moamoa.action.deleteAction;
 import com.moamoa.action.deleteplayAction;
 import com.moamoa.action.deleteruleAction;
@@ -128,12 +128,11 @@ public class BizpollFrontController extends HttpServlet {
 		} else if(command.equals("/deleteplay.bizpoll")) {
 			action = new deleteplayAction();
 			forward = action.excute(request, response);
-		}else if(command.equals("/searchhtl.bizpoll")) {
-			action = new SearchListAction();
-			forward = action.excute(request, response);
 		} 
 		
 		
+		
+		/*====================board================================*/
 		else if(command.equals("/boardSearch.bizpoll")) {
 			action = new BoardSearchAction();
 			forward = action.excute(request, response);
@@ -145,6 +144,34 @@ public class BizpollFrontController extends HttpServlet {
 			forward = action.excute(request, response);
 		}
 			
+		
+		
+		
+		/*====================hotellist================================*/
+		
+		
+		else if(command.equals("/searchhtl.bizpoll")) {
+			action = new HotelListAction();
+			forward = action.excute(request, response);
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		//공통 분기작업(페이지 이동)

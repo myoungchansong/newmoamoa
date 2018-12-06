@@ -256,7 +256,7 @@ input {
   border: none;
   outline: none;
   background-color: #FF6C6C;
-  color: #00BCD4;
+  color: white;
   cursor: pointer;
   padding: 15px;
   border-radius: 4px;
@@ -336,13 +336,15 @@ input {
 				<c:if test="${pageMaker.prev}">
 					<a href="searchhtl.bizpoll?page=${pageMaker.startPage-1}">&laquo;</a>
 				</c:if>
+				
 				<c:if test="${pageMaker.prev}">
 					<a href="searchhtl.bizpoll?page=${pageMaker.firstPage}">${pageMaker.firstPage}</a>
 					<a>...</a>
 				</c:if>
 				
 				<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
-					<a href="searchhtl.bizpoll?page=${idx}&flag=${flag}&keyword=${keyword}&key=${code}" <c:out value="${pageMaker.criDto.page == idx? 'class=active':''}"/>>${idx}</a>
+					<c:out value="${pageMaker.criDto.page == idx? 'class=active':''}"/>
+					<a href="searchhtl.bizpoll?page=${idx}&flag=${flag}&keyword=${keyword}&key=${code}">${idx}</a>
 				</c:forEach>
 				
 				<c:if test="${pageMaker.next}">

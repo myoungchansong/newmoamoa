@@ -72,8 +72,8 @@ public class HotelList {
 					for (Element element2 : hotelimgurl) {
 						String hotelimg = element2.getElementsByTag("img").attr("src");
 						System.out.println("hotelimg==============>" + hotelimg);
-						HotelListDTO dto = new HotelListDTO(hotelname, hoteladdr, summary, hotelimg);
-						Dao.hotellist(dto);
+						hotelDTO dto = new hotelDTO(hotelname, hoteladdr, summary, hotelimg);
+						Dao.hotelupdate(dto);
 						break;
 					}
 
