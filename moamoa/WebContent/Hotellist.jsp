@@ -292,7 +292,7 @@ input {
 		</div>
 		
 	<!--호텔 리스트  -->	
-	<c:forEach items="${htlsearchList }" var = "htlDTO">
+	<c:forEach items="${htlsearchList}" var = "htlDTO">
 		<div id="hotelborder">
 		
 			<c:choose>	

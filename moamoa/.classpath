@@ -18,7 +18,7 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/developer/Java_library/json-simple-1.1.1.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="lib" path="C:/Users/501-19/Desktop/jar file/jsoup-1.11.3.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

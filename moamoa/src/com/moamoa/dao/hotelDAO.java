@@ -5,6 +5,7 @@ import com.moamoa.dto.HotelListDTO;
 import com.moamoa.dto.hotelDTO;
 import com.moamoa.mybatis.sqlMapConfig;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -68,58 +69,6 @@ public class hotelDAO {
 	/*=============================================================================*/
 	
 
-		public List<HotelListDTO> hotelView(CriteriaDTO criDto){
-			sqlSession = sqlSessionFactory.openSession();
-			
-			List<HotelListDTO> hotelList = null;
-			
-			try {
-				
-				hotelList = sqlSession.selectList("hotelView");
-				System.out.println("=============================");
-				System.out.println(hotelList.toString());
-			} catch (Exception e) {
-				e.printStackTrace();
-			}finally {
-				sqlSession.close();
-			}
-			return hotelList;
-		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		public int totalCount(CriteriaDTO criDto) {
-			
-			
-			sqlSession = sqlSessionFactory.openSession();
-			
-			
-			int result = 0;
-			try {
-				
-				result = sqlSession.selectOne("countPaging" ,criDto);
-				System.out.println("Result :" + result);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}finally {
-				sqlSession.close();
-			}
-			return result;
-		}
-		
 		
 		
 		
