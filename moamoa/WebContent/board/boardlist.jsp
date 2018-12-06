@@ -309,7 +309,7 @@
   	 	border-radius: 5px;
 	}
 </style>
-<script type="text/javascript" src="${path}/js/selecttag.js"></script>
+
 <script type="text/javascript">
  $(document).ready(function(){
 	 $('.search-button').click(function(){
@@ -448,6 +448,6 @@
 	</div>
 
 </body>
-
+<script type="text/javascript" src="${path}/js/selecttag.js"></script>
 </html>
 <%@ include file = "../include/footer.jsp" %> 
