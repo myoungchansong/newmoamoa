@@ -145,7 +145,7 @@
 		  	FROM moaboard
 			WHERE bno>0
 		]]>	
-		<!-- <if test='flag == "1"'>
+		<if test='flag == "1"'>
        		<![CDATA[AND title LIKE '%'||#{keyword}||'%']]>
         </if>
         <if test='flag == "2"'>
@@ -156,7 +156,7 @@
         </if>
         <if test='flag == "4"'>
         	<![CDATA[AND writer LIKE '%'||#{keyword}||'%']]>
-        </if> -->
+        </if>
 	</select>
 	<select id="boardList" resultType="com.moamoa.dto.BoardDTO">
 		<![CDATA[

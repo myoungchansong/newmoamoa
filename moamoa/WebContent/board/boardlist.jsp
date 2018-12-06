@@ -258,7 +258,24 @@
   top: 3px;
   height: 6px;
 }
-
+	#search_line{
+	    float: right;	
+	    margin-right: 10px;
+	}
+	#search_ment{
+		display: inline-block;
+	    font-size: 17px;
+	    font-weight: 400;
+	    color: gray;
+	    text-align: center;
+	    margin-left: 100px;
+	}
+	.searchpoint{
+		display:inline-block;
+		font-size: 20px;
+		font-weight: 600px;
+		color: red;
+	}
 	/*board table  */
 	table {
 	    border-collapse: collapse;
@@ -283,7 +300,7 @@
 	/*pagination */
 	#pagination  {
 		text-align: center;	
-		padding: 20px;
+		padding: 40px;
 	}
 	#pagination a {
 	    color: black;
@@ -361,18 +378,31 @@
 				</select>
 			</div>
 			
-			<!--검색 -->
-			<div class="search">
-			  <input type="search" class="search-box" />
-			  <span class="search-button">
-			    <span class="search-icon"></span>
-			  </span>
-			</div>
+			<c:if test="${!empty keyword}">
+				<div id="search_ment">"<span class="searchpoint">${keyword}</span>
+				키워드로 총<span class="searchpoint">${pageMaker.totalCount}</span>건 검색되었습니다."</div>
+			</c:if>
 			<div class="btn_header">
 				<a href="" id="write_btn">쓰기</a>		
 			</div>
 			<div class="btn_header">
 				<a href="" id="alllist_btn">목록</a>		
+			</div>
+			<!--검색 -->
+			<div class="search">
+			  <input type="search" class="search-box" id="btn_search"/>
+			  <span class="search-button">
+			    <a href="#" id="btn_search_submit"><span class="search-icon"></span></a>
+			  </span>
+			</div>
+			<div id="search_line" class="custom-select" style="width:100px;">
+				<select id="search_category">
+					<option selected="selected" value="3">조건선택</option>
+					<option value="1">제목</option>
+					<option value="2">내용</option>
+					<option value="3">제목+내용</option>	
+					<option value="4">작성자</option>
+				</select>
 			</div>
 			
 			
