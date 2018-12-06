@@ -227,9 +227,11 @@ input {
 
 #pagination {
 		text-align: center;	
-		height: 100px;
-    	font-size: 23px;
+		margin-bottom: 40px;
 		padding: 20px;
+		
+}	
+#pagination a{	
 	    color: black;
 	    padding: 8px 16px;
 	    text-decoration: none;
@@ -343,8 +345,7 @@ input {
 				</c:if>
 				
 				<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
-					<c:out value="${pageMaker.criDto.page == idx? 'class=active':''}"/>
-					<a href="searchhtl.bizpoll?page=${idx}&flag=${flag}&keyword=${keyword}&key=${code}">${idx}</a>
+					<a href="searchhtl.bizpoll?page=${idx}&flag=${flag}&keyword=${keyword}&key=${code}" <c:out value="${pageMaker.criDto.page == idx? 'class=active':''}"/>>${idx}</a>
 				</c:forEach>
 				
 				<c:if test="${pageMaker.next}">

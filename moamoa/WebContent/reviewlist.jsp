@@ -288,6 +288,23 @@ button#mybtn{
 		background-color: #B2EBF4;
 		color:white;
 	}
+	.rpbox{
+		display: inline-block;
+	    width: 87%;
+	    height: 220px;
+	    margin-left: 95px;
+	    border: 1px solid white;
+	    box-sizing: border-box;
+    	font-size: 20px;
+	}
+	.rpcontent{
+		display: inline-block;
+	    width: 100%;
+	    height: 100%;
+	    padding: 24px;
+	    box-sizing: border-box;
+		color: white;
+	}.fa{color: white;}
 </style>
 <script type="text/javascript">
         window.onload = function () {
@@ -482,9 +499,16 @@ button#mybtn{
 				</div>
 				<div class="reviewtype">
 					<i class="fa fa-plus"></i>
-					<div></div>	
+					<div class="rpbox">
+						<div class="rpcontent">&nbsp;객실내부 청소는 깔끔했어요</div>
+					</div>	
 				</div>
-				<div class="reviewtype"><i class="fa fa-minus"></i></div>
+				<div class="reviewtype">
+					<i class="fa fa-minus"></i>
+					<div class="rpbox">
+						<div class="rpcontent">&nbsp;안내데스크에서 신관인지  본관인지 안내가 없어 왔다갔다해서 불편했어요</div>
+					</div>	
+				</div>
 			</div>
 		</section>
 			
