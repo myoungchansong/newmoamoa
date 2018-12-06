@@ -66,7 +66,7 @@
 	}
 	#header_member{
 		font-size: 33px;
-    	margin:50px auto;
+    	margin:20px auto;
     	color: #707374;
     	font-weight: 300;
     	text-align: center;
@@ -207,27 +207,6 @@
 		z-index: 9;
  		background-color: #ffffff00;	
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	

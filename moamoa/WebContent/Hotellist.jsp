@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ include file ="include/include.jsp" %> 
-     <%@ include file ="include/header2.jsp" %> 
+     <%@ include file ="include/header.jsp" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,56 +16,25 @@ list-style: none;
 color: black;
 }
 
+
 #search {
-	width: 600px;
+	width: 740px;
 	height: 100px;
-	margin: 10px auto;
+	margin: 18px auto;
+	padding-top: 150px;
 }
+
+
 .box {
 	position: relative;
-	top: 290%;
+	top: 50%;
 	left: 50%;
-	width: 500px;
+	width: 700px;
 	transform: translate(-50%, -50%);
+	margin: 0px;
 }
-
-
-#imgbox{
-	height: 400px;
-	background-image: url(img/1234.JPG);
-	background-repeat: no-repeat ;
-	background-size: cover;
-	background-position: center;
-}
-
-#imgbox .box
-{
-	height: 300px;
-	width:100%;
-	color: #000;
-	margin: 0 auto;
-}
-
-
-#imgbox .box h2{
-	
-	margin: 0 0 20px;
-	padding: 0;
-	padding-top: 50px;
-	font-size: 48px;
-	color: white;
-}
-
-#imgbox .box p{
-	padding-top: 50px;
-	margin: 0 0 20px;
-	font-size: 18px;
-	color: white;
-}
-
 
 input {
-	position: relative;
 	display: inline-block;
 	font-size: 20px;
 	box-sizing: border-box;
@@ -73,21 +42,21 @@ input {
 }
 
 #input-text {
+	position: absolute;
 	background: #fff;
-	width: 87%;
-	height: 67px;
+	width: 600px;
+	height: 70px;
 	border: none;
 	outline: none;
 	padding: 0 25px;
-	border-radius: 5px 0 0 5px;
 }
 
 #input-submit {
-	position: relative;
-	left: -5px;
+	position: absolute;
+	right:0px;
 	border-radius: 0 5px 5px 0;
-	width: 66px;
-	height: 67px;
+	width: 60px;
+	height: 70px;
 	border: none;
 	outline: none;
 	cursor: pointer;
@@ -98,6 +67,35 @@ input {
 #input-submit:hover {
 	background: #ff5722;
 }
+
+#inputGroupSelect01{
+	-webkit-appearance: none;
+	height: 70px;
+	width: 80px; 
+	border: none;
+	border-radius: 5px 0px 0px 5px;
+}
+#imgbox{
+	height: 400px;
+	background-image: url(img/1234.JPG);
+	background-repeat: no-repeat ;
+	background-size: cover;
+	background-position: center;
+	position: relative;
+	top: -18px;
+}
+
+
+
+
+input {
+	position: relative;
+	display: inline-block;
+	font-size: 20px;
+	box-sizing: border-box;
+	transition: .5s;
+}
+
 
 /*호텔 리스트  */
 #hotellist{
@@ -267,6 +265,10 @@ input {
 #myBtn:hover {
   background-color: #555;
 }
+
+
+
+
 </style>
 </head>
 <body>
@@ -275,15 +277,13 @@ input {
 		<div id="search">
 			<div class="box">
 				<select name="searchType" class="custom-select" id="inputGroupSelect01" style="width: 120pxl">
-					<option value="1">제목</option>
-					<option value="2">내용</option>
-					<option value="3">제목+내용</option>
-					<option value="4">작성자</option>
+					<option value="1">호텔 이름</option>
+					<option value="2">호텔 주소</option>
+					<option value="3">평점</option>
+					<option value="4">단어</option>
 				</select>
 					<input type="text" name="" placeholder="Hotel Name..." id="input-text">
 					<input type="submit" name="" value="GO" id="input-submit">
-				
-	
 			</div>
 		</div>
 	</section>

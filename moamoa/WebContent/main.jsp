@@ -26,7 +26,7 @@ body {
 	width: 200px;
 	margin: 0px auto;
 	display: block;
-	margin-top: 50px;
+	margin-top: 125px;
 }
 
 #moa {
@@ -34,7 +34,7 @@ body {
 	font-size: 50px;
 	font-weight: 500px;
 	text-align: center;
-	font-family:
+	font-family: sans-srif;
 }
 
 #mapimg {
@@ -45,54 +45,7 @@ body {
 }
 
 /*===========seach===============================================  */
-#search {
-	width: 600px;
-	height: 100px;
-	margin: 10px auto;
-}
 
-.box {
-	position: relative;
-	top: 50%;
-	left: 50%;
-	width: 500px;
-	transform: translate(-50%, -50%);
-}
-
-input {
-	position: relative;
-	display: inline-block;
-	font-size: 20px;
-	box-sizing: border-box;
-	transition: .5s;
-}
-
-#input-text {
-	background: #fff;
-	width: 430px;
-	height: 50px;
-	border: none;
-	outline: none;
-	padding: 0 25px;
-	border-radius: 5px 0 0 5px;
-}
-
-#input-submit {
-	position: relative;
-	left: -5px;
-	border-radius: 0 5px 5px 0;
-	width: 60px;
-	height: 50px;
-	border: none;
-	outline: none;
-	cursor: pointer;
-	background: #ffc107;
-	color: #fff;
-}
-
-#input-submit:hover {
-	background: #ff5722;
-}
 
 .mapArea {
 	width: 300px;
@@ -230,6 +183,8 @@ background-image: linear-gradient(to right , rgba(255,255,255,0.8), rgba(0,188,2
 width: 100%;
 padding-left: 11%;
 margin-bottom: 50px;
+margin-top: 250px;
+
 }
 .row {
 	width:100%;
@@ -332,6 +287,63 @@ text-align: center;
   background-color: #555;
 }
 
+
+
+
+#search {
+	width: 800px;
+	height: 100px;
+	margin: 80px auto;
+}
+
+.box {
+	position: relative;
+	top: 50%;
+	left: 50%;
+	width: 700px;
+	transform: translate(-50%, -50%);
+	margin: 0px;
+}
+
+input {
+	position: relative;
+	display: inline-block;
+	font-size: 20px;
+	box-sizing: border-box;
+	transition: .5s;
+}
+
+#input-text {
+	position: absolute;
+	background: #fff;
+	width: 600px;
+	height: 60px;
+	border: none;
+	outline: none;
+	padding: 0 25px;
+	border-radius: 5px 0px 0px 5px;
+}
+
+#input-submit {
+	position: relative;
+	left:600px;
+	border-radius: 0 5px 5px 0;
+	width: 80px;
+	height: 60px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	background: #ffc107;
+	color: #fff;
+}
+
+#input-submit:hover {
+	background: #ff5722;
+}
+
+
+
+
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script
@@ -343,34 +355,40 @@ text-align: center;
 	<!--로고 -->
 	<div>
 		<img src="${path}/img/main.png" id="mainimg">
-		<div id="moa">MoAMoA</div>
+		<div id="moa" style="font-weight: bold;">MoAMoA</div>
 	</div>
 
 	<!--검색창 -->
 	<div id="search">
 		<div class="box">
-			<form>
+			<!-- 	<select name="searchType" class="custom-select" id="inputGroupSelect01" style="width: 120pxl">
+					<option value="1">호텔 이름</option>
+					<option value="2">호텔 주소</option>
+					<option value="3">평점</option>
+					<option value="4">단어</option>
+				</select> -->
 				<input type="text" name="" placeholder="Hotel Name..." id="input-text">
 				<input type="submit" name="" value="GO" id="input-submit">
-			</form>
+				
+			
 
 		</div>
 	</div>
 
 	<!--지도  -->
-	<div id="map">
+	<div id="map" style="margin-top:0px;">
 		<div class="mapArea">
 			<div id="locName"></div>
 			<div id="paper"></div>
 		</div>
 	</div>
 	
-	<div class="img_collection_title">
-		<h3>서울 주요 여행지</h3>
-	</div>
 
 <!--메인 페이지 이미지 모음  -->
  <section id="img_section">
+	<div class="img_collection_title">
+		<h3>서울 주요 여행지</h3>
+	</div>
 	<div class="row">
 	
 	<!--첫번째 컬럼  -->
@@ -508,6 +526,17 @@ text-align: center;
 		$("html , body" ).animate({scrollTop: 0} , 1000);
 		});
 	
+		 $("#input-submit").on("click", function(){
+			 var flag= $("#inputGroupSelect01").val();
+			 var keyword= $("#input-text").val();
+			if(keyword !=""){
+				location.href="searchhtl.bizpoll?flag=2"+"&keyword="+keyword;
+			} else{
+				location.href="searchhtl.bizpoll";
+			}			 	
+		});
+		
+		
 		});
 		
 </script>

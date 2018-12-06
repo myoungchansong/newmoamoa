@@ -140,16 +140,18 @@
 		z-index: 9;
  		background-color: #ffffff00;	
 	}
-	#find_pw>span{
+	
+	#find_pw > span{
 		float: right;
 		text-align: center;
     	align-items: center;
     	display: flex;
     	font-size: 12px;
-    	width: 95px;
+    	width: 50px;
     	height: 48px;
     	color: #707374;
 	}
+	
 	#find_pw>span:hover{
 		text-decoration: underline;
 		color: #44a8f2;

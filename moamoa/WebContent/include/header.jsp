@@ -74,7 +74,7 @@ nav #menu li {
  
 nav #menu li a {
       color: #fff;
-      font-family: "Poppins";
+      font-weight: bold;
 }
  
 #toggle {
@@ -200,7 +200,7 @@ nav #menu li a {
 <body>
 	<nav>
 		<span id="brand">
-			<a href="index.bizpoll">MoAMoA</a>
+			<a href="index.bizpoll" style="font-weight: bold;">MoAMoA</a>
 		</span>
 		
 		<ul id="menu">
