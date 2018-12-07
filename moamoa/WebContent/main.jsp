@@ -530,12 +530,46 @@ input {
 			 var flag= $("#inputGroupSelect01").val();
 			 var keyword= $("#input-text").val();
 			if(keyword !=""){
-				location.href="searchhtl.bizpoll?flag=2"+"&keyword="+keyword;
+				location.href="searchhtl.bizpoll?flag=1"+"&keyword="+keyword;
 			} else{
 				location.href="searchhtl.bizpoll";
 			}			 	
 		});
 		
+		 
+		 
+		 
+	/* 	 aus.vic25.click(function(event) {
+			 alert(locInfo.loc0);
+			 
+		}); */
+		
+		
+		 var current = null;
+			for (var state in aus) {
+		        (function(st, state) {
+		            st[0].style.cursor = "pointer";
+		            st[0].onmouseover = function() {
+						$('#locName').text(locInfo["loc" + st.id][0]);
+						if (current == st.id) { return }
+						$(st.node).attr('fill', '#FF5722');
+						$(st.node).attr('stroke', '#000000');
+						
+						$(st.node).click(function(event) {
+							var local=(locInfo["loc" + st.id][0]); /*locInfo.loc[숫자]*/
+							$(st.node).attr(location.href="searchhtl.bizpoll?flag=2"+"&keyword="+local);
+						});
+		            };
+		            st[0].onmouseout = function() {
+						if (current == st.id) { return }
+						$(st.node).attr('fill', '#fff');
+						$(st.node).attr('stroke', '#000000');
+		            };
+		        })(aus[state], state);
+		    }
+		 
+		 
+		 
 		
 		});
 		
