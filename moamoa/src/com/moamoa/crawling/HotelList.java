@@ -63,12 +63,15 @@ public class HotelList {
 					System.out.println(htl_detail_page.text());
 					String hotelname = doc1.select("#hp_hotel_name").text();
 					String summary = doc1.select("#summary > p").text();
+				
+				
 					String hoteladdr = doc1.select(".hp_address_subtitle").text();
 					System.out.println("호텔이름 " + hotelname);
 					System.out.println("호텔 정보 " + summary);
 					System.out.println("호텔 주소 " + hoteladdr);
+					
+					
 					Elements hotelimgurl = doc1.select(".hp-gallery");
-
 					for (Element element2 : hotelimgurl) {
 						String hotelimg = element2.getElementsByTag("img").attr("src");
 						System.out.println("hotelimg==============>" + hotelimg);

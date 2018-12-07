@@ -53,10 +53,10 @@ public class hotelDAO {
 		try {
 			reuslt = sqlSession.insert("hotelupdate",mDto);
 			if(reuslt >0) {
-				System.out.println("등록성공");
 				sqlSession.commit();
+				/*System.out.println("등록성공");*/
 			}else {
-				System.out.println("등록실패");
+				/*System.out.println("등록실패");*/
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

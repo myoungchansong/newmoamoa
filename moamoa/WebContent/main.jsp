@@ -26,7 +26,7 @@ body {
 	width: 200px;
 	margin: 0px auto;
 	display: block;
-	margin-top: 125px;
+	margin-top: 50px;
 }
 
 #moa {
@@ -395,54 +395,65 @@ input {
 		<div class="column">
 		 	<div class="img_hover_wrapper">
 				<img class="img-responsive" src="${path}/seoulimg/lottetower.jpg">
-				<div class="overlay">
-					<div class="img_content" style="flex: 25%;">
-				 		<h1>롯데월드타워</h1>
-				 		<p>서울 송파구</p>
-				 	</div>
-			 	</div>
+				<a href="searchhtl.bizpoll?flag=1&keyword=송파구">
+					<div class="overlay">
+						<div class="img_content" style="flex: 25%;">
+				 			<h1>롯데월드타워</h1>
+				 			<p>서울 송파구</p>
+				 		</div>
+			 		</div>
+				 </a>
 		  	</div>
 		  	
 		  	<div class="img_hover_wrapper">
 				<img class="img-responsive" src="${path}/seoulimg/coex.jpg">
-				<div class="overlay">
-					<div class="img_content" style="flex: 25%;">
-				 		<h1>COEX</h1>
-				 		<p>서울 강남구</p>
+				<a href="searchhtl.bizpoll?flag=1&keyword=강남구">
+					<div class="overlay">
+						<div class="img_content" style="flex: 25%;">
+					 		<h1>COEX</h1>
+					 		<p>서울 강남구</p>
+					 	</div>
 				 	</div>
-			 	</div>
+			 	</a>
 			</div>
 			
 			<div class="img_hover_wrapper">
 				<img src="${path}/seoulimg/hanok_vilege.jpg">
-				<div class="overlay">
-					<div class="img_content" style="flex: 25%;">
-				 		<h1>서울 한옥 마을</h1>
-				 		<p>서울 종로구</p>
+				<a href="searchhtl.bizpoll?flag=1&keyword=종로구">
+					<div class="overlay">
+						<div class="img_content" style="flex: 25%;">
+					 		<h1>서울 한옥 마을</h1>
+					 		<p>서울 종로구</p>
+					 	</div>
 				 	</div>
-			 	</div>
+				 </a>
 			</div>	
 			
 			<div class="img_hover_wrapper">
 				<img src="${path}/seoulimg/market.jpg">
-				<div class="overlay">
-					<div class="img_content" style="flex: 25%;">
-				 		<h1>노량진 수산시장</h1>
-				 		<p>서울 동작구</p>
+				<a href="searchhtl.bizpoll?flag=1&keyword=동작구">
+					<div class="overlay">
+						<div class="img_content" style="flex: 25%;">
+					 		<h1>노량진 수산시장</h1>
+					 		<p>서울 동작구</p>
+					 	</div>
 				 	</div>
-			 	</div>
+				 </a>
 			</div>
 		 </div><!--column end  -->	
+
 		 <!--두번째 컬럼  -->	
 		<div class="column">
 			<div class="img_hover_wrapper">	
 				<img src="${path}/seoulimg/namsan.jpg">
-				<div class="overlay">
-					<div class="img_content" style="flex: 25%;">
-				 		<h1>N서울타워</h1>
-				 		<p>서울 용산구</p>
+				<a href="searchhtl.bizpoll?flag=1&keyword=용산구">
+					<div class="overlay">
+						<div class="img_content" style="flex: 25%;">
+					 		<h1>N서울타워</h1>
+					 		<p>서울 용산구</p>
+					 	</div>
 				 	</div>
-			 	</div>
+				 </a>
 			</div>	
 			
 			
@@ -452,12 +463,14 @@ input {
 			
 			<div class="img_hover_wrapper">
 				<img src="${path}/seoulimg/festival2.PNG">
-				<div class="overlay">
-					<div class="img_content" style="flex: 25%;">
-				 		<h1>여의도</h1>
-				 		<p>영등포구</p>
+				<a href="searchhtl.bizpoll?flag=1&keyword=영등포구">
+					<div class="overlay">
+						<div class="img_content" style="flex: 25%;">
+					 		<h1>여의도</h1>
+					 		<p>영등포구</p>
+					 	</div>
 				 	</div>
-			 	</div>
+				 </a>
 			</div>
 			<div class="img_hover_wrapper">
 				<a href="http://korean.visitseoul.net/index">
@@ -469,32 +482,38 @@ input {
 		<div class="column">
 			<div class="img_hover_wrapper">
 				<img src="${path}/seoulimg/ddp.jpg">
-				<div class="overlay">
-					<div class="img_content" style="flex: 25%;">
-				 		<h1 style="width: 300px;">동대문 디자인 플라자</h1>
-				 		<p>서울 중구</p>
+				<a href="searchhtl.bizpoll?flag=1&keyword=중구">
+					<div class="overlay">
+						<div class="img_content" style="flex: 25%;">
+					 		<h1 style="width: 300px;">동대문 디자인 플라자</h1>
+					 		<p>서울 중구</p>
+					 	</div>
 				 	</div>
-			 	</div>
+				 </a>
 			</div>	
 			
 			<div class="img_hover_wrapper">
 				<img src="${path}/seoulimg/004.PNG">
-				<div class="overlay">
-					<div class="img_content" style="flex: 25%;">
-				 		<h1>경복궁</h1>
-				 		<p>서울 종로구</p>
+				<a href="searchhtl.bizpoll?flag=1&keyword=종로구">
+					<div class="overlay">
+						<div class="img_content" style="flex: 25%;">
+					 		<h1>경복궁</h1>
+					 		<p>서울 종로구</p>
+					 	</div>
 				 	</div>
-			 	</div>
+			 	</a>
 			</div>
 			
 			<div class="img_hover_wrapper">
 				<img src="${path}/seoulimg/003.PNG">
-				<div class="overlay">
-					<div class="img_content" style="flex: 25%;">
-				 		<h1>서울 홍대 거리</h1>
-				 		<p>서울 마포구</p>
+				<a href="searchhtl.bizpoll?flag=1&keyword=마포구">
+					<div class="overlay">
+						<div class="img_content" style="flex: 25%;">
+					 		<h1>서울 홍대 거리</h1>
+					 		<p>서울 마포구</p>
+					 	</div>
 				 	</div>
-			 	</div>
+			 	</a>
 			</div>
 			
 		</div><!--column end  -->
@@ -510,6 +529,10 @@ input {
 </body>
 <script type="text/javascript" src="js/seoulmap.js"></script>
 <script type="text/javascript">
+
+
+		/* TOP 버튼 */
+	
 	$(document).ready(function () {
 		$("#myBtn").css("display" , "none");
 	
@@ -521,11 +544,15 @@ input {
 		}
 		});
 	
+		
+		
 		$(document).on("click" , "#myBtn" , function() {
 		/* $(document).scrollTop(0); */
 		$("html , body" ).animate({scrollTop: 0} , 1000);
 		});
 	
+		/* 메인 페이지 검색 기능  기본 Flag 1(이름및 주소로 검색 가능)*/
+		
 		 $("#input-submit").on("click", function(){
 			 var flag= $("#inputGroupSelect01").val();
 			 var keyword= $("#input-text").val();
@@ -536,15 +563,10 @@ input {
 			}			 	
 		});
 		
-		 
-		 
-		 
-	/* 	 aus.vic25.click(function(event) {
-			 alert(locInfo.loc0);
-			 
-		}); */
 		
 		
+		 
+		 
 		 var current = null;
 			for (var state in aus) {
 		        (function(st, state) {
@@ -556,7 +578,8 @@ input {
 						$(st.node).attr('stroke', '#000000');
 						
 						$(st.node).click(function(event) {
-							var local=(locInfo["loc" + st.id][0]); /*locInfo.loc[숫자]*/
+							/* 지역구 명칭 추출  */
+							var local=(locInfo["loc" + st.id][0]); /*locInfo.loc[지역구 숫자가 나옴 ] MAP.JSP 참조*/
 							$(st.node).attr(location.href="searchhtl.bizpoll?flag=2"+"&keyword="+local);
 						});
 		            };

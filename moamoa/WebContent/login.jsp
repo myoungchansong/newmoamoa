@@ -428,7 +428,7 @@
 			<div id="content_layout">
 				<header>
 					<div id="header_div">
-						<a href=""><img alt="로고" src="img/main.png"></a> 
+						<a href="index.bizpoll"><img alt="로고" src="img/main.png"></a> 
 						
 					</div>
 					<div id="header_login">로그인</div>

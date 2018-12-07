@@ -24,7 +24,8 @@ public class hotel {
 	static String sub_url = null;
 	static String review_url = null;
 	static Document htl_detail_page = null;
-	
+	static public String booking ="null";
+	static public int length = 0;
 	public static void main(String[] args) {
 		hotelDAO Dao =hotelDAO.getInstance();
 
@@ -61,17 +62,31 @@ public class hotel {
 					
 				} else {
 					htl_detail_page = Jsoup.connect(title_url).get();
-					System.out.println(htl_detail_page.text());
+					
+					/*System.out.println(htl_detail_page.text());*/
+					
 					String hotelname = doc1.select("#hp_hotel_name").text();
 					String summary = doc1.select("#summary > p").text();
 					String addr = doc1.select(".hp_address_subtitle").text();
-					System.out.println("호텔이름 " + hotelname);
+			/*		System.out.println("호텔이름 " + hotelname);
 					System.out.println("호텔 정보 " + summary);
-					System.out.println("호텔 주소 " + addr);
+					System.out.println("호텔 주소 " + addr);*/
 					Elements hotelimgurl = doc1.select(".hp-gallery");
+					
+					/*booking.com 단어 빼기*/
+					booking = summary.substring(0, 11);
+					length =  summary.length();
+						if(summary.substring(0, 11).equals(booking)) {
+							summary = summary.substring(12, length);
+						}
 					
 					for (Element element2 : hotelimgurl) {
 						String hotelimg = element2.getElementsByTag("img").attr("src");
+						/* 이미지 null값 처리 */
+						if(hotelimg.equals("")) {
+							hotelimg = "img/login.png";
+						}
+						
 						System.out.println("hotelimg==============>" + hotelimg);
 						hotelDTO Dto =new hotelDTO(hotelname, addr, summary, hotelimg);
 						Dao.hotelinsert(Dto);
@@ -88,12 +103,12 @@ public class hotel {
 						String review_pos = element3.select("p.review_pos>span").text();
 						String write_date = element3.select("p.review_staydate").text();
 						
-						System.out.println("작성자:" + writer + "\t");
+					/*	System.out.println("작성자:" + writer + "\t");
 						System.out.println("평점:" + score + "\t");
 						System.out.println("리뷰 제목:" + title + "\t");
 						System.out.println("부정 리뷰:" + review_neg + "\t");
 						System.out.println("긍정 리뷰:" + review_pos + "\t");
-						System.out.println("작성일:" + write_date + "\t");
+						System.out.println("작성일:" + write_date + "\t");*/
 						
 						hotelDTO Dto1 =new hotelDTO(writer, score, title, review_neg, review_pos, write_date);
 						Dao.hotelupdate(Dto1);

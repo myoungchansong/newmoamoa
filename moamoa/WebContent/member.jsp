@@ -440,12 +440,20 @@
 			}
 		});	 
 		
-		/* ID 중복 체크 */
+		/* ID 중복 체크 및 정규식 체크*/
+		
 		$("#input_id").blur(
 				function() {
-					var idVal = $(this).val();
-					if (idVal != "") {
-						
+					var email = $(this).val();
+					var idVal= $.trim(email);
+					var regMail = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
+					if(!regMail.test(idVal)){
+						$("#input_id").next().text("E-MAIL형식이 올바르시 않습니다").css("display", "block").css("color", "red");
+						$("#insert_label").css("color", "red");
+						$("#insert_id").css("border", "1px solid red");
+						$("#input_id").select();
+						$('#btn_next').attr('disabled',true); /* delete버튼 비활성화   */
+					} else if (idVal != "") {
 						$.ajax({
 							url : "idCheck.bizpoll",
 							type : "POST",
@@ -453,31 +461,36 @@
 							data : "id=" + idVal,
 							success : function(data) {
 								if (data.message == 1) {
-									$("#input_id").next().text("사용가능한 아이디입니다 ").css("display","block").css("color","#00BCD4");
-									$("#input_nik").focus();
-									
+									$("#input_id").next().text("사용가능한 이메일입니다 ").css("display","block").css("color","#00BCD4");
+									$("#input_nik").focus();	
+									$('#btn_next').attr('disabled',false);   /* delete버튼 활성화   */
+									$(this).next().text("비밀번호가 일치 합니다 ").css("display", "block").css("color", "#00BCD4");
 								} else if (data.message == -1) {
-									$("#input_id").next().text("이미사용중인 아이디입니다").css("display", "block").css("color", "red");
+									$("#input_id").next().text("이미사용중인 이메일입니다").css("display", "block").css("color", "red");
 									$("#insert_label").css("color", "red");
 									$("#insert_id").css("border", "1px solid red");
 									$("#input_id").select();
-									
+									$('#btn_next').attr('disabled',true); /* delete버튼 비활성화   */
 								}
-
 							},
 							error : function() {
 								alert("System Error");
 							}
 						});
+					}else if(idVal ==""){
+						$("#input_nik").next().text("이메일을 입력해주세요").css("display", "block").css("color", "red");
+						$("#insert_label_nik").css("color", "red");
+						$("#insert_nik").css("border", "1px solid red");
+						$("#input_id").select();
+						$('#btn_next').attr('disabled',true); /* delete버튼 비활성화   */
 					}
 				});
 		
-		/* 닉네임 중복 체크 */
+		/* 닉네임 중복 체크및 정규식 체크 */
 			$("#input_nik").blur(
 				function() {
 					var nikVal = $("#input_nik").val();
 				 	if (nikVal != "") {
-						
 						$.ajax({
 							url : "nikCheck.bizpoll",
 							type : "POST",
@@ -487,11 +500,13 @@
 								if (data.message == 1) {
 									$("#input_nik").next().text("사용가능한 닉네임입니다 ").css("display","block").css("color", "#00BCD4");
 									$("#input_pw").focus();
+									$('#btn_next').attr('disabled',false);   /* delete버튼 활성화   */
 								} else if (data.message == -1) {
 									$("#input_nik").next().text("이미사용중인 닉네임입니다").css("display", "block").css("color", "red");
 									$("#insert_label_nik").css("color", "red");
 									$("#insert_nik").css("border", "1px solid red");
 									$("#input_nik").select();
+									$('#btn_next').attr('disabled',true); /* delete버튼 비활성화   */
 								}
 
 							},
@@ -499,59 +514,118 @@
 								alert("System Error");
 							}
 						});
-					} 
+					} else if(nikVal ==""){
+						$("#input_nik").next().text("닉네임을 입력해주세요").css("display", "block").css("color", "red");
+						$("#insert_label_nik").css("color", "red");
+						$("#insert_nik").css("border", "1px solid red");
+						$("#input_nik").select();
+						$('#btn_next').attr('disabled',true); /* delete버튼 비활성화   */
+					}
 				});
 		
 		
 		
 		
+			
+			
+				
 		
 		
+		
+		/* 패스워드 유효성 검사및 정규식*/
+			
+			$("#input_pw").blur(function() {
+				var mpw1 = $("#input_pw").val();
+				var pw1 = $.trim(mpw1);
+				var regPass = /^.*(?=.{8,20})(?=.*[0-9])(?=.*[a-zA-Z]).*$/; 
+				if (!regPass.test(pw1)) {
+					$(this).next().text("8~20글자 내의 값을 입력해주세요").css("display", "block").css("color", "red");
+					$("#insert_label_pw").css("color", "red");
+					$("#insert_pw").css("border", "1px solid red");
+					$("#input_pw").select("");
+					$("#input_pw").focus();
+					$('#btn_next').attr('disabled',true); /* delete버튼 비활성화   */
+				} else{
+					$(this).next().text("비밀번호가 일치 합니다 ").css("display", "block").css("color", "#00BCD4");
+					$('#btn_next').attr('disabled',false);   /* delete버튼 활성화   */
+				}
+			}); 
+			/* 2차 패스워드  입력시 1차 비밀번호 확인 */
 			$("#input_rpw").blur(function() {
 				var pw1 = $("#input_pw").val();
 				if (pw1 != null) {
-				
+					$('#btn_next').attr('disabled',false);   /* delete버튼 활성화   */
+					$(this).next().text("비밀번호가 일치 합니다 ").css("display", "block").css("color", "#00BCD4");
 					} else {
 						$("#input_pw").next().text("비밀번호를 입력해주세요").css("display", "block").css("color", "red");
 						$("#insert_label_pw").css("color", "red");
 						$("#insert_pw").css("border", "1px solid red");
 						$("#input_pw").select();	
+						$('#btn_next').attr('disabled',true); /* delete버튼 비활성화   */
 					}
 				});
-				
-		
-		
-		
-		
-	
-		
+			
+			/* 2차 패스워드 유효성 검사및 비밀번호 확인*/
+			
 			$("#input_rpw").blur(function() {
 				var pw1 = $("#input_pw").val();
 				var pw2 = $("#input_rpw").val();
 						if (pw1 != "" && pw2 != "") {
 							if (pw1 == pw2) {
 								$(this).next().text("비밀번호가 일치 합니다 ").css("display", "block").css("color", "#00BCD4");
+								$('#btn_next').attr('disabled',false);   /* delete버튼 활성화   */
 							} else {
 								$(this).next().text("비밀번호가 일치하지 않습니다").css("display", "block").css("color", "red");
 								$("#insert_label_rpw").css("color", "red");
 								$("#insert_rpw").css("border", "1px solid red");
 								$("#input_rpw").select("");
 								$("#input_rpw").focus();
+								$('#btn_next').attr('disabled',true); /* delete버튼 비활성화   */
 							}
+						} else {
+							$("#input_pw").next().text("비밀번호를 재확인 해주세요").css("display", "block").css("color", "red");
+							$("#insert_label_pw").css("color", "red");
+							$("#input_rpw").next().text("비밀번호를 재확인 해주세요").css("display", "block").css("color", "red");
+							$("#insert_label_rpw").css("color", "red");
+							$("#insert_pw").css("border", "1px solid red");
+							$("#insert_rpw").css("border", "1px solid red");
+							$('#btn_next').attr('disabled',true); /* delete버튼 비활성화   */
 						}
 					});
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+			
+			
+			
+			/* 동의 버튼 2개 클릭시 버튼 활성화  */
+			
+			$(".ckboxs").on("click",function(){
+				if($(".ckboxs:checked").length==2){
+					$("#cbox1","#cbox2").prop("checked",true); 
+					$("#btn_next").css({"background":"#00BCD4","border":"1px solid #00BCD4","cursor":"pointer"}); 
+					$('#btn_next').attr('disabled',false);   /* delete버튼 활성화   */
+				}else{
+					$("#btn_next").css({"background":"#00bcd482","border":"1px solid #00bcd482", "cursor":"not-allowed"});
+					$('#btn_next').attr('disabled',true); /* delete버튼 비활성화   */
+				}
+			});	
+			
+			
+			
+			$("#btn_next").on("click",function(){
+				var ck1 = $("#cbox1").is(":checked");
+				var ck2 = $("#cbox2").is(":checked");
+				if(ck1==true && ck2 ==true){
+					$("#btn_next").css({"backgroud":"#00BCD4","border":"1px solid #00BCD4","cursor":"not-allowed"});
+				 	
+				}else{			
+					$("#err_check").css("display","block"); 
+					$("#btn_next").css({"backgroud":"#red","border":"1px solid #red", "cursor":"not-allowed"});
+				}
+			});		
+			
+			
+			
+			
 		
 		/*확인 버튼을 클릭했을 때 유효성 체크  */
 		$("#btn_next").on("click",function(){
@@ -564,7 +638,7 @@
 		  if(val1 !="" && val2 !="" && val3 !=""){
 			  $("#frm_login").submit(); 	
 			 }else{
-				$("#err_check_msg").text("아이디 또는 패스워드가 일치하지 않습니다.");
+				$("#err_check_msg").text("이메일 또는 패스워드가 일치하지 않습니다.");
 				$("#err_check").css("display","block");
 		    	return false;
 		    }
@@ -614,53 +688,8 @@
 			
 		
 		
-			
 	
-		$(".ckboxs").on("click",function(){
-			if($(".ckboxs:checked").length==2){
-				$("#cbox1","#cbox2").prop("checked",true); 
-				$("#btn_next").css({"background":"#00BCD4","border":"1px solid #00BCD4","cursor":"pointer"}); 
-				$('#btn_next').attr('disabled',false);   /* delete버튼 활성화   */
-			}else{
-				$("#btn_next").css({"background":"#00bcd482","border":"1px solid #00bcd482", "cursor":"not-allowed"});
-				$('#btn_next').attr('disabled',true); /* delete버튼 비활성화   */
-			}
-		});
-		
-		$("#btn_next").on("click",function(){
-			var ck1 = $("#cbox1").is(":checked");
-			var ck2 = $("#cbox2").is(":checked");
-			if(ck1==true && ck2 ==true){
-				$("#btn_next").css({"backgroud":"#00BCD4","border":"1px solid #00BCD4","cursor":"not-allowed"});
-			 	
-			}else{			
-				$("#err_check").css("display","block"); 
-				$("#btn_next").css({"backgroud":"#red","border":"1px solid #red", "cursor":"not-allowed"});
-			}
-		});		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
 	});
 	
 
@@ -701,7 +730,7 @@
 			<div id="content_layout">
 				<header>
 					<div id="header_div">
-						<a href=""><img alt="로고" src="img/main.png"></a> 
+						<a href="index.bizpoll"><img alt="로고" src="img/main.png"></a> 
 						
 					</div>
 					<div id="header_member">등록하기</div>
@@ -710,9 +739,9 @@
 				<section>
 					<form action="memberplay.bizpoll" method="POST" name="frm_login" id="frm_login">
 						<div id="insert_id">
-							<label for="insert_id" id="insert_label"> ID/이메일 주소를 입력해주세요.</label> 
+							<label for="insert_id" id="insert_label"> 이메일 주소를 입력해주세요.</label> 
 							<input type="text" id="input_id" name="inputid" class="input_join">
-							<span class="error">ID/이메일 주소를 입력해주세요</span>
+							<span class="error">이메일 주소를 입력해주세요</span>
 						</div>
 						
 						<div id="insert_nik">

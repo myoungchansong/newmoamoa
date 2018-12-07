@@ -19,10 +19,20 @@ color: black;
 
 #search {
 	width: 740px;
-	height: 100px;
+	height: 200px;
 	margin: 18px auto;
-	padding-top: 150px;
+	padding-top: 90px;
 }
+
+#ser{
+	color: white;
+	text-align: center;
+	font-weight: bold;
+	font-size: 30px;
+	line-height: 30px;
+	padding-bottom: 10px;
+}
+
 
 
 .box {
@@ -73,6 +83,7 @@ input {
 	height: 70px;
 	width: 80px; 
 	border: none;
+	padding-left: 15px;
 	border-radius: 5px 0px 0px 5px;
 }
 #imgbox{
@@ -99,10 +110,10 @@ input {
 
 /*호텔 리스트  */
 #hotellist{
-	width: 70%;
+	width: 60%;
 	height: 100%;
 	margin: 0px auto;
-	padding-bottom: 40px;
+	margin-bottom: 20px;
 }
 
 
@@ -118,12 +129,11 @@ input {
 	padding: 0px 20px;
 	font-size: 15px;
 	line-height: 50px;
-/* 	border-bottom: 1px solid #BDBDBD; */
 }
 
 #hotelborder{
 	width:100%;
-	height: 280px;
+	
 }
 
 #hotelimg{
@@ -135,6 +145,8 @@ input {
 	height: 250px;
 	margin-left: 50px;
 }
+
+
 .title_box
 {
 	width: 1000px;
@@ -150,75 +162,56 @@ input {
 
 #border{
 	width: 100%;
-	height: 200px;
-	margin-bottom: 30px;
-}
-.title_wrap{
-	width: 100%;
-	height: 70px;
-}
-#title{
-	width: 35%;
+	height: 100%;
 	display: inline-block;
+	border-bottom: 1px solid #BDBDBD;
+	padding: 10px 0px 20px 0px;
 }
-#title h1{
-	padding: 10px 0 0 20px;
-	display: inline-block;
-}
-#htl_addr{
-	width: 300px;
-	display: inline-block;
-	font-size: 12px;
-	color: #0283df;
-}
-#htl_score h2{
-	padding: 10px 0 0 20px;
-	display: inline-block;
 
+.title_wrap{
+	padding: 20px 0px;
+}
+
+#title{
+	display: inline-block;
+	font-weight: bold;
+	font-size: 25px;
+	
+}
+
+
+#htl_addr{
+	display: inline-block;
+	font-size: 10px;
+	color: #0283df;
+	padding-left: 30px;
 }
 #content{
-	position:relative;
-	height: 220px;
-	width: 1000px;
-	display: inline-block;
-	right: -270px;
-	top:74px;
+	width: 800px;
+	height: 100px;
+	margin-top: 70px;
+	float: right;
 }
 #content p{
+	left: 250px;
 	overflow: hidden; 
-  	text-overflow: ellipsis;
-  	white-space: nowrap; 
-  	width: 1000px;
-  	height: 100px;
-	display: inline-block;
-	padding-left: 30px;
-	white-space: normal; 
-	line-height: 1.2; 
-	height: 3.6em; 
-	text-align: left; 
-	word-wrap: break-word; 
+	line-height: 5pxpx; 
 	display: -webkit-box; 
 	-webkit-line-clamp: 3; 
 	-webkit-box-orient: vertical;
-
+	font-weight: bold;
+	font-size: 15px;
+	
 }
-#list_img{
-	position: relative;
-	width: 225px;
-	height: 225px;
-	top: -225px;
-	margin-left: 30px;
-}
-
-#list_img > img{
-	width: 100%;
-	height: 100%;
-	border-radius: 50%;
-}
-#img img{
+#list_img {
 	display: inline-block;
+	
+}
+#list_img > img{
 	width: 225px;
 	height: 225px;
+	border-radius: 50%;
+	display: inline-block;
 }
 
 /*pagination */
@@ -268,7 +261,6 @@ input {
 
 
 
-
 </style>
 </head>
 <body>
@@ -276,6 +268,18 @@ input {
 	<section id="imgbox">
 		<div id="search">
 			<div class="box">
+			<c:choose>
+				<c:when test="${!empty keyword}">
+					<div id="ser">
+						<p>"${keyword}"관련검색어 ${pageMaker.totalCount}건이 검색되엇습니다</p>
+					</div>
+				</c:when>
+					<c:otherwise>
+					<div id="ser">
+						<p>"서울" 관련검색어 ${pageMaker.totalCount}건이 검색되엇습니다</p>
+					</div>
+					</c:otherwise>
+			</c:choose>
 				<select name="searchType" class="custom-select" id="inputGroupSelect01" style="width: 120pxl">
 					<option value="1">호텔 이름</option>
 					<option value="2">호텔 주소</option>
@@ -296,6 +300,7 @@ input {
 			<a href="#">select</a>
 			<a href="#">select</a>
 			<a href="#">select</a>
+			
 		</div>
 		
 	<!--호텔 리스트  -->	
@@ -303,37 +308,33 @@ input {
 		<div id="hotelborder">
 		
 			<c:choose>	
-				<c:when test="${empty htlDTO.hotelname}">
-				</c:when>
+				<c:when test="${!empty htlDTO.hotelname}">
 				
-				<c:otherwise>
 					<div id="border">
+					
 						<div class="title_wrap">
 							<div id="title">
-									<h1><a href="#">${htlDTO.hotelname }</a></h1>
+									<a href="#">${htlDTO.hotelname }</a>
 							</div>
 							<div id="htl_addr">
 									<h2>${htlDTO.hoteladdr }</h2>
 							</div>
 						</div>
-						<div id="content">
-							<p>${htlDTO.summary }</p>
-						</div>
 						
 						<div id="list_img">
 							<img src="${htlDTO.hotelimg }"> 
 						</div>
+						
+						<div id="content">
+							<p>${htlDTO.summary }</p>
+						</div>
+						
+						
 					</div>
-					
-					
-				</c:otherwise>	
+				</c:when>
 			</c:choose>	
 		
 		</div>
-		<br>
-		<br>
-		<br>	
-		<hr>
 	</c:forEach>
 		
 	</section>
