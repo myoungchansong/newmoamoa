@@ -158,12 +158,12 @@ public class BoardDAO {
 			}
 			return result;
 		}
-		public int boarddelete(int bno) {
+		public int boardDelete(int bno) {
 			int flag= 0;
 			sqlSession = sqlSessionFactory.openSession();
 			
 			try {
-				flag = sqlSession.delete("boarddelete",bno);
+				flag = sqlSession.delete("boardDelete",bno);
 				sqlSession.commit();
 			} catch (Exception e) {
 				e.printStackTrace();

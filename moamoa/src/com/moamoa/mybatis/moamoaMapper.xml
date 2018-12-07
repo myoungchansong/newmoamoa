@@ -226,4 +226,64 @@
 			</otherwise>
 		</choose>
 	</insert>
+	
+	<!--게시글 수정  -->
+	<update id="boardUpdate" parameterType="com.moamoa.dto.BoardDTO">
+		<choose>
+			<when test="content !=null">
+				UPDATE moaboard SET 
+				title= #{title}, writer=#{writer},
+				<if test="filename !='no'">
+					filename = #{filename},
+					filesize = #{filesize},
+				</if>
+				content=#{content}
+				WHERE bno = #{bno}
+			</when>
+			<otherwise>
+				UPDATE moaboard SET 
+				title= #{title},writer=#{writer},
+				<if test="filename !='no'">
+					filename = #{filename}, 
+					filesize = #{filesize}
+				</if>
+				WHERE bno = #{bno}
+			</otherwise>		
+		</choose>			
+	</update>
+	
+	<!--게시글 삭제  -->
+	<delete id="boardDelete" parameterType="com.moamoa.dto.BoardDTO">
+		DELETE FROM moaboard
+		WHERE bno = #{bno}
+	</delete>
+	
+	
+	<!-- ReplyDAO -->
+	<select id="replyListAll" resultType="com.moamoa.dto.ReplyDTO" parameterType="String">
+		SELECT * FROM moareply
+		WHERE bno =#{bno}
+		ORDER BY rno ASC
+	</select>
+	<!--댓글 삭제  -->
+	<delete id="replyDelete" parameterType="String">
+		DELETE FROM moareply
+		WHERE rno =#{rno}
+	</delete>
+	
+	<!--댓글 등록  -->
+	<insert id="replyInsert" parameterType="com.moamoa.dto.ReplyDTO">
+		INSERT INTO moareply(rno,writer,content,bno)
+		VALUES(seq_moareply_rno.NEXTVAL,#{writer},#{content},#{bno})				
+	</insert>
+	<update id="rpPlus">
+		UPDATE moaboard SET replycnt = replycnt+1
+		WHERE bno=#{bno}
+	</update>
+	<update id="rpMinus">
+		UPDATE moaboard SET replycnt = replycnt-1
+		WHERE bno=#{bno}
+	</update> 
+	
+	
 </mapper>

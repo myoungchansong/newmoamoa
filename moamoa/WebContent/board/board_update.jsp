@@ -257,7 +257,7 @@
 		</section>
 	</div>
 	
-	<form  id = "frm_insert" name ="frm_insert" action="boardUpadteplay.bizpoll?bno=${boardview.bno}" method="POST" enctype="multipart/form-data">
+	<form  id = "frm_regist" name ="frm_regist" action="boardUpadteplay.bizpoll?bno=${boardview.bno}" method="POST" enctype="multipart/form-data">
 	<div id="b_insert_wrap">
 		<div id="insert_name"><h2>자유게시판</h2></div>
 		<div id="insert_fst">

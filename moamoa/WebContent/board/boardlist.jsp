@@ -338,7 +338,8 @@
 			location.href ="boardList.bizpoll?flag="+flag+"&keyword="+keyword;	
 			alert(flag + keyword);
 			$("#search_ment").css("display","block");
-		});
+		});	 
+	 
  });
 
 
@@ -371,10 +372,14 @@
 			<div class="custom-select" style="width:100px;">
 				<select>
 					<option>정렬</option>
-					<option>최신순</option>
-					<option>조회순</option>
-					<option>댓글순</option>
-					<option>추천순</option>
+					<a href="boardList.bizpoll?flag=${flag}&keyword=${keyword}&key=new" id="orderNew" style="text-decoration: none; color:gray; font-weight: 400px;">
+						<option>최신순</option></a>
+					<a href="boardList.bizpoll?flag=${flag}&keyword=${keyword}&key=cnt" id="ordercnt" style="text-decoration: none; color:gray; font-weight: 400px;">
+						<option>조회순</option></a>
+					<a href="boardList.bizpoll?flag=${flag}&keyword=${keyword}&key=reply" id="orderReply" style="text-decoration: none; color:gray; font-weight: 400px;">
+						<option>댓글순</option></a>
+					<a href="boardList.bizpoll?flag=${flag}&keyword=${keyword}&key=good" id="orderGood" style="text-decoration: none; color:gray; font-weight: 400px;">
+						<option>추천순</option></a>
 				</select>
 			</div>
 			

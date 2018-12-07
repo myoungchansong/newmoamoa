@@ -13,8 +13,48 @@
 		border: 1px solid #e5e5e5;
     	background: #fff;
     	width: 55%;
-    	margin: 4% 0 0% 14%;
+    	margin: 1% 0 0% 14%;
 	}
+		/* index */
+	#boardRead #con_wrap{
+		background-color: white;
+		padding-top: 10px;
+	}
+	#boardRead .index_section{
+	    position: relative;
+    	width: 100%;
+    	min-width: 1200px;
+    	padding: 20px 0;
+    	box-sizing: border-box;
+	}
+	#boardRead .section_con{
+	    margin-left: auto;
+	   	margin-right: 23%;
+	   	position: relative;
+	    max-width: 1200px;
+	    min-width: 1200px;
+	}	
+	#boardRead .index_sec_ul{
+		display: flex;
+		justify-content: flex-start;
+	    text-transform: capitalize;
+	    font-size: 15px;
+	}
+	#boardRead .index_li>a{
+	   color: #707473;
+	}
+	#boardRead .index_li:before{
+		content: "/\A0";
+    	margin: 0 5px;
+    	color: #ccc;
+	}
+	#boardRead .index_li:last-child{
+		cursor: default;
+    	pointer-events: none;
+    	color: #979797;
+	}
+	
+	
 	#read_header{
 	    display: block;
     	position: relative;
@@ -152,9 +192,8 @@
 	/*댓글*/
 	.rpwrap{
 		width: 55%;
-	    height: 300px;
 	    border: 1px solid #e5e5e5;;
-	    margin: 1% 0 0 14%;
+	    margin: 1% 0 5% 14%;
 	}
 	#reply_header{
 		width: 96.7%;
@@ -172,6 +211,28 @@
 	.rpcontent{
 		position: relative;
 	}
+	.rpctwrap{
+		width: 100%;
+	}
+	#rp_writer{
+		display: inline-block;
+	}
+	#rp_date{
+		display: inline-block;
+	    color: #4e0707;
+	    padding-left: 20px;
+	    font-weight: 400;
+	}
+	#reply_content_read{
+		display: block;
+	    margin: 10px 50px 20px 20px;
+   		width: 95%;
+   		outline: none;
+   		padding: 10px;
+	}
+	
+	
+	
 	#br_num{
 		display: inline-block;
 		padding-left: 20px;
@@ -202,10 +263,256 @@
 	    font-size: 14px;
     	margin-left: 5px;
 	}
+	/* modal */
+	#modal_header{
+		display: block;
+	    font-size: 17px;
+	    float: left;
+	    width: 94%;
+	    height: 23px;
+	    padding: 8px 9px;
+	    background-color: #15d7e09e;
+	    color: white;
+	    border-radius: 13px;
+	}
+	#modal_con1{
+		width: 100%;
+    	height: 145px;	
+	}
+	#modal_con1>p{
+		font-size: 22px;
+	    text-align: center;
+	    color: black;
+	    padding: 70px 0px 30px 13px;
+	    display: block;
+	}
+	#modal_con1>p>span{
+		color: red;
+		font-weight: 450px; 
+	}
+	.modal_btn{
+	    line-height: 30px;
+	    display: inline-block;
+	    height: 30px;
+	    padding-top: 1px;
+	    text-align: center;
+	    width: 150px;
+	    position: relative;
+	    border-radius: 22px;
+	    margin: 0 13px;
+	}
+	.modal_btn:hover{
+		cursor: pointer;
+	}
+	.modal_btn>span{
+		font-size: 20px;
+	    text-align: center;
+    	position: absolute;
+    	display: contents;
+	}
+	#divbc{
+		background-color: #EAEAEA;
+		border: 1px solid #EAEAEA;
+	}
+	#divbc:hover{
+		box-shadow: 0 0 4px rgba(0,0,0,0.2);
+		color: black;
+	}
+	#btnCs{
+		color: #8C8C8C;
+	}
+	#btnCs:hover{
+		color:black;
+	}
+	#div_agr{
+		border: 1px solid #00bbced6;
+		background-color: #00bbced6;
+	}
+	#div_agr:hover{
+		box-shadow: 0 0 4px rgba(0,0,0,0.2);
+	}
+	#btnagr{
+		color: #fff;
+	}
+	.overlay {
+	    background-color: rgba(0, 0, 0, 0.6);
+	    bottom: 0;
+	    cursor: default;
+	    left: 0;
+	    opacity: 0;
+	    position: fixed;
+	    right: 0;
+	    top: 0;
+	    visibility: hidden;
+	    z-index: 9;
+	    transition: opacity .5s;
+	}
+	.overlay:target {
+	    visibility: visible;
+	    opacity: 1;
+	}
+	.popup {
+	    background-color: #fff;
+	    width : 360px;
+	    height: 200px;
+	    border: 3px solid #fff;
+	    display: inline-block;
+	    left: 50%;
+	    opacity: 0;
+	    padding: 15px;
+	    position: fixed;
+	    text-align: justify;
+	    top: 40%;
+	    visibility: hidden;
+	    z-index: 10;
+	    transform: translate(-50%, -50%);
+	    border-radius: 10px;
+	    transition: opacity .5s, top .5s;
+	}
+	.overlay:target+.popup {
+	    top: 50%;
+	    opacity: 1;
+	    visibility: visible;
+	}
+	.rpcnt_del{
+		display: inline-block;
+	    font-size: 17px;
+	    float: right;
+	    line-height: 23px;
+	    padding-right: 11px;
+	    margin-right: 30px;
+	    margin-bottom: 4px;
+}
+	}
+	.rpcnt_del>a>span{color:gray;}
+	.rpcnt_del>a{color:red;}
+	
+	#reply_wrap{
+		display: block;
+	    width: 55%;
+	    margin: 0 14%;
+	    height: 100%;
+	    margin-top: 15px;
+	    border: 1px solid #e5e5e5;
+	}
+	.reply_content{
+		display: inline-block;
+	    font-size: 15px;
+	    padding: 5px 0 0 9px;
+	    border: 1px solid gray;
+	    height: 30px;
+	    margin: 25px 20px 10px 30px;
+	    width: 78%;
+	    outline: none;
+}
+	}
+	#rwWriter{
+    	padding: 20px 0 0 20px;
+	    color: #0f54d2e3;
+	    font-weight: bold;
+	}
+	#btn_insertrply{
+		display: inline-block;
+	    background-color: #39b4efd4;
+	    border: none;
+	    height: 30px;
+	    width: 110px;
+	    border-radius: 3px;
+	    float: right;
+	    color: white;
+	    margin: 27px 38px 5px 5px;
+	}
+	#rpc_error{
+		color:red;
+		font-size:14px;
+		font-weight:bold;
+		display:none; 
+		padding: 5px;
+    	margin: 0 0 12px 20px;
+	}
 </style>
+<script type="text/javascript">
+$(document).ready(function(){
+	//문서가 준비되면 댓글 목록을 조회하는 ajax 실행 
+	comment_list();	
+});
+
+	function comment_list(){
+		$.ajax({
+			type :"post",
+			url : "commentlist.bizpoll",
+			data: "bno=${boardview.bno}",
+			success:function(result){
+				$("#commentList").html(result);
+			}
+			
+		});
+		
+	}
+	/* 댓글 입력 */
+	$(document).on("click","#btn_insertrply",function(){
+		var content=$(".reply_content").val();
+		alert(content);
+		
+		if(content==""){
+			$(".reply_content").focus();
+			$("#rpc_error").css("display","block");
+			return false;
+		}else{
+			var bno=${boardview.bno};
+			$("#re_bno").val(bno);
+		}
+		$.ajax({			
+			url : "replyInsert.bizpoll",
+			data: $("#frm_reply").serialize(), 
+			contentType:'application/x-www-form-urlencoded; charset=UTF-8',
+			success:function(){
+				comment_list();
+				$(".reply_content").val("");
+			},
+			error : function(){
+				alert("system error!");	
+			}
+		});
+	});	
+	
+	$(document).on("click","#btnagr",function(){
+		location.href="boardDeletePlay.bizpoll?bno=${boardview.bno}"
+	});
+	/* 댓글 삭제 */
+	$(document).on("click",".btn_detail_delete",function(){
+		var rno =$(this).attr("data_num");
+		var bno =${boardview.bno};
+		
+			$.ajax({
+				url : "replydelete.bizpoll",
+				data: "rno="+ rno +"&bno="+bno,
+				success:function(result){
+					comment_list();
+				},
+				error : function(){
+					alert("system error!");	
+				}
+			});
+				
+	});
+	
+
+</script>
 </head>
-<body>
+<body id="boardRead">
+		<div id="con_wrap">
+			<section class="index_section">
+				<div class="section_con">
+					<ul class="index_sec_ul">
+						<li class="index_li"><a href="#">COMMUNITY</a></li>
+						<li class="index_li"><a href="#">자유게시판</a></li>
+					</ul>
+				</div>
+			</section>
+		</div>
 	<div id="boardread_wrap">
+	
 		<!--제목 -->
 		<div id="read_header">
 			<div id="read_title">
@@ -277,22 +584,24 @@
 			<div style="clear:both"></div>
 		</div>
 		
+		<div id="commentList"></div>
+		<div style="clear:both"></div>	
 		
-		<!-- 댓글창 -->
-	 	<div class="rpwrap">
-			<div id="reply_header">
-				<span>댓글</span><b>4</b>
-			</div>
-			 <div id="reply_list">
-				<div class="rpcontent">
-					<div class="rpctwrap">
-						<div></div>
-						<div></div>
-					</div>
+		<!--modal  -->
+	 <a href="#" class="overlay" id="login_form"></a>
+        <div class="popup">
+           <div id=modal_header>MoaMoa</div>
+            <div id="modal_con1"><p>정말 <span>삭제</span> 하시겠습니까?</div>            
+				<div class="modal_btn" id="divbc">
+					<span><a href="#" id="btnCs">아니오</a></span>
 				</div>
-				<div style="clear:both"></div>
-			</div>
-		</div> 
+			
+            <div class="modal_btn" id="div_agr">
+				<a href="#" id="btnagr"><span>네</span></a>				
+			</div>			
+        </div>
+		
+		
 </body>
 </html>
 <%@ include file = "../include/footer.jsp" %> 

@@ -11,14 +11,21 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.moamoa.action.Action;
 import com.moamoa.action.ActionForward;
+import com.moamoa.action.BoardDeleteplayAction;
+import com.moamoa.action.BoardDownloadAction;
 import com.moamoa.action.BoardListAction;
 import com.moamoa.action.BoardReadAction;
 import com.moamoa.action.BoardRegistAction;
 import com.moamoa.action.BoardRegistplayAction;
 import com.moamoa.action.BoardSearchAction;
+import com.moamoa.action.BoardUpadateAction;
+import com.moamoa.action.BoardUpadatePlayAction;
 import com.moamoa.action.BoardViewcntAction;
+import com.moamoa.action.CommentListAction;
 import com.moamoa.action.HotelListAction;
 import com.moamoa.action.IndexAction;
+import com.moamoa.action.ReplyDeleteAction;
+import com.moamoa.action.ReplyInsertAction;
 import com.moamoa.action.deleteAction;
 import com.moamoa.action.deleteplayAction;
 import com.moamoa.action.deleteruleAction;
@@ -149,6 +156,27 @@ public class BizpollFrontController extends HttpServlet {
 			forward = action.excute(request, response);
 		}else if(command.equals("/boardregistplay.bizpoll")) {
 			action = new BoardRegistplayAction();
+			forward = action.excute(request, response);
+		}else if(command.equals("/download.bizpoll")) {
+			action = new BoardDownloadAction();
+			forward = action.excute(request, response);
+		}else if(command.equals("/boardUpadte.bizpoll")) {
+			action = new BoardUpadateAction();
+			forward = action.excute(request, response);
+		}else if(command.equals("/boardUpadteplay.bizpoll")) {
+			action = new BoardUpadatePlayAction();
+			forward = action.excute(request, response);
+		}else if(command.equals("/boardDeletePlay.bizpoll")) {
+			action = new BoardDeleteplayAction();
+			forward = action.excute(request, response);
+		}else if(command.equals("/commentlist.bizpoll")) {
+			action = new CommentListAction();
+			forward = action.excute(request, response);			
+		}else if(command.equals("/replydelete.bizpoll")) {
+			action = new ReplyDeleteAction();
+			forward = action.excute(request, response);
+		}else if(command.equals("/replyInsert.bizpoll")) {
+			action = new ReplyInsertAction();
 			forward = action.excute(request, response);
 		}
 			
