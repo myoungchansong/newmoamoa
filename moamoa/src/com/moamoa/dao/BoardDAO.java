@@ -129,7 +129,7 @@ public class BoardDAO {
 				sqlSession.close();
 			}
 		}
-		public int boardInsert(BoardDTO bDto){
+		public int boardRegist(BoardDTO bDto){
 			int result = 0;
 			sqlSession = sqlSessionFactory.openSession();
 			try {

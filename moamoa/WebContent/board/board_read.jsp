@@ -34,11 +34,12 @@
     	margin-bottom: 4px;
 	}
 	#br_title{
+		display:inline-block;
 	    color: #444;
 	    font-weight: 500;
 	    font-size: 18px;
 	    line-height: 1.5;
-	    padding: 0 0 10px 20px;
+	    padding: 0 0 10px 8px;
 	}
 	#read_condition{
 		padding: 12px 16px;
@@ -120,7 +121,7 @@
 	    position: relative;
 	    width: 55%;
 	}
-	.navigation>a{
+	.navigation a{
 	    display: inline-block;
 	    background: #fff;
 	    border: 1px solid #e5e5e5;
@@ -134,7 +135,8 @@
 	    float: right;
 	    transition: all .2s ease;
 	    text-decoration: none;	
-	    margin-top: 20px;
+	    margin-top: 7px;
+        margin-left: 2px;
 	}
 	.navigation>a>i{
 		margin-left: 12px;
@@ -170,6 +172,36 @@
 	.rpcontent{
 		position: relative;
 	}
+	#br_num{
+		display: inline-block;
+		padding-left: 20px;
+	}
+	#btn_update{
+		display: inline-block;
+	    background-color: white;
+	    border: none;
+	    height: 30px;
+	    width: 45px;
+	    cursor: pointer;
+	    border-radius: 10px;
+	    outline: none;
+	}
+	#btn_delete{
+		display: inline-block;
+	    background-color: white;
+	    border: none;
+	    height: 30px;
+	    width: 45px;
+	    cursor: pointer;
+	    border-radius: 10px;
+	    margin-left: 4px;
+	    outline: none;
+	}
+	#sec_attach{
+		display: inline-block;
+	    font-size: 14px;
+    	margin-left: 5px;
+	}
 </style>
 </head>
 <body>
@@ -193,8 +225,20 @@
 				 	<div class="divider"></div>
 				 <span>댓글 9</span>
 				 	<div class="divider"></div>
-				 <span class="fa fa-clock-o">${boardview.regdate}</span>
-			</div>
+				 <span class="fa fa-clock-o">
+				 	<c:choose>
+		    			<c:when test="${today2 == regdate2}">
+		    				<fmt:formatDate pattern="HH:mm:ss" value="${boardview.regdate}"/>
+		    			</c:when>
+		    			<c:otherwise>
+		    				<fmt:formatDate pattern="yy-MM-dd" value="${boardview.regdate}"/>
+		    			</c:otherwise>
+		    		</c:choose>
+				</span>
+				<div id="sec_attach"><i class="fa fa-paperclip"></i>
+					<a href="download.bizpoll?file=${boardview.filename}">${boardview.filename}
+					(<fmt:formatNumber type="number" pattern="0.0" value="${boardview.filesize/1024}"></fmt:formatNumber>kb)</a></div>
+				</div>
 		</div>
 		<!--게시글 내용 -->
 		<div id="read_content">
@@ -221,17 +265,19 @@
 		
 		<!-- navigation -->
 		<div class="navigation">
-			<a href="">다음글
-				<i style="margin-left: 12px;" class="fa fa-angle-double-right"></i>
-			</a>
+			
 			<a href="" style="margin-left: 0; float: left;">
 				<i class="fa fa-th-list"></i> 목록으로
 			</a>
-			<a href="">
-				<i style="margin-right:12px;"class="fa fa-angle-double-left"></i>이전글
-			</a>
+			<c:if test="${sessionScope.loginUser.id == boardview.writer}">
+				<a href="boardUpadte.bizpoll?bno=${boardview.bno}"><button type="submit" id="btn_update">수정</button></a>
+				<a href="#login_form"><button type="submit" id="btn_delete">삭제</button></a>
+			</c:if>
+			
 			<div style="clear:both"></div>
 		</div>
+		
+		
 		<!-- 댓글창 -->
 	 	<div class="rpwrap">
 			<div id="reply_header">

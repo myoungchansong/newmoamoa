@@ -382,9 +382,19 @@
 				<div id="search_ment">"<span class="searchpoint">${keyword}</span>
 				키워드로 총<span class="searchpoint">${pageMaker.totalCount}</span>건 검색되었습니다."</div>
 			</c:if>
-			<div class="btn_header">
-				<a href="" id="write_btn">쓰기</a>		
-			</div>
+			<c:choose>
+				<c:when test="${empty sessionScope.loginUser}">
+					<div class="btn_header">
+						<a href="login.bizpoll" id="write_btn">글쓰기</a>		
+					</div>
+				</c:when>
+				<c:otherwise>
+					<div class="btn_header">
+						<a href="boardregist.bizpoll" id="write_btn">글쓰기</a>		
+					</div>
+				</c:otherwise>
+			</c:choose>
+			
 			<div class="btn_header">
 				<a href="" id="alllist_btn">목록</a>		
 			</div>
@@ -430,6 +440,10 @@
 					  			<c:if test="${today2== regdate2}">
 					  				<span class = "new_time">New</span>
 					  			</c:if>
+					  			<c:if test="${bDto.filesize >0}"><i class="fa fa-paperclip"></i></c:if>
+						    	<c:if test="${bDto.replycnt >0}">
+						    		[${bDto.replycnt}]
+						    	</c:if>
 					  		</td>
 					  		<td>${bDto.writer}</td>
 					  		<td>

@@ -13,6 +13,8 @@ import com.moamoa.action.Action;
 import com.moamoa.action.ActionForward;
 import com.moamoa.action.BoardListAction;
 import com.moamoa.action.BoardReadAction;
+import com.moamoa.action.BoardRegistAction;
+import com.moamoa.action.BoardRegistplayAction;
 import com.moamoa.action.BoardSearchAction;
 import com.moamoa.action.BoardViewcntAction;
 import com.moamoa.action.HotelListAction;
@@ -141,6 +143,12 @@ public class BizpollFrontController extends HttpServlet {
 			forward = action.excute(request, response);
 		}else if(command.equals("/boardViewcnt.bizpoll")){
 			action = new BoardViewcntAction();
+			forward = action.excute(request, response);
+		}else if(command.equals("/boardregist.bizpoll")) {
+			action = new BoardRegistAction();
+			forward = action.excute(request, response);
+		}else if(command.equals("/boardregistplay.bizpoll")) {
+			action = new BoardRegistplayAction();
 			forward = action.excute(request, response);
 		}
 			
