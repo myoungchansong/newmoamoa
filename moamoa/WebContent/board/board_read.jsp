@@ -214,13 +214,14 @@
 	.rpctwrap{
 		width: 100%;
 	}
-	#rp_writer{
+	.rp_writer{
 		display: inline-block;
+		margin-left: 20px;
 	}
-	#rp_date{
+	.rp_date{
 		display: inline-block;
 	    color: #4e0707;
-	    padding-left: 20px;
+	    padding-left: 2px;
 	    font-weight: 400;
 	}
 	#reply_content_read{
@@ -380,9 +381,9 @@
 	    float: right;
 	    line-height: 23px;
 	    padding-right: 11px;
-	    margin-right: 30px;
+	    margin-right: 5px;
 	    margin-bottom: 4px;
-}
+
 	}
 	.rpcnt_del>a>span{color:gray;}
 	.rpcnt_del>a{color:red;}
@@ -404,9 +405,9 @@
 	    margin: 25px 20px 10px 30px;
 	    width: 78%;
 	    outline: none;
-}
 	}
-	#rwWriter{
+	
+	#rwWriter {
     	padding: 20px 0 0 20px;
 	    color: #0f54d2e3;
 	    font-weight: bold;
@@ -524,7 +525,7 @@ $(document).ready(function(){
 			</div>
 			<!--작성자, 조회수, 추천수, 댓글수, 날짜  -->
 			<div id="read_condition">
-				<div id="rd_witer">${boardview.writer}</div>
+				<div id="rd_witer">${sessionScope.loginUser.nik}</div>
 					<div class="divider"></div>
 				<span>조회수 ${boardview.viewcnt}</span>
 					<div class="divider"></div>

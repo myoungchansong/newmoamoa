@@ -44,6 +44,7 @@ String url ="boardList.bizpoll";
 		String sBno = multi.getParameter("bno");
 		String title = multi.getParameter("title");
 		String writer = multi.getParameter("writer");
+		String nik = multi.getParameter("nik");
 		String content = multi.getParameter("content");
 		String filename =" "; //(공백)
 		int filesize = 0;
@@ -122,7 +123,7 @@ String url ="boardList.bizpoll";
 			filename = "no";
 		}
 		 int bno = Integer.parseInt(sBno);
-		 bDto = new BoardDTO(bno, title, content, writer, filename, filesize); //파일자체가 들어가는게 아니라 이름만 들어가있는 거임 
+		 bDto = new BoardDTO(bno, title, content, writer, nik, pfilename, pfilesize);//파일자체가 들어가는게 아니라 이름만 들어가있는 거임 
 		 bDao.boardUpdate(bDto);
 		
 		ActionForward forward = new ActionForward();

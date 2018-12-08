@@ -4,8 +4,9 @@ import java.util.Date;
 
 public class ReplyDTO {
 	private int rno;
-    private String content;
+	private String content;
     private String writer;
+    private String nik;
     private Date regdate;
     private int bno;
 	
@@ -13,16 +14,17 @@ public class ReplyDTO {
 		super();
 	}
 
-	public ReplyDTO(int rno, String content, String writer, Date regdate, int bno) {
+
+	public ReplyDTO(int rno, String content, String writer, String nik, Date regdate, int bno) {
 		super();
 		this.rno = rno;
 		this.content = content;
 		this.writer = writer;
+		this.nik = nik;
 		this.regdate = regdate;
 		this.bno = bno;
 	}
 
-	
 
 	public ReplyDTO(String content, String writer, int bno) {
 		super();
@@ -30,6 +32,26 @@ public class ReplyDTO {
 		this.writer = writer;
 		this.bno = bno;
 	}
+	
+
+	public ReplyDTO(String content, String writer, String nik, int bno) {
+		super();
+		this.content = content;
+		this.writer = writer;
+		this.nik = nik;
+		this.bno = bno;
+	}
+
+
+	public String getNik() {
+		return nik;
+	}
+
+
+	public void setNik(String nik) {
+		this.nik = nik;
+	}
+
 
 	public int getRno() {
 		return rno;
@@ -71,12 +93,14 @@ public class ReplyDTO {
 		this.bno = bno;
 	}
 
+
 	@Override
 	public String toString() {
-		return "ReplyDTO [rno=" + rno + ", content=" + content + ", writer=" + writer + ", regdate=" + regdate
-				+ ", bno=" + bno + "]";
+		return "ReplyDTO [rno=" + rno + ", content=" + content + ", writer=" + writer + ", nik=" + nik + ", regdate="
+				+ regdate + ", bno=" + bno + "]";
 	}
-    
+
+	
     
     
 }

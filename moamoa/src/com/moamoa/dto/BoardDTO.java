@@ -6,7 +6,8 @@ public class BoardDTO {
 	 private int bno;
 	 private String title;
 	 private String content;
-	 private String writer; 
+	 private String writer;
+	 private String nik;
 	 private Date regdate;
 	 private int viewcnt;
 	 private int replycnt;
@@ -18,13 +19,14 @@ public class BoardDTO {
 		super();
 	}
 
-	public BoardDTO(int bno, String title, String content, String writer, Date regdate, int viewcnt, int replycnt,
+	public BoardDTO(int bno, String title, String content, String writer, String nik, Date regdate, int viewcnt, int replycnt,
 			int goodcnt, String filename, int filesize) {
 		super();
 		this.bno = bno;
 		this.title = title;
 		this.content = content;
 		this.writer = writer;
+		this.nik = nik;
 		this.regdate = regdate;
 		this.viewcnt = viewcnt;
 		this.replycnt = replycnt;
@@ -35,23 +37,33 @@ public class BoardDTO {
 
 	
 
-	public BoardDTO(String title, String content, String writer, String filename, int filesize) {
+	public BoardDTO(String title, String content, String writer, String nik, String filename, int filesize) {
 		super();
 		this.title = title;
 		this.content = content;
 		this.writer = writer;
+		this.nik = nik;
 		this.filename = filename;
 		this.filesize = filesize;
 	}
 
-	public BoardDTO(int bno, String title, String content, String writer, String filename, int filesize) {
+	public BoardDTO(int bno, String title, String content, String writer,  String nik, String filename, int filesize) {
 		super();
 		this.bno = bno;
 		this.title = title;
 		this.content = content;
 		this.writer = writer;
+		this.nik = nik;
 		this.filename = filename;
 		this.filesize = filesize;
+	}
+
+	public String getNik() {
+		return nik;
+	}
+
+	public void setNik(String nik) {
+		this.nik = nik;
 	}
 
 	public int getBno() {
@@ -136,10 +148,12 @@ public class BoardDTO {
 
 	@Override
 	public String toString() {
-		return "BoardDTO [bno=" + bno + ", title=" + title + ", content=" + content + ", writer=" + writer
-				+ ", regdate=" + regdate + ", viewcnt=" + viewcnt + ", replycnt=" + replycnt + ", goodcnt=" + goodcnt
-				+ ", filename=" + filename + ", filesize=" + filesize + "]";
-	}   
+		return "BoardDTO [bno=" + bno + ", title=" + title + ", content=" + content + ", writer=" + writer + ", nik="
+				+ nik + ", regdate=" + regdate + ", viewcnt=" + viewcnt + ", replycnt=" + replycnt + ", goodcnt="
+				+ goodcnt + ", filename=" + filename + ", filesize=" + filesize + "]";
+	}
+
+
 	 
 	 
 }

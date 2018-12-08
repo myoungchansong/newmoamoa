@@ -44,6 +44,7 @@ public class BoardRegistplayAction implements Action{
 		
 		String title = multi.getParameter("title");
 		String writer = multi.getParameter("writer");
+		String nik = multi.getParameter("nik");
 		String content = multi.getParameter("content");
 		String filename =" "; //(공백)
 		int filesize = 0;
@@ -71,7 +72,7 @@ public class BoardRegistplayAction implements Action{
 		}
 		
 		BoardDAO bDao = BoardDAO.getInstance();
-		BoardDTO bDto = new BoardDTO(title, content, writer,filename,filesize); //파일자체가 들어가는게 아니라 이름만 들어가있음
+		BoardDTO bDto = new BoardDTO(title, content, writer, nik, filename, filesize); //파일자체가 들어가는게 아니라 이름만 들어가있음
 		int result = bDao.boardRegist(bDto);
 		
 		/*if(result >0) {// 등록성공

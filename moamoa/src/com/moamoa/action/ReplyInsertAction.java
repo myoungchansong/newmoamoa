@@ -19,11 +19,12 @@ public class ReplyInsertAction implements Action{
 			throws ServletException, IOException {
 		int bno = Integer.parseInt(request.getParameter("re_bno"));
 		String writer = request.getParameter("rpwriter");
+		String nik = request.getParameter("rnik");
 		String content = request.getParameter("reply_content");
-		System.out.println(bno+","+writer+","+content);
+		System.out.println(bno+",글쓴이 : "+writer+",닉네임 : "+nik+","+content);
 		
 		//bno 게시글에 댓글 등록
-		ReplyDTO rDto = new ReplyDTO(content, writer, bno);
+		ReplyDTO rDto = new ReplyDTO(content, writer, nik,bno);
 		ReplyDAO rDao = ReplyDAO.getInstance();
 	
 		rDao.replyInsert(rDto);

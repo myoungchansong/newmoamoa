@@ -461,7 +461,7 @@
 						    		[${bDto.replycnt}]
 						    	</c:if>
 					  		</td>
-					  		<td>${bDto.writer}</td>
+					  		<td>${bDto.nik}</td>
 					  		<td>
 						  		<c:choose>
 						  			<c:when test="${today2 == regdate2}">

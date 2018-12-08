@@ -13,7 +13,7 @@
 	
 <div id="reply_wrap">
 	<c:choose>
-		<c:when test="${empty sessionScope.loginUser}">
+		<c:when test="${empty sessionScope.loginUser.id}">
 			<section class="reply_section">
 				<textarea rows="5" cols="100" class="reply_content" placeholder="로그인 후 댓글을 등록하세요" disabled="disabled" style="resize: none;"></textarea>
 			</section>
@@ -23,13 +23,14 @@
 		<form action="replyInsert.bizpoll" method="POST" name="frm_reply" id="frm_reply">
 			<section class="reply_section">
 				<div id="rwWriter">
-					<input id="rpwriter" name="rpwriter" value="${sessionScope.loginUser.id}" style="display: none;">${sessionScope.loginUser.nik}
+					<input type="hidden" id="rpwriter" name="rpwriter" value="${sessionScope.loginUser.id}">
+					<input id="rnik" name="rnik" value="${sessionScope.loginUser.nik}" type="hidden">${sessionScope.loginUser.nik}
 				</div>
 				<textarea rows="5" cols="100" name="reply_content"class="reply_content" placeholder="댓글을 입력해주세요" style="resize: none;"></textarea>
 				<a href="#"><button type="button" id="btn_insertrply">등록</button></a>
 				<span id="rpc_error">내용을 입력해주세요</span>
 				
-				<input type="hidden" name="re_writer" value="${sessionScope.login.id}">
+				<input type="hidden" name="re_writer" value="${sessionScope.login.nik}">
 				<input type="hidden" id="re_bno" name="re_bno">
 			</section>
 		</form>
@@ -48,7 +49,7 @@
 		 <div id="reply_list">
 			<div class="rpcontent">
 				<div class="rpctwrap">
-					<div class="rp_writer">${replyview.writer}</div>
+					<div class="rp_writer">${replyview.nik}</div>
 					<div class="rp_date">| 작성일:
 						<c:choose>
 					    	<c:when test="${today2 == regdate2}">

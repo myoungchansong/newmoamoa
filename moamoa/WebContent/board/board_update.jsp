@@ -272,7 +272,8 @@
 				<span>제목</span><input type="text" name ="title"id="input_title" value="${boardview.title}">
 			</div>
 			<div id="insert_writer">
-				<span>작성자</span><input type="text" id="input_writer" name="writer" value="${sessionScope.loginUser.id}" readonly="readonly"></div>
+				<span>작성자</span><input type="text" id="input_writer" name="nik" value="${sessionScope.loginUser.nik}" readonly="readonly">
+				<input type="hidden" id="input_writer" name="writer" value="${sessionScope.loginUser.id}" readonly="readonly"></div>
 			<div class="error">필수정보입니다. 제목을 입력하세요</div>
 		</div>
 		<div id="insert_scd">

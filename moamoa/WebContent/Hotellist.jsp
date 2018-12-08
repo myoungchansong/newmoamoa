@@ -271,12 +271,12 @@ input {
 			<c:choose>
 				<c:when test="${!empty keyword}">
 					<div id="ser">
-						<p>"${keyword}"관련검색어 ${pageMaker.totalCount}건이 검색되엇습니다</p>
+						<p>"${keyword}"관련검색어 ${pageMaker.totalCount}건이 검색되었습니다</p>
 					</div>
 				</c:when>
 					<c:otherwise>
 					<div id="ser">
-						<p>"서울" 관련검색어 ${pageMaker.totalCount}건이 검색되엇습니다</p>
+						<p>"서울" 관련검색어 ${pageMaker.totalCount}건이 검색되었습니다</p>
 					</div>
 					</c:otherwise>
 			</c:choose>
