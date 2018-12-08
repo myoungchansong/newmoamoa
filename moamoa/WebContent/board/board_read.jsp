@@ -530,7 +530,7 @@ $(document).ready(function(){
 					<div class="divider"></div>
 				<span>추천수 ${boardview.goodcnt}</span>	
 				 	<div class="divider"></div>
-				 <span>댓글 9</span>
+				 <span>댓글 ${boardview.replycnt}</span>
 				 	<div class="divider"></div>
 				 <span class="fa fa-clock-o">
 				 	<c:choose>
@@ -573,7 +573,7 @@ $(document).ready(function(){
 		<!-- navigation -->
 		<div class="navigation">
 			
-			<a href="" style="margin-left: 0; float: left;">
+			<a href="boardList.bizpoll" style="margin-left: 0; float: left;">
 				<i class="fa fa-th-list"></i> 목록으로
 			</a>
 			<c:if test="${sessionScope.loginUser.id == boardview.writer}">

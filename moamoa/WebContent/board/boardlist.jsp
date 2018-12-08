@@ -325,19 +325,30 @@
   	 	border: 1px solid #FF5E00;
   	 	border-radius: 5px;
 	}
+	#btn_search_submit.a{
+		display: inline-block;
+		width: 100%;
+	}
 </style>
 
 <script type="text/javascript">
  $(document).ready(function(){
 	 $('.search-button').click(function(){
-		  $(this).parent().toggleClass('open');
+		 var keyword = $("#btn_search").val();
+		 if(keyword==""){
+			 $(this).parent().toggleClass('open');
+		 }
+		  
 		});
-	 $("#btn_search_submit").click(function(){
+	 $("#btn_search_submit").after().click(function(){
 			var flag = $("#search_category").val();
 			var keyword = $("#btn_search").val();
-			location.href ="boardList.bizpoll?flag="+flag+"&keyword="+keyword;	
-			alert(flag + keyword);
-			$("#search_ment").css("display","block");
+			if(keyword!=""){
+				location.href ="boardList.bizpoll?flag="+flag+"&keyword="+keyword;	
+				$("#search_ment").css("display","block");
+				alert(flag + keyword);
+			}
+	
 		});	 
 	 
  });
@@ -407,7 +418,7 @@
 			<div class="search">
 			  <input type="search" class="search-box" id="btn_search"/>
 			  <span class="search-button">
-			    <a href="#" id="btn_search_submit"><span class="search-icon"></span></a>
+			    <span id="btn_search_submit"><span class="search-icon"></span></span>
 			  </span>
 			</div>
 			<div id="search_line" class="custom-select" style="width:100px;">

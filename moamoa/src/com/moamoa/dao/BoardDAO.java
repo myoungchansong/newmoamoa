@@ -133,7 +133,7 @@ public class BoardDAO {
 			int result = 0;
 			sqlSession = sqlSessionFactory.openSession();
 			try {
-				result = sqlSession.insert("boardInsert",bDto);
+				result = sqlSession.insert("boardRegist",bDto);
 				sqlSession.commit();
 				
 			} catch (Exception e) {

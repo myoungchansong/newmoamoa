@@ -130,19 +130,6 @@
   	
   	
   	
-  	
-  	
-  	
-  	
-  	
-  	
-  	
-  	
-  	
-  	
-  	
-  	
-  	
   	<!-- BoardDAO -->
   	
   	<select id="countPaging" resultType="int">

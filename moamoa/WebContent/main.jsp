@@ -166,14 +166,14 @@ section {
 	outline: black;
 }
 .img_collection_title{
-width:20%;
-margin: 20px;
-margin-left:210px;
-font-weight: 400;
-font-size: 23px;
-padding: 0.5% 0 0.5% 2%;
-color: #555555c9;
-background-image: linear-gradient(to right , rgba(255,255,255,0.8), rgba(0,188,212,0.4));
+    width: 30%;
+    margin: 1%;
+    margin-left: 0.5%;
+    font-weight: 400;
+    font-size: 23px;
+    padding: 0.5% 0 0.5% 2%;
+    color: #555555c9;
+    background-image: linear-gradient(to right , rgba(255,255,255,0.8), rgba(0,188,212,0.4));
 }
 
 
