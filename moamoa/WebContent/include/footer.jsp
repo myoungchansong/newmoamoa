@@ -45,6 +45,7 @@
 
 #icon img{
 	margin-left: 30px;
+	cursor: pointer;
 }
 #logo_agoda{
 	width: 100px;
@@ -63,6 +64,12 @@
     height: 64px;
 }
 </style>
+<script type="text/javascript">
+	$(document).on("click", ".link",function(){
+		var src = $(this).attr("link");
+		window.open(src);
+	});
+</script>
 
 
 </head>
@@ -76,10 +83,10 @@
 						
 				</div>
 				<div id="icon">
-					<a href="https://www.agoda.com"><img src="${path}/img/agoda.png" id="logo_agoda"></a>
-					<a href="https://www.booking.com"><img src="${path}/img/booking.png" id="logo_booking"></a>
-					<a href="https://www.expedia.co.kr"><img src="${path}/img/expedia.png" id="logo_expedia"></a>
-					<a href="https://kr.hotels.com"><img src="${path}/img/hotelscom.png" id="logo_hotelscom"></a>
+					<img src="${path}/img/agoda.png" id="logo_agoda" link="https://www.agoda.com" class="link"> 
+					<img src="${path}/img/booking.png" id="logo_booking" link="https://www.booking.com" class="link">
+					<img src="${path}/img/expedia.png" id="logo_expedia" link="https://www.expedia.co.kr" class="link">
+					<img src="${path}/img/hotelscom.png" id="logo_hotelscom" link="https://kr.hotels.com" class="link">
 				</div>
 				
 		</div>
