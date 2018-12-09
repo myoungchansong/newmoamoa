@@ -67,8 +67,10 @@ public class BoardDAO {
 		public List<BoardDTO> boardSearch(CriteriaDTO criDto){
 			sqlSession = sqlSessionFactory.openSession();
 			List<BoardDTO> list =null;
+			System.out.println("돼냐아아아아아ㅏ!!!!!");
 			try {
 				list = sqlSession.selectList("searchList", criDto);
+				System.out.println("결과 개수:" +list.size());
 			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {

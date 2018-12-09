@@ -21,7 +21,7 @@
  
  
  
- <!-- member inser   -->
+ <!-- member insert   -->
  
  	<insert id="memberinsert" parameterType="com.moamoa.dto.memberDTO" >
 		INSERT INTO moamoamember(id, nik, pw)
@@ -169,7 +169,7 @@
 	                      <![CDATA[AND title LIKE '%'||#{keyword}||'%' OR content LIKE '%'||#{keyword}||'%']]>
 	                      </if>
 	                      <if test='flag == "4"'>
-	                      <![CDATA[AND writer LIKE '%'||#{keyword}||'%']]>
+	                      <![CDATA[AND nik LIKE '%'||#{keyword}||'%']]>
 	                      </if>
 	                      
 	                      <if test='code == "new"'>

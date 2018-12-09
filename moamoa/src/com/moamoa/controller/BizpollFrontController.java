@@ -194,22 +194,6 @@ public class BizpollFrontController extends HttpServlet {
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		//공통 분기작업(페이지 이동)
 		if(forward !=null) {
 			if(forward.isRedirect()) {//true :sendRedirect방식   //fasle 담김

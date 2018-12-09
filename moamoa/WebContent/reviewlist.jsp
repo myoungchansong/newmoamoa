@@ -282,7 +282,7 @@ button#mybtn{
 		color: #6799FF;
 		cursor: pointer;
 		padding: 15px;
-		border-radius: 30px;
+		border-radius: 7px;
 	}
 	button#mybtn:hover{
 		background-color: #B2EBF4;

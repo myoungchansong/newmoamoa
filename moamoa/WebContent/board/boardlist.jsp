@@ -349,7 +349,11 @@
 				alert(flag + keyword);
 			}
 	
-		});	 
+		});	
+	 $("#order_categoryg").change(function(){
+	        var flag = $(this).val();
+	       
+	    });
 	 
  });
 
@@ -381,16 +385,12 @@
 			</div>
 			
 			<div class="custom-select" style="width:100px;">
-				<select>
+				<select id="order_categoryg">
 					<option>정렬</option>
-					<a href="boardList.bizpoll?flag=${flag}&keyword=${keyword}&key=new" id="orderNew" style="text-decoration: none; color:gray; font-weight: 400px;">
-						<option>최신순</option></a>
-					<a href="boardList.bizpoll?flag=${flag}&keyword=${keyword}&key=cnt" id="ordercnt" style="text-decoration: none; color:gray; font-weight: 400px;">
-						<option>조회순</option></a>
-					<a href="boardList.bizpoll?flag=${flag}&keyword=${keyword}&key=reply" id="orderReply" style="text-decoration: none; color:gray; font-weight: 400px;">
-						<option>댓글순</option></a>
-					<a href="boardList.bizpoll?flag=${flag}&keyword=${keyword}&key=good" id="orderGood" style="text-decoration: none; color:gray; font-weight: 400px;">
-						<option>추천순</option></a>
+					<option value="1">최신순</option>
+					<option value="2">조회순</option>
+					<option value="3">댓글순</option>
+					<option value="4">추천순</option>
 				</select>
 			</div>
 			
