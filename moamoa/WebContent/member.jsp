@@ -351,6 +351,26 @@
 		padding: 5px 10px;
 		display: none;
 	}
+	
+	
+	@media(max-width: 1200px) {
+	
+	
+	#photo_wrap{
+		display: none;
+	}
+	#body_wrap{
+		width: 100%;
+		margin: 0px;
+		padding: 0px;
+	}
+	
+	#member_layout{
+		width: 100%;
+	}
+	
+}
+	
 </style>  
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -462,7 +482,6 @@
 							success : function(data) {
 								if (data.message == 1) {
 									$("#input_id").next().text("사용가능한 이메일입니다 ").css("display","block").css("color","#00BCD4");
-									$("#input_nik").focus();	
 									$('#btn_next').attr('disabled',false);   /* delete버튼 활성화   */
 									$(this).next().text("비밀번호가 일치 합니다 ").css("display", "block").css("color", "#00BCD4");
 								} else if (data.message == -1) {
@@ -499,7 +518,6 @@
 							success : function(data) {
 								if (data.message == 1) {
 									$("#input_nik").next().text("사용가능한 닉네임입니다 ").css("display","block").css("color", "#00BCD4");
-									$("#input_pw").focus();
 									$('#btn_next').attr('disabled',false);   /* delete버튼 활성화   */
 								} else if (data.message == -1) {
 									$("#input_nik").next().text("이미사용중인 닉네임입니다").css("display", "block").css("color", "red");
@@ -664,8 +682,9 @@
 		
 		/* enter 눌렀을때 다음칸으로 넘어가기  */
 		var input1= document.getElementById("input_id");
-		var input2= document.getElementById("input_pw");
-		var input3= document.getElementById("input_rpw");
+		var input2= document.getElementById("input_nik");
+		var input3= document.getElementById("input_pw");
+		var input4= document.getElementById("input_rpw");
 
 		input1.addEventListener("keyup", function(event) {
 		    event.preventDefault();
@@ -676,10 +695,16 @@
 		input2.addEventListener("keyup", function(event) {
 		    event.preventDefault();
 		    if (event.keyCode === 13) {
+		        input2.focus();
+		    }
+		});
+		input3.addEventListener("keyup", function(event) {
+		    event.preventDefault();
+		    if (event.keyCode === 13) {
 		    	 input3.focus();
 		    }
 		});
-		input3.addEventListener("keyup",function(event){
+		input4.addEventListener("keyup",function(event){
 			event.preventDefault();
 			if(event.keyCode === 13){
 				document.getElementById(btn_next).click();

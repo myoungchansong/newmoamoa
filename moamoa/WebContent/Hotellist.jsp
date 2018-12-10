@@ -110,7 +110,7 @@ input {
 
 /*호텔 리스트  */
 #hotellist{
-	width: 60%;
+	width: 50%;
 	height: 100%;
 	margin: 0px auto;
 	margin-bottom: 20px;
@@ -187,7 +187,7 @@ input {
 	padding-left: 30px;
 }
 #content{
-	width: 800px;
+	width: 700px;
 	height: 100px;
 	margin-top: 70px;
 	float: right;
@@ -260,10 +260,48 @@ input {
 }
 
 
+@media(max-width: 700px) {
+	#input-text{
+		width: 250px;
+		font-size: 15px;
+	}
+	#input-submit{
+		left: 330px;
+	}
+	.box{
+		width: 400px;
+	}
+	
+	#search{
+		width: 400px;
+		margin: 10px auto;
+	}
+	
+	#ser p {
+		font-size: 20px;
+	}
+	#title a{
+		text-align: center;
+	}
+}
+
+@media(max-width: 1200px) {
+	
+	#title{
+		width: 100%;
+		padding-left: 30px;
+	}
+	#htl_addr{
+		padding-left: 30px;
+	}
+	#content{
+		width: 100%;
+	}	
+}
 
 </style>
 </head>
-<body>
+<body>	
 	<!-- 검색창 -->
 	<section id="imgbox">
 		<div id="search">
@@ -295,13 +333,6 @@ input {
 	
 	<!--호텔 필터  -->
 	<section id="hotellist">
-		<div id="selectbox">
-			<a href="#">select</a>
-			<a href="#">select</a>
-			<a href="#">select</a>
-			<a href="#">select</a>
-			
-		</div>
 		
 	<!--호텔 리스트  -->	
 	<c:forEach items="${htlsearchList}" var = "htlDTO">

@@ -166,9 +166,9 @@ section {
 	outline: black;
 }
 .img_collection_title{
-    width: 30%;
+    width: 300px;
     margin: 1%;
-    margin-left: 0.5%;
+    margin-left: 200px;
     font-weight: 400;
     font-size: 23px;
     padding: 0.5% 0 0.5% 2%;
@@ -180,24 +180,23 @@ section {
 /*이미지 grid 디자인  */
 
 #img_section{
+margin: 50px auto;
 width: 100%;
-padding-left: 11%;
-margin-bottom: 50px;
-margin-top: 250px;
 
 }
 .row {
-	width:100%;
 	display: -ms-flexbox; /* IE10 */
 	display: flex;
 	-ms-flex-wrap: wrap; /* IE10 */
 	flex-wrap: wrap;
-	padding: 0 4px;
-	margin: 0 auto;
+	padding: 0 4xp;
+	width: 100%;
+	align-items: center;
+  justify-content: center;
 }
 
 .column {
-	-ms-flex: 25%; /* IE10 */
+	-ms-flex: 25%; /* IE10 */3re
 	flex: 25%;
 	max-width: 25%;
 	padding: 0 7px;
@@ -341,8 +340,30 @@ input {
 	background: #ff5722;
 }
 
+@media(max-width: 700px) {
+	.img_collection_title{
+		margin-left: 30px;
+	}
+	#input-text{
+		width: 300px;
+		font-size: 15px;
+	}
+	#input-submit{
+		left: 300px;
+	}
+	.box{
+		width: 400px;
+	}
+	
+	#search{
+		width: 400px;
+		margin: 10px auto;
+	}
+	
+	
+}
 
-
+	
 
 </style>
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
@@ -392,10 +413,10 @@ input {
 	<div class="row">
 	
 	<!--첫번째 컬럼  -->
-		<div class="column">
+		<div class="column" >
 		 	<div class="img_hover_wrapper">
-				<img class="img-responsive" src="${path}/seoulimg/lottetower.jpg">
-				<a href="searchhtl.bizpoll?flag=1&keyword=송파구">
+				<img class="img-responsive" src="${path}/seoulimg/lottetower.jpg" style="height: 338px;">
+				<a href="searchhtl.bizpoll?flag=2&keyword=송파구">
 					<div class="overlay">
 						<div class="img_content" style="flex: 25%;">
 				 			<h1>롯데월드타워</h1>
@@ -407,7 +428,7 @@ input {
 		  	
 		  	<div class="img_hover_wrapper">
 				<img class="img-responsive" src="${path}/seoulimg/coex.jpg">
-				<a href="searchhtl.bizpoll?flag=1&keyword=강남구">
+				<a href="searchhtl.bizpoll?flag=2&keyword=강남구">
 					<div class="overlay">
 						<div class="img_content" style="flex: 25%;">
 					 		<h1>COEX</h1>
@@ -419,7 +440,7 @@ input {
 			
 			<div class="img_hover_wrapper">
 				<img src="${path}/seoulimg/hanok_vilege.jpg">
-				<a href="searchhtl.bizpoll?flag=1&keyword=종로구">
+				<a href="searchhtl.bizpoll?flag=2&keyword=종로구">
 					<div class="overlay">
 						<div class="img_content" style="flex: 25%;">
 					 		<h1>서울 한옥 마을</h1>
@@ -431,7 +452,7 @@ input {
 			
 			<div class="img_hover_wrapper">
 				<img src="${path}/seoulimg/market.jpg">
-				<a href="searchhtl.bizpoll?flag=1&keyword=동작구">
+				<a href="searchhtl.bizpoll?flag=2&keyword=동작구">
 					<div class="overlay">
 						<div class="img_content" style="flex: 25%;">
 					 		<h1>노량진 수산시장</h1>
@@ -445,8 +466,8 @@ input {
 		 <!--두번째 컬럼  -->	
 		<div class="column">
 			<div class="img_hover_wrapper">	
-				<img src="${path}/seoulimg/namsan.jpg">
-				<a href="searchhtl.bizpoll?flag=1&keyword=용산구">
+				<img src="${path}/seoulimg/namsan.jpg" style="height: 690px">
+				<a href="searchhtl.bizpoll?flag=2&keyword=용산구">
 					<div class="overlay">
 						<div class="img_content" style="flex: 25%;">
 					 		<h1>N서울타워</h1>
@@ -463,7 +484,7 @@ input {
 			
 			<div class="img_hover_wrapper">
 				<img src="${path}/seoulimg/festival2.PNG">
-				<a href="searchhtl.bizpoll?flag=1&keyword=영등포구">
+				<a href="searchhtl.bizpoll?flag=2&keyword=영등포구">
 					<div class="overlay">
 						<div class="img_content" style="flex: 25%;">
 					 		<h1>여의도</h1>
@@ -494,7 +515,7 @@ input {
 			
 			<div class="img_hover_wrapper">
 				<img src="${path}/seoulimg/004.PNG">
-				<a href="searchhtl.bizpoll?flag=1&keyword=종로구">
+				<a href="searchhtl.bizpoll?flag=2&keyword=종로구">
 					<div class="overlay">
 						<div class="img_content" style="flex: 25%;">
 					 		<h1>경복궁</h1>
@@ -506,7 +527,7 @@ input {
 			
 			<div class="img_hover_wrapper">
 				<img src="${path}/seoulimg/003.PNG">
-				<a href="searchhtl.bizpoll?flag=1&keyword=마포구">
+				<a href="searchhtl.bizpoll?flag=2&keyword=마포구">
 					<div class="overlay">
 						<div class="img_content" style="flex: 25%;">
 					 		<h1>서울 홍대 거리</h1>
@@ -557,7 +578,7 @@ input {
 			 var flag= $("#inputGroupSelect01").val();
 			 var keyword= $("#input-text").val();
 			if(keyword !=""){
-				location.href="searchhtl.bizpoll?flag=1"+"&keyword="+keyword;
+				location.href="searchhtl.bizpoll?flag=2"+"&keyword="+keyword;
 			} else{
 				location.href="searchhtl.bizpoll";
 			}			 	

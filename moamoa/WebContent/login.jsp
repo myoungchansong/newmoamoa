@@ -292,6 +292,25 @@
 	#clr_div{
 		clear:both;
 	}
+	
+	@media(max-width: 1200px) {
+	
+	
+	#photo_wrap{
+		display: none;
+	}
+	#body_wrap{
+		width: 100%;
+		margin: 0px;
+		padding: 0px;
+	}
+	
+	#login_layout{
+		width: 100%;
+	}
+	
+}
+	
 </style>  
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">

@@ -179,6 +179,19 @@
 		padding: 5px 10px;
 		display: none; 
 	}
+	
+	
+
+ 
+	
+	
+	
+	
+	
+	
+	
+	
+	
 </style>
 <script type="text/javascript">
 $(document).ready(function(){

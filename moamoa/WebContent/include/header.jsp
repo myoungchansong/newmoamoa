@@ -61,6 +61,7 @@ nav #menu {
       float: left;
       left: 50%;
       position: relative;
+      background: #0097A7;
 }
  
 nav #menu li {
@@ -128,6 +129,7 @@ nav #menu li a {
       height: 90px;
       display: table-cell;
       vertical-align: center;
+      height: 100%;
 }
  
 #resize #menu li {
@@ -209,7 +211,7 @@ nav #menu li a {
 			<li><a href="boardList.bizpoll">COMMUNITY</a></li>
 			
 			
-			<c:choose> 
+				<c:choose> 
 					<c:when test="${empty sessionScope.loginUser}">
 						<li><a href="member.bizpoll">SIGN UP</a></li>
 						<li><a class ="active" href="login.bizpoll">LOG IN</a></li>	
@@ -240,10 +242,23 @@ nav #menu li a {
 	
 	<div id="resize">
 		<ul id="menu">
-			<li><a href="#">HOME</a></li>
-			<li><a href="#">About</a></li>
-			<li><a href="#">Contract</a></li>
-			<li><a href="#">FAQ</a></li>
+			<li><a href="searchhtl.bizpoll">HOME</a></li>
+			<li><a href="searchhtl.bizpoll">ALL</a></li>
+			<li><a href="#">BIGDATA</a></li>
+			<li><a href="boardList.bizpoll">COMMUNITY</a></li>
+			<c:choose> 
+					<c:when test="${empty sessionScope.loginUser}">
+						<li><a href="member.bizpoll">SIGN UP</a></li>
+						<li><a class ="active" href="login.bizpoll">LOG IN</a></li>	
+					</c:when>
+					<c:otherwise>
+						<li>
+						<%-- <a href="#">${sessionScope.loginUser.nik}(${sessionScope.loginUser.id})</a> --%>
+						<a href="update.bizpoll"><i class="fa fa-user"></i></a>
+						</li>
+						<li><a  class ="active" href="logout.bizpoll">LogOut</a></li>
+					</c:otherwise>
+				</c:choose>
 		</ul>
 	</div>
 	

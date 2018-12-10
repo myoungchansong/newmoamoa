@@ -38,7 +38,8 @@
 	
 }
 #icon{
-	margin: 20px auto;
+	margin: 0px auto;
+	margin-top: 10px;
     width: 570px;
     text-align: center;
 }
@@ -62,6 +63,21 @@
 #logo_hotelscom{
 	width: 100px;
     height: 64px;
+}
+
+@media(max-width: 700px) {
+	#team{
+		width: 400px;
+	}
+	#email{
+		width: 400px;
+	}
+	#icon img{
+		margin: 0px;
+		margin-left: 20px;
+		width: 15%;
+		float: left;
+	}
 }
 </style>
 <script type="text/javascript">

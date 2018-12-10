@@ -128,6 +128,53 @@
 		color: black;
 		text-decoration: underline; 
 	}
+	#vis{
+		margin: 0px;
+		padding: 0px;
+		width: 100%;
+		background: #B2EBF2;
+		display: none;
+	}
+	
+	#vis span{
+		width: 100%;
+		background: #B2EBF2;
+		color: white;
+		display:inline-block;
+		font-size: 25px;
+		text-align: center;
+		font-weight:bold;
+		line-height: 100px;
+		padding: 64px;
+		padding-bottom: 40px;
+		padding-top: 40px;
+		border: 1px solid white;
+	}
+	
+	
+	
+	@media(max-width: 700px) {
+	
+	#myinfo a{
+		display: none;
+	}
+	.top2{
+		display: none;
+	}
+	
+	.bottom3{
+		display: none;
+	}
+	
+	#vis{
+		display: block;
+	}
+	#bodysection{
+		margin: 0px;
+		padding: 0px;
+	}
+	
+}
 	
 </style>
 </head>
@@ -200,9 +247,15 @@ $(document).ready(function() {
 		</div>
 		
 	</div>	
-	
+		<div id="vis">
+			<span style="line-height: 50px;">${sessionScope.loginUser.id}<br>(${sessionScope.loginUser.nik})</span>
+			<span>닉네임 수정</span>
+			<span>비밀번호 수정</span>
+			<span>회원 탈퇴</span>
+		</div>
+		
 	</section>
 	
-		<%@ include file="include/footer.jsp"%>
 </body>
+		<%@ include file="include/footer.jsp"%>
 </html>
