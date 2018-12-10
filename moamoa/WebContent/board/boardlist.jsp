@@ -264,16 +264,16 @@
 	}
 	#search_ment{
 		display: inline-block;
-	    font-size: 17px;
 	    font-weight: 400;
 	    color: gray;
 	    text-align: center;
-	    margin-left: 100px;
+	    float: right;
+	    line-height: 3px;
+	    margin-right: 174px;
 	}
 	.searchpoint{
 		display:inline-block;
-		font-size: 20px;
-		font-weight: 600px;
+		font-weight: 600;
 		color: red;
 	}
 	/*board table  */
@@ -351,8 +351,11 @@
 	
 		});	
 	 $("#order_categoryg").change(function(){
-	        var flag = $(this).val();
-	       
+		 	var key = $(this).val();
+		 	if(key !=""){
+		 		
+	        location.href="boardList.bizpoll?flag="+${flag}+"&keyword="+${keyword}"+&key="+key;
+		 	}
 	    });
 	 
  });
@@ -370,6 +373,10 @@
 						<li class="index_li"><a href="#">COMMUNITY</a></li>
 						<li class="index_li"><a href="#">자유게시판</a></li>
 					</ul>
+				<c:if test="${!empty keyword}">
+					<div id="search_ment">"<span class="searchpoint">${keyword}</span>
+					키워드로 총<span class="searchpoint">${pageMaker.totalCount}</span>건 검색되었습니다."</div>
+				</c:if>
 				</div>
 			</section>
 		</div>
@@ -387,17 +394,14 @@
 			<div class="custom-select" style="width:100px;">
 				<select id="order_categoryg">
 					<option>정렬</option>
-					<option value="1">최신순</option>
-					<option value="2">조회순</option>
-					<option value="3">댓글순</option>
-					<option value="4">추천순</option>
+					<option value="orderNew">최신순</option>
+					<option value="ordercnt">조회순</option>
+					<option value="orderReply">댓글순</option>
+					<option value="orderGood">추천순</option>
 				</select>
 			</div>
 			
-			<c:if test="${!empty keyword}">
-				<div id="search_ment">"<span class="searchpoint">${keyword}</span>
-				키워드로 총<span class="searchpoint">${pageMaker.totalCount}</span>건 검색되었습니다."</div>
-			</c:if>
+			
 			<c:choose>
 				<c:when test="${empty sessionScope.loginUser}">
 					<div class="btn_header">

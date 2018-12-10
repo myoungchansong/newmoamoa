@@ -8,8 +8,8 @@
 <!-- review insert -->
 
 	<insert id="hotelinsert" parameterType="com.moamoa.dto.hotelDTO">
-		INSERT INTO moamoa(hotelbno , hotelname, hoteladdr, summary, hotelimg)
-		VALUES(seq_moamoa.nextval, #{hotelname}, #{hoteladdr}, #{summary}, #{hotelimg})
+		INSERT INTO moamoa( hotelname, hoteladdr, summary, hotelimg)
+		VALUES(#{hotelname}, #{hoteladdr}, #{summary}, #{hotelimg})
 	</insert>
  
  	<insert id="hotelupdate" parameterType="com.moamoa.dto.hotelDTO">

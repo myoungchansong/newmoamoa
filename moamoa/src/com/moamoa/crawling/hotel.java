@@ -30,7 +30,7 @@ public class hotel {
 		hotelDAO Dao =hotelDAO.getInstance();
 
 		try {
-			while (offset <= 15*4) { //<<  15 = 1 페이지  0부터 시작
+			while (offset <= 15*22) { //<<  15 = 1 페이지  0부터 시작
 				perfect_url = url + offset;
 				Document doc = Jsoup.connect(perfect_url).get();
 				Elements htl_list = doc.select("div.sr_item_main_block > h3 > a");
