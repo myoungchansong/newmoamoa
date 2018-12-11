@@ -332,14 +332,14 @@
 </style>
 
 <script type="text/javascript">
- $(document).ready(function(){
-	 $('.search-button').click(function(){
-		 var keyword = $("#btn_search").val();
-		 if(keyword==""){
-			 $(this).parent().toggleClass('open');
-		 }
-		  
-		});
+$(document).ready(function(){
+	$('.search-button').click(function(){
+		var keyword = $("#btn_search").val();
+		if(keyword==""){
+			$(this).parent().toggleClass('open');
+		}	  
+	});
+	
 	 $("#btn_search_submit").after().click(function(){
 			var flag = $("#search_category").val();
 			var keyword = $("#btn_search").val();
@@ -349,18 +349,12 @@
 				alert(flag + keyword);
 			}
 	
-		});	
-	 $("#order_categoryg").change(function(){
-		 	var key = $(this).val();
-		 	if(key !=""){
-		 		
-	        location.href="boardList.bizpoll?flag="+${flag}+"&keyword="+${keyword}"+&key="+key;
-		 	}
-	    });
-	 
+		});	 
  });
+ 
 
-
+</script>
+<script type="text/javascript">
 </script>
 </head>
 <body id="board">
@@ -383,21 +377,21 @@
 		
 		<form action="" id="board_frm">
 			<div class="custom-select" style="width:100px;">
-				<select>
+				<select id="category_btn" name="category_btn">
 					<option>분류</option>
-					<option>정보</option>
-					<option>상세리뷰</option>
-					<option>잡담</option>
+					<option value="">정보</option>
+					<option value="">상세리뷰</option>
+					<option value="">잡담</option>
 				</select>
 			</div>
 			
 			<div class="custom-select" style="width:100px;">
-				<select id="order_categoryg">
+				<select id="new_order_category">
 					<option>정렬</option>
-					<option value="orderNew">최신순</option>
-					<option value="ordercnt">조회순</option>
-					<option value="orderReply">댓글순</option>
-					<option value="orderGood">추천순</option>
+					<option value="new" id="new_order">최신순</option>
+					<option value="cnt">조회순</option>
+					<option value="reply">댓글순</option>
+					<option value="good">추천순</option>
 				</select>
 			</div>
 			
@@ -416,7 +410,7 @@
 			</c:choose>
 			
 			<div class="btn_header">
-				<a href="" id="alllist_btn">목록</a>		
+				<a href="boardList.bizpoll" id="alllist_btn">목록</a>		
 			</div>
 			<!--검색 -->
 			<div class="search">
@@ -513,5 +507,11 @@
 
 </body>
 <script type="text/javascript" src="${path}/js/selecttag.js"></script>
+<script type="text/javascript">
+	$(document).on("click", "#new_order", function(){
+		 alert("test");
+		 console.log("szzz");
+	});
+</script>
 </html>
 <%@ include file = "../include/footer.jsp" %> 

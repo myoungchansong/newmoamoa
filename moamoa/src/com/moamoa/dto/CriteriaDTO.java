@@ -6,6 +6,7 @@ public class CriteriaDTO {
 	private String keyword;
 	private String flag;
 	private String code;
+	private String category;
 	
 	public CriteriaDTO() {
 		
@@ -14,11 +15,22 @@ public class CriteriaDTO {
 		this.code ="new";
 	}
 	
-	public String getCode() {
-		return code;
+	public CriteriaDTO(int page, int perPageNum, String keyword, String flag, String code, String category) {
+		super();
+		this.page = page;
+		this.perPageNum = perPageNum;
+		this.keyword = keyword;
+		this.flag = flag;
+		this.code = code;
+		this.category = category;
 	}
 
-	public void setCode(String code) {
+	public CriteriaDTO(int page, int perPageNum, String keyword, String flag, String code) {
+		super();
+		this.page = page;
+		this.perPageNum = perPageNum;
+		this.keyword = keyword;
+		this.flag = flag;
 		this.code = code;
 	}
 
@@ -27,6 +39,20 @@ public class CriteriaDTO {
 		this.page = page;
 		this.perPageNum = perPageNum;
 		this.keyword = keyword;
+	}
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 	public int getPage() {

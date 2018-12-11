@@ -41,6 +41,10 @@ public class BoardDAO {
 			
 			try {
 				list = sqlSession.selectList("boardList",criDto);
+				
+				/*for (int i=0; i<list.size(); i++) {
+					System.out.println(list.get(i).getCategory());
+				}*/
 			} catch (Exception e) {
 				e.printStackTrace();
 			}finally {
