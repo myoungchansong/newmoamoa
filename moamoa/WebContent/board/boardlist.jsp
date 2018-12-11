@@ -329,6 +329,16 @@
 		display: inline-block;
 		width: 100%;
 	}
+	#select_wrap{
+		display: inline-block;
+		width: 50px;
+		height: 30px;
+		background-color: black;
+		color: white;
+		text-align: center;
+    	line-height: 28px;
+    	cursor: pointer;
+	}
 </style>
 
 <script type="text/javascript">
@@ -350,6 +360,14 @@ $(document).ready(function(){
 			}
 	
 		});	 
+	 $("#btn_select").after().click(function(){
+			var key = $("#new_order_category").val();			
+			if(key!=""){
+				location.href ="boardList.bizpoll?key="+key;	
+				alert(key);				
+			}
+	});
+	 
  });
  
 
@@ -379,9 +397,9 @@ $(document).ready(function(){
 			<div class="custom-select" style="width:100px;">
 				<select id="category_btn" name="category_btn">
 					<option>분류</option>
-					<option value="">정보</option>
-					<option value="">상세리뷰</option>
-					<option value="">잡담</option>
+					<option value="info">정보</option>
+					<option value="detail">상세리뷰</option>
+					<option value="joke">잡담</option>
 				</select>
 			</div>
 			
@@ -394,7 +412,9 @@ $(document).ready(function(){
 					<option value="good">추천순</option>
 				</select>
 			</div>
-			
+			<div id="select_wrap">
+				 <span id="btn_select">조회</span>
+			</div>
 			
 			<c:choose>
 				<c:when test="${empty sessionScope.loginUser}">

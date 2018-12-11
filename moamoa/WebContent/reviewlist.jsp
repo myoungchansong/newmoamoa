@@ -14,7 +14,7 @@
 }
 .hotellist{
 	width: 70%;
-	margin: 0px auto;
+	margin: 0px auto;	
 	padding-bottom: 100px;
 }
 

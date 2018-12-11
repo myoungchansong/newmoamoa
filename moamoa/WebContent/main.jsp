@@ -618,4 +618,17 @@ input {
 		});
 		
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Snowstorm/20131208/snowstorm-min.js"></script>
+
+<script>
+	snowStorm.snowColor = '#eff5ff';
+	snowStorm.flakesMax = 32;
+	snowStorm.flakesMaxActive = 64;
+	snowStorm.useTwinkleEffect = 1;
+	snowStorm.followMouse = 0;
+	snowStorm.snowStick = 1;
+	snowStorm.animationInterval = 70;
+	snowStorm.excludeMobile = 1;
+	snowStorm.zIndex = 9999;
+</script>
 </html>
