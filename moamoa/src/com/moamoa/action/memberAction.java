@@ -11,6 +11,9 @@ public class memberAction implements Action{
 	@Override
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		/*회원 가입 페이지 */
+		
 		String url ="member.jsp";
 		
 		ActionForward forward =new ActionForward();

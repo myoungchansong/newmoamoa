@@ -11,9 +11,10 @@ public class pwupdateAction implements Action{
 	@Override
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+	
+		/*비밀번호 수정 페이지*/
+		
 		String url ="userpwupdate.jsp";
-		
-		
 		ActionForward forward =new ActionForward();
 		forward.setPath(url);
 		forward.setRedirect(false);

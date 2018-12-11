@@ -11,8 +11,10 @@ public class deleteAction implements Action{
 	@Override
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String url ="userdelete.jsp";
 		
+		/*회원 탈퇴*/
+		
+		String url ="userdelete.jsp";
 		ActionForward forward =new ActionForward();
 		forward.setPath(url);
 		forward.setRedirect(false);

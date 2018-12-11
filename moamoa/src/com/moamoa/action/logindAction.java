@@ -11,8 +11,11 @@ public class logindAction implements Action {
 	@Override
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String url ="login.jsp";
 		
+		
+		/*로그인 페이지 */
+		
+		String url ="login.jsp";
 		ActionForward forward =new ActionForward();
 		forward.setPath(url);
 		forward.setRedirect(false);

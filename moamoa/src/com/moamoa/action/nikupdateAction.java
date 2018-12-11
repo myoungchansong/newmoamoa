@@ -11,9 +11,9 @@ public class nikupdateAction implements Action{
 	@Override
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		/*닉네임 수정 */
+		
 		String url ="usernikupdate.jsp";
-		
-		
 		ActionForward forward =new ActionForward();
 		forward.setPath(url);
 		forward.setRedirect(false);

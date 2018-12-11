@@ -21,13 +21,15 @@ public class HotelListAction implements Action{
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		
+	
 		
 		String url ="Hotellist.jsp";
 		HotelListDAO hdao = HotelListDAO.getInstance();
 		HotelListDAO dao = HotelListDAO.getInstance();
 		CriteriaDTO criDto = new CriteriaDTO();
+		
  		int page = 1;
+ 		
 		if(request.getParameter("page")!=null) {
 			page= Integer.parseInt(request.getParameter("page"));
 		}
@@ -45,6 +47,8 @@ public class HotelListAction implements Action{
 		
 		String flag =null;
 		String keyword = null;
+		
+		/*검색 기능 */
 		
 		if(request.getParameter("keyword")!=null) {
 			flag = request.getParameter("flag");
@@ -66,10 +70,8 @@ public class HotelListAction implements Action{
 	
 		
 		
-		
+		/*페이지 네이션 기능*/
 		request.setAttribute("htlsearchList", hotellist);
-		
-		
 		
 		PageMakerDTO pageMaker = new PageMakerDTO();
 		pageMaker.setCriDto(criDto);

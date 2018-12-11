@@ -184,6 +184,7 @@
 </style>
 <script type="text/javascript">
 $(document).ready(function(){
+	/* Session이 Null 이면  메인페이지간다 */
 	if('${sessionScope.loginUser.id}' !=''){
 			
 	} else {
@@ -191,7 +192,8 @@ $(document).ready(function(){
 		location.href="index.bizpoll";
 	}
 	
-
+	/*이전 버튼 */
+	
 	$("#before").on("click",function(){
 		
 		location.href="update.bizpoll";
@@ -200,10 +202,10 @@ $(document).ready(function(){
 	
 	
 	
-
+		/* 닉네임 중복확인 후 변경*/
 	$("#input_newpw").blur(
 			function() {
-				var nikVal = $(this).val(); /*비밀번호 값 */
+				var nikVal = $(this).val(); /*닉네임 값 값 */
 				if (nikVal != "") {
 					$.ajax({
 						url : "nikCheck.bizpoll",

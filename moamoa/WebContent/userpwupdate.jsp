@@ -184,6 +184,9 @@
 </style>
 <script type="text/javascript">
 $(document).ready(function(){
+	
+	/* Session이 Null 이면  메인페이지간다 */
+	
 	if('${sessionScope.loginUser.id}' !=''){
 			
 	} else {
@@ -201,7 +204,7 @@ $(document).ready(function(){
 	
 
 	
-	
+	/*비밀번호 정규식을 거쳐 변경하는 코드*/
 	$("#input_pw").blur(
 			function() {
 				var pwVal = $(this).val(); /*비밀번호 값 */
@@ -230,14 +233,57 @@ $(document).ready(function(){
 							alert("System Error");
 						}
 					});
-				} 
+				} else{
+					$("#input_pw").next().text("비밀번호를 입력해주세요").css("display", "block").css("color", "red");
+					$("#insert_pw").css("border", "1px solid red");
+					$("#input_pw").select();
+					$("#input_pw").focus();
+					$('#update').attr('disabled',true);	
+				}
 			}); 
+	
+	
+	/*변경할 비밀번호 정규식 검사및 유효성 체크*/
+	$("#input_newpw").blur(function() {
+		var mpw1 = $("#input_newpw").val();
+		var pw2 = $("#input_pw").val();
+		var pw1 = $.trim(mpw1);
+		var regPass = /^.*(?=.{8,20})(?=.*[0-9])(?=.*[a-zA-Z]).*$/; 
+		if (!regPass.test(pw1)) {
+			$(this).next().text("8~20글자 내의 값을 입력해주세요").css("display", "block").css("color", "red");
+			$("#insert_newpw").css("color", "red");
+			$("#insert_newpw").css("border", "1px solid red");
+			$("#input_newpw").select("");
+			$("#input_newpw").focus();
+			$('#btn_next').attr('disabled',true); /* delete버튼 비활성화   */
+		} else if(pw1 == pw2){
+			$(this).next().text("다른 비빌번호를 이용해 주세요").css("display", "block").css("color", "red");
+			$("#insert_newpw").css("color", "red");
+			$("#insert_newpw").css("border", "1px solid red");
+			$("#input_newpw").select("");
+			$("#input_newpw").focus();
+			$('#btn_next').attr('disabled',true); /* delete버튼 비활성화   */
+		} else if(pw2 ==""){
+			$(this).next().text("변경할 비빌번호를 입력해 주세요").css("display", "block").css("color", "red");
+			$("#insert_newpw").css("color", "red");
+			$("#insert_newpw").css("border", "1px solid red");
+			$("#input_newpw").select("");
+			$("#input_newpw").focus();
+			$('#btn_next').attr('disabled',true); /* delete버튼 비활성화   */
+		} else{
+			$("#insert_newpw").css("border", "1px solid #00BCD4");
+			$(this).next().text("사용 가능한 비밀번호 입니다").css("display", "block").css("color", "#00BCD4");
+			$('#btn_next').attr('disabled',false);   /* delete버튼 활성화   */
+		}
+	}); 
+	
+	
 	
 	$("#update").on("click",function(){
 		var pw = $("#input_newpw").val();
 		
 		if(pw !=''){
-			alert("닉네임이 변경되었습니다");
+			alert("비밀번호가  변경되었습니다");
 			$("#pw_form").submit();
 		}else{
 			alert("값이 없습니다 확인해주세요");

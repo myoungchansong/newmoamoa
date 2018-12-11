@@ -17,6 +17,7 @@ public class idCheckAction implements Action{
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException{
 	
+		/*ID 중복 체크 동작*/
 		
 		String userid = request.getParameter("id");
 		System.out.println("id ==> "+userid);

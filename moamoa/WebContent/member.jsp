@@ -628,7 +628,7 @@
 			});	
 			
 			
-			
+			/* 동의 버튼 2개 클릭시 버튼 활성화 CSS */
 			$("#btn_next").on("click",function(){
 				var ck1 = $("#cbox1").is(":checked");
 				var ck2 = $("#cbox2").is(":checked");

@@ -17,6 +17,9 @@ public class pwCheckAction implements Action{
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		
+		/*비밀번호 중복체크가 이루어지는 동작*/
+		
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
 		System.out.println("id ==========>"+id);

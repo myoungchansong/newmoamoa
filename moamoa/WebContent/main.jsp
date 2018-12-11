@@ -168,6 +168,7 @@ section {
 .img_collection_title{
     width: 300px;
     margin: 1%;
+    margin-top: 140px;
     margin-left: 200px;
     font-weight: 400;
     font-size: 23px;
@@ -564,21 +565,20 @@ input {
 		$("#myBtn").css("display" , "none");
 		}
 		});
-	
-		
-		
 		$(document).on("click" , "#myBtn" , function() {
 		/* $(document).scrollTop(0); */
 		$("html , body" ).animate({scrollTop: 0} , 1000);
 		});
 	
-		/* 메인 페이지 검색 기능  기본 Flag 1(이름및 주소로 검색 가능)*/
+		
+		
+		/* 메인 페이지 검색 기능  기본 Flag 3(이름및 주소로 검색 가능)*/
 		
 		 $("#input-submit").on("click", function(){
 			 var flag= $("#inputGroupSelect01").val();
 			 var keyword= $("#input-text").val();
 			if(keyword !=""){
-				location.href="searchhtl.bizpoll?flag=2"+"&keyword="+keyword;
+				location.href="searchhtl.bizpoll?flag=3"+"&keyword="+keyword;
 			} else{
 				location.href="searchhtl.bizpoll";
 			}			 	
@@ -619,7 +619,6 @@ input {
 		
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Snowstorm/20131208/snowstorm-min.js"></script>
-
 <script>
 	snowStorm.snowColor = '#eff5ff';
 	snowStorm.flakesMax = 32;

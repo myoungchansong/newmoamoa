@@ -11,9 +11,10 @@ public class IndexAction implements Action{
 	@Override
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		/*메인 페이지*/
+		
 		String url ="main.jsp";
-		
-		
 		ActionForward forward =new ActionForward();
 		forward.setPath(url);
 		forward.setRedirect(false);

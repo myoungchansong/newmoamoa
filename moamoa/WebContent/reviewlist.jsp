@@ -517,14 +517,16 @@ button#mybtn{
 	<button id="mybtn">Top</button>
 </body>
 <script type="text/javascript">
-$(document).ready(function(){
-	$(window).scroll(function(){
-		if($(document).scrollTop()>20){
-			$("#mybtn").css("display","block");
-		}else{
-			$("#mybtn").css("display","none");
-		}
-	});
+
+	/*TOP 버튼 */
+	$(document).ready(function(){
+		$(window).scroll(function(){
+			if($(document).scrollTop()>20){
+				$("#mybtn").css("display","block");
+			}else{
+				$("#mybtn").css("display","none");
+			}
+		});	
 	$(document).on("click","#mybtn",function(){
 		$(document).scrollTop(0);
 		$("html,body").animate({scrollTop:0},1000);

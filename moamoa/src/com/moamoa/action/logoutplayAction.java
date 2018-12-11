@@ -13,16 +13,17 @@ public class logoutplayAction implements Action{
 	@Override
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		
+		/*로그아웃이 실제로 동작하는 부분 */
+		
 		String url ="index.bizpoll";
-		System.out.println("11111111111111111111111111111");
 		HttpSession session = request.getSession();
 		//session.invalidate(); 세션초기화
-		System.out.println("22222222222222222222222222222222");
+		//로그아웃 진행시 세션 초기화 
 		if(session!=null)	{
 			session.invalidate();
-			
 		}
-		System.out.println("33333333333333333333333333333333");
 		ActionForward forward =new ActionForward();	
 		forward.setPath(url);
 		forward.setRedirect(true);

@@ -186,6 +186,7 @@
 </style>
 <script type="text/javascript">
 $(document).ready(function(){
+	/*모든 동의 사항에 체크했는 확인 하는 스크립트*/
 	$("#btn_next").on("click",function(){
 		var ck1 = $("#cbox1").is(":checked");
 		var ck2 = $("#cbox2").is(":checked");
@@ -199,6 +200,7 @@ $(document).ready(function(){
 
 	});	
 
+	/* Session이 Null 이면  메인페이지간다 */
 		if('${sessionScope.loginUser.id}' !=''){
 			
 			

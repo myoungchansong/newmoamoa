@@ -15,6 +15,9 @@ public class nikupdatplayAction implements Action{
 	@Override
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		/*닉네임 수정이 이루어지는 곳*/
+		
 		String url ="";
 		HttpSession session = request.getSession();
 		String id =request.getParameter("inputid");

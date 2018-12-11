@@ -11,9 +11,11 @@ public class updateAction implements Action{
 	@Override
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		/*수정 페이지*/
+		
+		
 		String url ="userupdate.jsp";
-		
-		
 		ActionForward forward =new ActionForward();
 		forward.setPath(url);
 		forward.setRedirect(false);

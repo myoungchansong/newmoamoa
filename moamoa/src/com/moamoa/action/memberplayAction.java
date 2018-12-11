@@ -15,7 +15,7 @@ public class memberplayAction implements Action{
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String url ="";
-		
+		/*회원 가입이 동작하는 부분*/
 		
 		String id = request.getParameter("inputid");
 		String pw = request.getParameter("inputpw");
@@ -25,10 +25,8 @@ public class memberplayAction implements Action{
 		System.out.println("nik = "+nik);
 		
 		memberDTO dto = new memberDTO(id, pw, nik);
-		System.out.println("1111111111111111111");
 		memberDAO mDao = memberDAO.getInstance();
 		int result = mDao.memberinsert(dto);
-		System.out.println("555555555555555555555555555555");
 		if(result >0) {
 			url ="index.bizpoll";
 			System.out.println("성공");

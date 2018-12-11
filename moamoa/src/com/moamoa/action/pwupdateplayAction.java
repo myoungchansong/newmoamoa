@@ -14,8 +14,10 @@ public class pwupdateplayAction implements Action{
 	@Override
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-			String url ="";
 			
+		/*비밀번호 수정이 이루어지는 동작*/
+		
+			String url ="";
 			String id = request.getParameter("input_id");
 			String npw = request.getParameter("inpunewpw");
 			

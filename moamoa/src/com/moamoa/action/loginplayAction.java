@@ -18,6 +18,12 @@ public class loginplayAction implements Action{
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		
+		
+		/*로그인이 실제로 동작하는 부분*/
+		
+		
+		
 		HttpSession session = request.getSession();
 		
 		String id =request.getParameter("id");

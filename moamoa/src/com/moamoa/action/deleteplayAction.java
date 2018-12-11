@@ -15,7 +15,7 @@ public class deleteplayAction implements Action{
 	@Override
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+		/*회원 탈퇴 기능  동작*/
 		String url ="";
 		HttpSession session = request.getSession();
 		String id =request.getParameter("inputid");

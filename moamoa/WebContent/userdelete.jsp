@@ -196,9 +196,8 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	
+		/* Session이 Null 이면  메인페이지간다 */
 		if('${sessionScope.loginUser.id}' !=''){
-			
-			
 		} else {
 			alert('로그인후 사용이 가능합니다 ');
 			location.href="index.bizpoll";
@@ -206,7 +205,7 @@ $(document).ready(function(){
 		
 		
 
-		
+		/*비밀 번호 확인*/
 		$("#input_newpw").blur(
 				function() {
 					var pwVal = $(this).val(); /*비밀번호 값 */
@@ -239,7 +238,7 @@ $(document).ready(function(){
 		
 		
 		
-		
+		/*비밀 번호 값이 없을떄*/
 		$("#delete").on("click",function(){
 			var pw = $("#input_newpw").val();
 			alert(pw);

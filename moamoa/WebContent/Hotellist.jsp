@@ -165,7 +165,8 @@ input {
 	height: 100%;
 	display: inline-block;
 	border-bottom: 1px solid #BDBDBD;
-	padding: 10px 0px 20px 0px;
+	padding: 10px 10px 20px 10px;
+	
 }
 
 .title_wrap{
@@ -259,6 +260,12 @@ input {
   background-color: #555;
 }
 
+#border:hover{
+	border-radius: 10px;
+	transition: .5s;
+	box-shadow: 0px 4px 10px 0 rgba(0, 0, 0, 0.3),
+				0px 4px 10px 0 rgba(0, 0, 0, 0.2);	
+}
 
 @media(max-width: 700px) {
 	#input-text{
@@ -337,31 +344,31 @@ input {
 	<!--호텔 리스트  -->	
 	<c:forEach items="${htlsearchList}" var = "htlDTO">
 		<div id="hotelborder">
-		
 			<c:choose>	
+				
 				<c:when test="${!empty htlDTO.hotelname}">
 				
-					<div id="border">
+					<a href="#" id="border_a">
+						<div id="border">
+							<div class="title_wrap">
+								<div id="title">
+									${htlDTO.hotelname }
+								</div>
+								<div id="htl_addr">
+										<h2>${htlDTO.hoteladdr }</h2>
+								</div>
+							</div>
+							
+							<div id="list_img">
+								<img src="${htlDTO.hotelimg }"> 
+							</div>
+							
+							<div id="content">
+								<p>${htlDTO.summary }</p>
+							</div>
+						</div>
+					</a>
 					
-						<div class="title_wrap">
-							<div id="title">
-									<a href="#">${htlDTO.hotelname }</a>
-							</div>
-							<div id="htl_addr">
-									<h2>${htlDTO.hoteladdr }</h2>
-							</div>
-						</div>
-						
-						<div id="list_img">
-							<img src="${htlDTO.hotelimg }"> 
-						</div>
-						
-						<div id="content">
-							<p>${htlDTO.summary }</p>
-						</div>
-						
-						
-					</div>
 				</c:when>
 			</c:choose>	
 		

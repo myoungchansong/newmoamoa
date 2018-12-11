@@ -16,6 +16,8 @@ public class nikCheckAction implements Action{
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		/*닉네임 중복 체크 */
+		
 		String nik = request.getParameter("nik");
 		
 		System.out.println("nik ==========>"+nik);

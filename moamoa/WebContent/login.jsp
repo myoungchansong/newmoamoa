@@ -390,12 +390,12 @@
 		
 		
 		
-		
+		/* enter 눌렀을때 다음칸으로 넘어가기  */
 		
 		
 		var input1= document.getElementById("input_id");
 		var input2= document.getElementById("input_pw");
-
+	
 		input1.addEventListener("keyup", function(event) {
 		    event.preventDefault();
 		    if (event.keyCode === 13) {
