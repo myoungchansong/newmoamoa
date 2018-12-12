@@ -497,6 +497,14 @@ $(document).ready(function(){
 			});
 				
 	});
+	$(document).on("click","#btn-good",function(){
+		var gcnt= $(this).attr("data_num");
+		
+			$.ajax({
+				url : ""
+			});
+		
+	});
 	
 
 </script>
@@ -556,14 +564,14 @@ $(document).ready(function(){
 				<div class="vote">
 					<br>
 					<br>
-					<button type="button" class="vb-btn vb-red">
+					<button type="button" class="vb-btn vb-red" id="btn-good" data_num="${boardview.goodcnt}">
 						<div class="good">
 							<span style="color: red;">
 								<i class="fa fa-heart" aria-hidden="true"></i>
 							</span>
 							추천 수
 						</div>
-						<span class="num">0</span>
+						<span class="num"> ${boardview.goodcnt}</span>
 					</button>
 				</div>
 			</article>

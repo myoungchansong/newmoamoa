@@ -394,14 +394,6 @@ $(document).ready(function(){
 		</div>
 		
 		<form action="" id="board_frm">
-			<div class="custom-select" style="width:100px;">
-				<select id="category_btn" name="category_btn">
-					<option>분류</option>
-					<option value="info">정보</option>
-					<option value="detail">상세리뷰</option>
-					<option value="joke">잡담</option>
-				</select>
-			</div>
 			
 			<div class="custom-select" style="width:100px;">
 				<select id="new_order_category">
@@ -455,7 +447,6 @@ $(document).ready(function(){
 				  <thead>
 					  <tr>
 					    <th>번호</th>
-					    <th>분류</th>
 					    <th>제목</th> 
 					    <th>글쓴이</th>
 					    <th>날짜</th>
