@@ -26,6 +26,7 @@ import com.moamoa.action.HotelListAction;
 import com.moamoa.action.IndexAction;
 import com.moamoa.action.ReplyDeleteAction;
 import com.moamoa.action.ReplyInsertAction;
+import com.moamoa.action.WordCloudAction;
 import com.moamoa.action.deleteAction;
 import com.moamoa.action.deleteplayAction;
 import com.moamoa.action.deleteruleAction;
@@ -191,7 +192,11 @@ public class BizpollFrontController extends HttpServlet {
 			forward = action.excute(request, response);
 		}
 		
-		
+		/*====================reviewlist================================*/
+		else if(command.equals("/reviewlist.bizpoll")) {
+			action = new WordCloudAction();
+			forward = action.excute(request, response);
+		}
 		
 		
 		//공통 분기작업(페이지 이동)

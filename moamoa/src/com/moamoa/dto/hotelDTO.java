@@ -13,6 +13,10 @@ public class hotelDTO {
 	private String summary;
 	private String hotelimg;
 	
+	private String hotel_seq;
+	private String hoteladdrgu;
+	
+	
 	public hotelDTO() {
 		super();
 	}
@@ -53,6 +57,39 @@ public class hotelDTO {
 		this.write_date = write_date;
 		this.summary = summary;
 		this.hotelimg = hotelimg;
+	}
+
+
+	public hotelDTO(String hotelname, String writer, String score, String title, String review_neg, String review_pos,
+			String write_date) {
+		super();
+		this.hotelname = hotelname;
+		this.writer = writer;
+		this.score = score;
+		this.title = title;
+		this.review_neg = review_neg;
+		this.review_pos = review_pos;
+		this.write_date = write_date;
+	}
+
+
+	public String getHotel_seq() {
+		return hotel_seq;
+	}
+
+
+	public void setHotel_seq(String hotel_seq) {
+		this.hotel_seq = hotel_seq;
+	}
+
+
+	public String getHoteladdrgu() {
+		return hoteladdrgu;
+	}
+
+
+	public void setHoteladdrgu(String hoteladdrgu) {
+		this.hoteladdrgu = hoteladdrgu;
 	}
 
 

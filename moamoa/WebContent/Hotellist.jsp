@@ -352,7 +352,7 @@ input {
 						<div id="border">
 							<div class="title_wrap">
 								<div id="title">
-									${htlDTO.hotelname }
+									<a href="reviewlist.bizpoll?hotelname=${htlDTO.hotelname}">${htlDTO.hotelname}</a>
 								</div>
 								<div id="htl_addr">
 										<h2>${htlDTO.hoteladdr }</h2>

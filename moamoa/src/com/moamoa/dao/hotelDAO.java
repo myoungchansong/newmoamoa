@@ -68,7 +68,49 @@ public class hotelDAO {
 	
 	/*=============================================================================*/
 	
-
+	public int wordcloud(String hotelname) {
+		sqlSession = sqlSessionFactory.openSession();
+		int result =0;
+		try {
+			result = sqlSession.selectOne("wordcloud", hotelname);
+			System.out.println("result =====>"+result);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();		
+		}
+		return result;
+		
+	}
+	
+	public List<hotelDTO> reviewListpos(String hotelname){
+		sqlSession = sqlSessionFactory.openSession();
+		List<hotelDTO> list = new ArrayList<>();
+		
+		try {
+			System.out.println("됌???????"+hotelname);
+			list = sqlSession.selectList("reviewListpos", hotelname);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();		
+		}
+		return list;
+	}
+	public List<hotelDTO> reviewListneg(String hotelname){
+		sqlSession = sqlSessionFactory.openSession();
+		List<hotelDTO> list = new ArrayList<>();
+		
+		try {
+			System.out.println("됌!!!!!!!!!!"+hotelname);
+			list =sqlSession.selectList("reviewListneg", hotelname);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();		
+		}
+		return list;
+	}
 		
 		
 		

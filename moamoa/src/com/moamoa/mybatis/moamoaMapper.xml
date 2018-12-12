@@ -16,9 +16,22 @@
  		INSERT INTO moamoa(writer, score, title, review_neg, review_pos, Write_date)
 		VALUES(#{writer}, #{score}, #{title}, #{review_neg}, #{review_pos}, #{write_date}) 
  	</insert>
+ 	
+  	<select id="wordcloud"  parameterType="String" resultType="int">
+ 		SELECT hotel_seq
+		FROM moamoa2
+		WHERE hotelname = #{hotelname} AND ROWNUM = 1
+ 	</select>
  
- 
- 
+ 	<select id="reviewListpos" parameterType="String" resultType="com.moamoa.dto.hotelDTO">
+ 		
+		SELECT * FROM  (SELECT * FROM moamoa2 WHERE hotelname = #{hotelname} AND review_pos is not null )
+		moamoa2  where ROWNUM BETWEEN 1 AND 20
+ 	</select>
+ 	<select id="reviewListneg" parameterType="String" resultType="com.moamoa.dto.hotelDTO">
+ 		SELECT * FROM  (SELECT * FROM moamoa2 WHERE hotelname = #{hotelname} AND review_neg is not null )
+		moamoa2  where ROWNUM BETWEEN 1 AND 20
+ 	</select>
  
  
  <!-- member insert   -->

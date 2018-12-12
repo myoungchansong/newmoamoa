@@ -136,10 +136,10 @@
 }
 
 .reviewtype{
-	margin: 74px;
-	color: #757575;
-	font-size: 50px;
-	font-weight: 500;
+	    color: #757575;
+    font-size: 50px;
+    font-weight: 500;
+    width: 100%;
 }
 #hotelreview{
 	height:804px;
@@ -290,21 +290,78 @@ button#mybtn{
 	}
 	.rpbox{
 		display: inline-block;
-	    width: 87%;
-	    height: 220px;
-	    margin-left: 95px;
+	    width: 100%;
+	    height: 728px;
 	    border: 1px solid white;
 	    box-sizing: border-box;
-    	font-size: 20px;
+	    font-size: 20px;
+	    overflow: scroll;
 	}
 	.rpcontent{
 		display: inline-block;
 	    width: 100%;
-	    height: 100%;
+	    height: 26%;
 	    padding: 24px;
 	    box-sizing: border-box;
-		color: white;
+	    color: white;
 	}.fa{color: white;}
+	.rpctheader{
+		display: block;
+	    font-size: 18px;
+	    font-weight: 500;
+	    padding-bottom: 10px;
+	    border-bottom: 1px solid white;
+	}
+	.rpctwriter{
+		display: inline-block;
+	}
+	.rpcttitle{
+		display: inline-block;
+	}
+	.rpctscore{
+	    margin-right: 20px;
+		display: inline-block;
+		float: right;
+		font-size: 15px;
+    	line-height: 32px;
+	}
+	.rpctdate{
+		font-size: 15px;
+	    display: inline-block;
+	    float: right;
+	    margin-right: 18px;
+	    line-height: 32px;
+	}
+	.rpct_content{
+		font-size: 18px;
+		padding: 10px;
+	}
+	.reviewWrap{
+		display: inline-block;
+	}
+	#reviewpos{
+		display: inline-block;
+	    font-size: 30px;
+	    padding: 10px;
+	    color: white;
+	    width: 100%;
+	    text-align: center;
+	}
+	#reviewneg{
+		display: inline-block;
+	    font-size: 30px;
+	    padding: 10px;
+	    color: white;
+	    width: 100%;
+	    text-align: center;
+	}
+	._wrap{
+		display: inline-block;
+		width: 48%;
+	}
+	#wrap_ma{
+		margin-right: 49px;
+	}
 </style>
 <script type="text/javascript">
         window.onload = function () {
@@ -397,32 +454,26 @@ button#mybtn{
 					  <tr>
 					    <th>Rank</th>
 					    <th>Word</th>
-					    <th>Value</th>
 					  </tr>
 					  <tr>
 					    <td>1</td>
 					    <td>위치</td>
-					    <td>20</td>
 					  </tr>
 					  <tr>
 					    <td>2</td>
 					    <td>이용</td>
-					     <td>17</td>
 					  </tr>
 					  <tr>
 					    <td>3</td>
 					    <td>조식</td>
-					     <td>14</td>
 					  </tr>
 					  <tr>
 					    <td>4</td>
 					    <td>친절</td>
-					     <td>11</td>
 					  </tr>
 					  <tr>
 					    <td>5</td>
 					    <td>경복궁</td>
-					     <td>8</td>
 					  </tr>
 				    </table>
 				</section> 
@@ -436,32 +487,26 @@ button#mybtn{
 					  <tr>
 					    <th>Rank</th>
 					    <th>Word</th>
-					    <th>Value</th>
 					  </tr>
 					  <tr>
 					    <td>1</td>
 					    <td>조식</td>
-					    <td>20</td>
 					  </tr>
 					  <tr>
 					    <td>2</td>
 					    <td>수영장</td>
-					    <td>16</td>
 					  </tr>
 					  <tr>
 					    <td>3</td>
 					    <td>직원</td>
-					    <td>13</td>
 					  </tr>
 					  <tr>
 					    <td>4</td>
 					    <td>호텔</td>
-					    <td>10</td>
 					  </tr>
 					  <tr>
 					    <td>5</td>
 					    <td>객실</td>
-					    <td>5</td>
 					  </tr>
 				    </table> 
 				</section>
@@ -491,24 +536,59 @@ button#mybtn{
 				</div>
 			</div>
 		</section>
+		
+		
 			<!--상세리뷰 -->
 		<section class="box sec_rvbg">
 			<div id="hotelreview" class="hotellist">
 				<div class="title_box">
 					<h2>DETAIL REVIEW&nbsp;</h2>
 				</div>
-				<div class="reviewtype">
-					<i class="fa fa-plus"></i>
-					<div class="rpbox">
-						<div class="rpcontent">&nbsp;객실내부 청소는 깔끔했어요</div>
-					</div>	
+				
+			
+				
+			<div class="reviewWrap">
+				<div class="_wrap" id="wrap_ma">
+					<div id="reviewpos">긍정</div>
+					<div class="reviewtype">
+						<div class="rpbox">
+						
+				<c:forEach items="${reviewListpos}" var="hDto">
+							<div class="rpcontent">
+								<div class="rpctheader">
+									<div class="rpctwriter">작성자 |${hDto.writer}</div>
+									<div class="rpcttitle">|${hDto.title}</div>
+									<div class="rpctdate">작성일 |${hDto.write_date}</div>
+									<div class="rpctscore">평점 |${hDto.score}</div>
+								</div>
+								<div class="rpct_content">&nbsp;${hDto.review_pos}</div>
+							</div>
+				</c:forEach>	
+						</div>	
+						</div>
+					</div>
+			
+				
+				<div class="_wrap">
+					<div id="reviewneg">부정</div>		
+					<div class="reviewtype">
+						<div class="rpbox">
+						
+				<c:forEach items="${reviewListneg}" var="hDto">
+							<div class="rpcontent">
+								<div class="rpctheader">
+									<div class="rpctwriter">작성자 |${hDto.writer}</div>
+									<div class="rpcttitle">|${hDto.title}</div>
+									<div class="rpctdate">작성일 |${hDto.write_date}</div>
+									<div class="rpctscore">평점 |${hDto.score}</div>
+								</div>
+								<div class="rpct_content">&nbsp;${hDto.review_neg}</div>
+							</div>
+				</c:forEach>
+						</div>	
+					</div>
 				</div>
-				<div class="reviewtype">
-					<i class="fa fa-minus"></i>
-					<div class="rpbox">
-						<div class="rpcontent">&nbsp;안내데스크에서 신관인지  본관인지 안내가 없어 왔다갔다해서 불편했어요</div>
-					</div>	
-				</div>
+			</div>	
 			</div>
 		</section>
 			

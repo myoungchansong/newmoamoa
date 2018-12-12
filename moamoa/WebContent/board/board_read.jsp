@@ -498,10 +498,23 @@ $(document).ready(function(){
 				
 	});
 	$(document).on("click","#btn-good",function(){
+		alert("되냐아아?")
 		var gcnt= $(this).attr("data_num");
 		
 			$.ajax({
-				url : ""
+				url : "boardViewcnt.bizpoll",
+				data : "bno=${boardview.bno}",
+				success : function(data){
+					if(data.result == "1"){
+						 alert("0000")
+						gcnt =gcnt+1;
+						$("#btn-good").html(gcnt);
+						
+					}
+				},
+				error : function(){
+					alert("system error!");
+				}
 			});
 		
 	});
