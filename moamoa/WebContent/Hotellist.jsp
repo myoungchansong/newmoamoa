@@ -345,10 +345,8 @@ input {
 	<c:forEach items="${htlsearchList}" var = "htlDTO">
 		<div id="hotelborder">
 			<c:choose>	
-				
 				<c:when test="${!empty htlDTO.hotelname}">
-				
-					<a href="#" id="border_a">
+					<a href="reviewlist.bizpoll?hotelname=${htlDTO.hotelname}" id="border_a">
 						<div id="border">
 							<div class="title_wrap">
 								<div id="title">
@@ -367,8 +365,8 @@ input {
 								<p>${htlDTO.summary}</p>
 							</div>
 						</div>
+						
 					</a>
-					
 				</c:when>
 			</c:choose>	
 		

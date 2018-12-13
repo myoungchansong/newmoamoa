@@ -271,7 +271,7 @@ $(document).ready(function(){
 		<H3>안전한 탈퇴를 위해,<span style="color: red">비밀번호를 확인해 주세요</span></H3>
 		<div id="passdiv">
 			<div>
-				<form action="deleteplay.bizpoll" id="pw_form">
+				<form action="deleteplay.bizpoll" id="pw_form" method="POST">
 					<p>현재 아이디 </p>
 						<div id="insert_id">	
 							<input type="text" id="input_id" name="inputid" value="${sessionScope.loginUser.id}" readonly="readonly">

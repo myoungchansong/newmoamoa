@@ -407,6 +407,16 @@ button#mybtn{
                 });
             });
         }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     </script>
 </head>
 <body>
@@ -457,31 +467,35 @@ button#mybtn{
 						<img src="${path}/img/posimg.png">
 					</div>
 					<div class="wc_title">Word Count_</div>
+					<!--  긍정     -->
 					<table id="customers">
 					  <tr>
 					    <th>Rank</th>
 					    <th>Word</th>
 					  </tr>
+					  
+		<c:forEach items="${hotelkeyword}" var="keyword">
 					  <tr>
 					    <td>1</td>
-					    <td>위치</td>
+					    <td>${keyword.POS_1}</td>
 					  </tr>
 					  <tr>
 					    <td>2</td>
-					    <td>이용</td>
+					    <td>${keyword.POS_2}</td>
 					  </tr>
 					  <tr>
 					    <td>3</td>
-					    <td>조식</td>
+					    <td>${keyword.POS_3}</td>
 					  </tr>
 					  <tr>
 					    <td>4</td>
-					    <td>친절</td>
+					    <td>${keyword.POS_4}</td>
 					  </tr>
 					  <tr>
 					    <td>5</td>
-					    <td>경복궁</td>
+					    <td>${keyword.POS_5}</td>
 					  </tr>
+		  </c:forEach>
 				    </table>
 				</section> 
 				<section id="wordC_sec_neg">
@@ -491,30 +505,33 @@ button#mybtn{
 					</div>
 					<div class="wc_title">Word Count_</div>
 					<table id="customers_neg">
+					<!--  부정     -->
+			<c:forEach items="${hotelkeyword}" var="keyword">
 					  <tr>
 					    <th>Rank</th>
 					    <th>Word</th>
-					  </tr>
+					  </tr>  
 					  <tr>
 					    <td>1</td>
-					    <td>조식</td>
+					    <td>${keyword.NEG_1}</td>
 					  </tr>
 					  <tr>
 					    <td>2</td>
-					    <td>수영장</td>
+					    <td>${keyword.NEG_2}</td>
 					  </tr>
 					  <tr>
 					    <td>3</td>
-					    <td>직원</td>
+					    <td>${keyword.NEG_3}</td>
 					  </tr>
 					  <tr>
 					    <td>4</td>
-					    <td>호텔</td>
+					    <td>${keyword.NEG_4}</td>
 					  </tr>
 					  <tr>
 					    <td>5</td>
-					    <td>객실</td>
+					    <td>${keyword.NEG_5}</td>
 					  </tr>
+			   </c:forEach>
 				    </table> 
 				</section>
 			</div>

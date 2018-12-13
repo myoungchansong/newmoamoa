@@ -1,6 +1,7 @@
 package com.moamoa.dao;
 
 import com.moamoa.dto.CriteriaDTO;
+import com.moamoa.dto.HotelKeywordDTO;
 import com.moamoa.dto.HotelListDTO;
 import com.moamoa.dto.hotelDTO;
 import com.moamoa.mybatis.sqlMapConfig;
@@ -128,7 +129,27 @@ public class hotelDAO {
 		}
 		return list;
 	}
+	
+	
+
+	
+	
+	
+	public List<HotelKeywordDTO> keyword(String hotelname){
+		sqlSession = sqlSessionFactory.openSession();
+		List<HotelKeywordDTO> list = new ArrayList<>();
 		
-		
-		
+		try {
+			System.out.println("===>hotelname:"+hotelname);
+			list =sqlSession.selectList("keywordpos", hotelname);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();		
+		}
+		return list;
+	}
+	
+
+	
 }

@@ -40,6 +40,30 @@
 		
  	</select>
  
+ 	<select id="keywordpos" parameterType="String" resultType="com.moamoa.dto.HotelKeywordDTO">
+ 		
+
+		 SELECT * FROM hotelkeyword
+   		 WHERE HOTELNAME = #{hotelname} 
+		
+ 	</select>
+   
+
+ 
+ 	<select id="keywordneg" parameterType="String" resultType="com.moamoa.dto.HotelKeywordDTO">
+ 		
+   		   SELECT * FROM hotelkeyword
+           WHERE HOTELNAME = #{hotelname} 
+		
+ 	</select>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
  <!-- member insert   -->
  
