@@ -372,6 +372,7 @@ button#mybtn{
 	#wrap_ma{
 		margin-right: 49px;
 	}
+
 </style>
 <script type="text/javascript">
         window.onload = function () {

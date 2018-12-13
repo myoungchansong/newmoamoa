@@ -460,7 +460,7 @@ $(document).ready(function(){
 						<fmt:formatDate value="${bDto.regdate}" pattern="yy-MM-dd" var="regdate2"/>
 					  	<tr>
 					  		<td>${bDto.bno}</td>
-					  		<td class="tabletd_title"><a href="boardViewcnt.bizpoll?bno=${bDto.bno}">${bDto.title}</a>
+					  		<td class="tabletd_title"><a href="boardViewcnt.bizpoll?bno=${bDto.bno}" style="text-decoration: none; color : black;">${bDto.title}</a>
 					  			<c:if test="${today2== regdate2}">
 					  				<span class = "new_time">New</span>
 					  			</c:if>

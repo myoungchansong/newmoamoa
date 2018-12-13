@@ -25,12 +25,13 @@
  
  	<select id="reviewListpos" parameterType="String" resultType="com.moamoa.dto.hotelDTO">
  		
-		SELECT * FROM  (SELECT * FROM moamoa2 WHERE hotelname = #{hotelname} AND review_pos is not null )
-		moamoa2  where ROWNUM BETWEEN 1 AND 20
+		SELECT * FROM moamoa2 
+		WHERE hotelname = #{hotelname} AND review_pos is not null
  	</select>
  	<select id="reviewListneg" parameterType="String" resultType="com.moamoa.dto.hotelDTO">
- 		SELECT * FROM  (SELECT * FROM moamoa2 WHERE hotelname = #{hotelname} AND review_neg is not null )
-		moamoa2  where ROWNUM BETWEEN 1 AND 20
+ 		SELECT * FROM  moamoa2 
+ 		WHERE hotelname = #{hotelname} AND review_neg is not null
+		
  	</select>
  	
  	<select id="reviewListName" parameterType="String" resultType="com.moamoa.dto.hotelDTO">

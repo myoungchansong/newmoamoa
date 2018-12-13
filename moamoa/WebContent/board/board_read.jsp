@@ -528,7 +528,7 @@ $(document).ready(function(){
       success: function (result) {
        $(".num").html(result.count); // 게시글의 총 추천수 표시 
        }
-	 })
+	 });
     };
 /* 게시판 좋아요 끝 */
 
