@@ -35,9 +35,9 @@
 
 #hotelborder{
 	border-bottom: 1px solid #BDBDBD;
-	height: 500px;
-	margin-top: 100px;
-	 margin-bottom: 100px; 
+    height: 570px;
+    margin-top: 100px;
+    margin-bottom: 30px;
 }
 .title_box{
 	width: 100%;
@@ -312,11 +312,21 @@ button#mybtn{
 	    padding-bottom: 10px;
 	    border-bottom: 1px solid white;
 	}
+	.rpctheader2{
+		display: block;
+	    font-size: 18px;
+	    font-weight: 500;
+	    padding-bottom: 39px;
+	}
 	.rpctwriter{
 		display: inline-block;
+	    font-size: 13px;
+	    float: right;
+	    line-height: 31px;
 	}
 	.rpcttitle{
 		display: inline-block;
+		color: #e8f900;
 	}
 	.rpctscore{
 	    margin-right: 20px;
@@ -344,7 +354,7 @@ button#mybtn{
 	    font-size: 30px;
 	    padding: 10px;
 	    color: white;
-	    width: 100%;
+	    width: 96%;
 	    text-align: center;
 	}
 	#reviewneg{
@@ -552,10 +562,12 @@ button#mybtn{
 				<c:forEach items="${reviewListpos}" var="hDto">
 							<div class="rpcontent">
 								<div class="rpctheader">
-									<div class="rpctwriter">작성자 |${hDto.writer}</div>
-									<div class="rpcttitle">|${hDto.title}</div>
-									<div class="rpctdate">작성일 |${hDto.write_date}</div>
-									<div class="rpctscore">평점 |${hDto.score}</div>
+									<div class="rpcttitle"> | ${hDto.title}</div>
+									<div class="rpctwriter"> 작성자 | ${hDto.writer}</div>									
+								</div>
+								<div class="rpctheader2">
+									<div class="rpctdate">작성일 | ${hDto.write_date}</div>
+									<div class="rpctscore">평점 | ${hDto.score}</div>
 								</div>
 								<div class="rpct_content">&nbsp;${hDto.review_pos}</div>
 							</div>
@@ -573,10 +585,12 @@ button#mybtn{
 				<c:forEach items="${reviewListneg}" var="hDto">
 							<div class="rpcontent">
 								<div class="rpctheader">
-									<div class="rpctwriter">작성자 |${hDto.writer}</div>
-									<div class="rpcttitle">|${hDto.title}</div>
-									<div class="rpctdate">작성일 |${hDto.write_date}</div>
-									<div class="rpctscore">평점 |${hDto.score}</div>
+									<div class="rpcttitle"> | ${hDto.title}</div>
+									<div class="rpctwriter"> 작성자 | ${hDto.writer}</div>
+								</div>
+								<div class="rpctheader2">
+									<div class="rpctdate">작성일 | ${hDto.write_date}</div>
+									<div class="rpctscore">평점 | ${hDto.score}</div>
 								</div>
 								<div class="rpct_content">&nbsp;${hDto.review_neg}</div>
 							</div>
