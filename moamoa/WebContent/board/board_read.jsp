@@ -436,6 +436,7 @@
 $(document).ready(function(){
 	//문서가 준비되면 댓글 목록을 조회하는 ajax 실행 
 	comment_list();	
+	
 });
 
 	function comment_list(){
@@ -497,16 +498,16 @@ $(document).ready(function(){
 			});
 				
 	});
+	/* var gcnt= ${boardView.goodcnt};
 	$(document).on("click","#btn-good",function(){
-		alert("되냐아아?")
-		var gcnt= $(this).attr("data_num");
+		alert("되냐아아?");
 		
 			$.ajax({
-				url : "boardViewcnt.bizpoll",
-				data : "bno=${boardview.bno}",
+				url : "goodcntUpdate.bizpoll",
+				data : "bno=${boardView.bno}",
 				success : function(data){
 					if(data.result == "1"){
-						 alert("0000")
+						 alert("0000");
 						gcnt =gcnt+1;
 						$("#btn-good").html(gcnt);
 						
@@ -517,7 +518,7 @@ $(document).ready(function(){
 				}
 			});
 		
-	});
+	}); */
 	
 
 </script>
@@ -573,11 +574,13 @@ $(document).ready(function(){
 		<div id="read_content">
 			<article>
 				<div id="bcontent">${boardview.content}</div>
+				
 				<!--추천 수 -->
+				<c:if test="${sessionScope.loginUser.id == null}">
 				<div class="vote">
 					<br>
 					<br>
-					<button type="button" class="vb-btn vb-red" id="btn-good" data_num="${boardview.goodcnt}">
+					<button type="button" class="vb-btn vb-red" id="btn-good" disabled="disabled">
 						<div class="good">
 							<span style="color: red;">
 								<i class="fa fa-heart" aria-hidden="true"></i>
@@ -587,6 +590,24 @@ $(document).ready(function(){
 						<span class="num"> ${boardview.goodcnt}</span>
 					</button>
 				</div>
+				</c:if>
+				<c:if test="${sessionScope.loginUser.id != null}">
+				<div class="vote">
+					<br>
+					<br>
+					<button type="button" class="vb-btn vb-red" id="btn-good" disabled="disabled">
+						<div class="good">
+							<span style="color: red;">
+								<i class="fa fa-heart" aria-hidden="true"></i>
+							</span>
+							추천 수
+						</div>
+						<span class="num"> ${boardview.goodcnt}</span>
+					</button>
+				</div>
+				</c:if>
+				
+				
 			</article>
 		</div>
 	</div>	

@@ -416,27 +416,24 @@ button#mybtn{
 				<div class="title_box">
 					<h2>HOTEL INFORMATION&nbsp;</h2>
 				</div>
+				
 				<div id="border">
 					<div id="title">
-						<h1>서머셋팰리스 서울</h1>
+						<h1>${hDto.hotelname}</h1>
 					</div>
 					<div id="content">
-						<p>_서울, 종로구 율곡로2길 7</p>
+						<p>_${hDto.hoteladdr}</p>
 					</div>
 					<div id="list_img">
-						<img src="${path}/img/somersethotel.jpg">
+						<img src="${hDto.hotelimg}">
 					</div>
 				</div>
 				<div id="summary_title">Hotel Info_</div>
 				<div id="summary">
-					<p>&nbsp;서울 중심부의 강북에 위치한 서머셋 팰리스 서울은 주방 시설이 완비된 서비스 아파트, 옥상 수영장, 24시간 영업하는 편의점, 라운지, 무료 주차장을 보유하고 있습니다.
-					서머셋 팰리스의 각 아파트는 디자이너 가구, 케이블 TV, 홈 엔터테인먼트 시스템, 세탁기, 건조기를 갖추고 있습니다.
-					머무는 동안 완비된 피트니스 센터, 당구장, 옥상 온수 욕조, 정원과 같은 레크리에이션 시설을 이용해 보십시오. 레스토랑과 카페에서 식사하실 수 있습니다.
-					서머셋 팰리스에서 도보 거리에 지하철 안국역을 비롯해 식당가, 쇼핑가, 유흥가가 밀집한 인사동과 종로가 있습니다. 서머셋 팰리스 서울에서 지하철 5호선 광화문역까지는 도보로 5분 이내가 소요됩니다. 
-					종로구 지역은 문화, 도시 산책, 관광 테마 여행을 원하시는 분께 강력 추천하는 지역입니다.
-					서울 시내 인기 지역에 위치! 이 지역 다른 숙소의 위치보다 평이 좋습니다.</p>
+					<p>&nbsp;${hDto.summary}</p>
 				</div>
 			</div>
+			
 		</section>
 		<!-- 빅데이터 분석 : 워드클라우드,텍스트마이닝 -->	
 		<section class="box sec_bg">
@@ -544,9 +541,8 @@ button#mybtn{
 				<div class="title_box">
 					<h2>DETAIL REVIEW&nbsp;</h2>
 				</div>
-				
-			
-				
+		
+		<!--긍정리뷰  -->		
 			<div class="reviewWrap">
 				<div class="_wrap" id="wrap_ma">
 					<div id="reviewpos">긍정</div>
@@ -568,7 +564,7 @@ button#mybtn{
 						</div>
 					</div>
 			
-				
+			<!--부정리뷰 -->
 				<div class="_wrap">
 					<div id="reviewneg">부정</div>		
 					<div class="reviewtype">

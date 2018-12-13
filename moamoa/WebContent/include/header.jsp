@@ -207,7 +207,6 @@ nav #menu li a {
 		
 		<ul id="menu">
 			<li><a href="searchhtl.bizpoll">ALL</a></li>
-			<li><a href="#">BIGDATA</a></li>
 			<li><a href="boardList.bizpoll">COMMUNITY</a></li>
 			
 			

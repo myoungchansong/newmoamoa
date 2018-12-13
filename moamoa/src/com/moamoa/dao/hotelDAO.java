@@ -111,7 +111,21 @@ public class hotelDAO {
 		}
 		return list;
 	}
+	
+	public List<hotelDTO> reviewListName(String hotelname){
+		sqlSession = sqlSessionFactory.openSession();
+		List<hotelDTO> list = new ArrayList<>();
 		
+		try {
+			System.out.println("===>hotelname:"+hotelname);
+			list =sqlSession.selectList("reviewListName", hotelname);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();		
+		}
+		return list;
+	}
 		
 		
 		

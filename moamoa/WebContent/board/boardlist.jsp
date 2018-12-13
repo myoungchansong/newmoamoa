@@ -460,7 +460,6 @@ $(document).ready(function(){
 						<fmt:formatDate value="${bDto.regdate}" pattern="yy-MM-dd" var="regdate2"/>
 					  	<tr>
 					  		<td>${bDto.bno}</td>
-					  		<td>정보</td>
 					  		<td class="tabletd_title"><a href="boardViewcnt.bizpoll?bno=${bDto.bno}">${bDto.title}</a>
 					  			<c:if test="${today2== regdate2}">
 					  				<span class = "new_time">New</span>
