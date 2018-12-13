@@ -356,7 +356,7 @@ $(document).ready(function(){
 			if(keyword!=""){
 				location.href ="boardList.bizpoll?flag="+flag+"&keyword="+keyword;	
 				$("#search_ment").css("display","block");
-				alert(flag + keyword);
+				//alert(flag + keyword);
 			}
 	
 		});	 
@@ -364,7 +364,7 @@ $(document).ready(function(){
 			var key = $("#new_order_category").val();			
 			if(key!=""){
 				location.href ="boardList.bizpoll?key="+key;	
-				alert(key);				
+				//alert(key);				
 			}
 	});
 	 
@@ -517,11 +517,6 @@ $(document).ready(function(){
 
 </body>
 <script type="text/javascript" src="${path}/js/selecttag.js"></script>
-<script type="text/javascript">
-	$(document).on("click", "#new_order", function(){
-		 alert("test");
-		 console.log("szzz");
-	});
-</script>
+
 </html>
 <%@ include file = "../include/footer.jsp" %> 

@@ -3,6 +3,7 @@ package com.moamoa.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -202,4 +203,66 @@ public class BoardDAO {
 				sqlSession.close();
 			}
 		}
+		
+		// 게시글 추천여부 검사
+		public int recCheck(Map<String, String> m){
+		 sqlSession = sqlSessionFactory.openSession();
+		 
+		 int result = 0;
+		 
+		 try {
+		  result = sqlSession.selectOne("rec_check", m);   
+		 } catch (Exception e) {
+		  e.printStackTrace();
+		 } finally {
+		  sqlSession.close();
+		 }
+		 return result;
+		}
+
+		// 게시글 추천
+		public void recUpdate(Map<String, String> m){
+		 sqlSession = sqlSessionFactory.openSession();
+		 
+		 try {
+		  sqlSession.insert("rec_update", m);
+		  sqlSession.update("goodPlus", m.get("bno"));
+		  sqlSession.commit();
+		 } catch (Exception e) {
+		  e.printStackTrace();
+		 } finally {
+		  sqlSession.close();
+		 }
+		}
+
+		// 게시글 추천 제거
+		public void recDelete(Map<String, String> m){
+		 sqlSession = sqlSessionFactory.openSession();
+		 
+		 try {
+		  sqlSession.insert("rec_delete", m);
+		  sqlSession.update("goodMinus", m.get("bno"));
+		  sqlSession.commit();
+		 } catch (Exception e) {
+		  e.printStackTrace();
+		 } finally {
+		  sqlSession.close();
+		 }
+		}
+
+		// 게시글 추천수
+		public int recCount(String bno){
+		 sqlSession = sqlSessionFactory.openSession();
+		 
+		 int count = 0;
+		 
+		 try {
+		  count = sqlSession.selectOne("rec_count", bno);
+		 } catch (Exception e) {
+		  e.printStackTrace();
+		 } finally {
+		  sqlSession.close();
+		 }
+		 return count;
+		} 
 }	

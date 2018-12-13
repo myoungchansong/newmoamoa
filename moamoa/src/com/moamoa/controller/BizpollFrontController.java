@@ -22,6 +22,8 @@ import com.moamoa.action.BoardUpadateAction;
 import com.moamoa.action.BoardUpadatePlayAction;
 import com.moamoa.action.BoardViewcntAction;
 import com.moamoa.action.CommentListAction;
+import com.moamoa.action.GoodCountAction;
+import com.moamoa.action.GoodcntUpdateAction;
 import com.moamoa.action.HotelListAction;
 import com.moamoa.action.IndexAction;
 import com.moamoa.action.ReplyDeleteAction;
@@ -178,6 +180,12 @@ public class BizpollFrontController extends HttpServlet {
 			forward = action.excute(request, response);
 		}else if(command.equals("/replyInsert.bizpoll")) {
 			action = new ReplyInsertAction();
+			forward = action.excute(request, response);
+		}else if(command.equals("/goodcntUpdate.bizpoll")) {
+			action = new GoodcntUpdateAction();
+			forward = action.excute(request, response);
+		}else if(command.equals("/goodCount.bizpoll")) {
+			action = new GoodCountAction();
 			forward = action.excute(request, response);
 		}
 			

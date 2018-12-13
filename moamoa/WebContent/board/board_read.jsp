@@ -63,7 +63,7 @@
    		clear: both;
 	}
 	#read_title>h2{
-		padding: 24px 16px 5px;
+		padding: 7px 16px 5px;
     	line-height: 1;
 	}
 	#read_title>h2>span{
@@ -498,28 +498,39 @@ $(document).ready(function(){
 			});
 				
 	});
-	/* var gcnt= ${boardView.goodcnt};
-	$(document).on("click","#btn-good",function(){
-		alert("되냐아아?");
+	/* 게시판 좋아요 시작 */ 
+	$(document).on("click","#btn_good",function(){
+		var bno = $('#bno_tran').val();
+	    var id = "${sessionScope.loginUser.id}";
+		//alert("되냐아아?");
 		
 			$.ajax({
 				url : "goodcntUpdate.bizpoll",
-				data : "bno=${boardView.bno}",
+				tpye : "POST",
+				data : "bno="+bno+"&id="+id,
 				success : function(data){
-					if(data.result == "1"){
-						 alert("0000");
-						gcnt =gcnt+1;
-						$("#btn-good").html(gcnt);
-						
-					}
+					recCount();// 게시글 추천수표시 
 				},
 				error : function(){
 					alert("system error!");
 				}
-			});
+			});		
 		
-	}); */
-	
+	}); 
+
+    function recCount() {
+    	var bno = $('#bno_tran').val();
+	 $.ajax({
+	  url: "goodCount.bizpoll",
+      type: "POST",
+      dataType: "json",
+      data: 'bno='+bno,
+      success: function (result) {
+       $(".num").html(result.count); // 게시글의 총 추천수 표시 
+       }
+	 })
+    };
+/* 게시판 좋아요 끝 */
 
 </script>
 </head>
@@ -540,10 +551,12 @@ $(document).ready(function(){
 		<div id="read_header">
 			<div id="read_title">
 				<h2>
-					<span>정보</span>
+					<span></span>
 				</h2>
 				<div id="br_num">${boardview.bno}</div>
 				<div id="br_title">| ${boardview.title}</div>
+				<input type="hidden" id="bno_tran" value="${boardview.bno}">
+				<input type="hidden" id="breply_tran" value="${boardview.replycnt}">
 			</div>
 			<!--작성자, 조회수, 추천수, 댓글수, 날짜  -->
 			<div id="read_condition">
@@ -551,7 +564,7 @@ $(document).ready(function(){
 					<div class="divider"></div>
 				<span>조회수 ${boardview.viewcnt}</span>
 					<div class="divider"></div>
-				<span>추천수 ${boardview.goodcnt}</span>	
+				<span id="goodcnt">추천수 ${boardview.goodcnt}</span>	
 				 	<div class="divider"></div>
 				 <span>댓글 ${boardview.replycnt}</span>
 				 	<div class="divider"></div>
@@ -580,7 +593,7 @@ $(document).ready(function(){
 				<div class="vote">
 					<br>
 					<br>
-					<button type="button" class="vb-btn vb-red" id="btn-good" disabled="disabled">
+					<button type="button" class="vb-btn vb-red" id="btn_good" disabled="disabled">
 						<div class="good">
 							<span style="color: red;">
 								<i class="fa fa-heart" aria-hidden="true"></i>
@@ -591,11 +604,12 @@ $(document).ready(function(){
 					</button>
 				</div>
 				</c:if>
+				
 				<c:if test="${sessionScope.loginUser.id != null}">
 				<div class="vote">
 					<br>
 					<br>
-					<button type="button" class="vb-btn vb-red" id="btn-good" disabled="disabled">
+					<button type="button" class="vb-btn vb-red" id="btn_good">
 						<div class="good">
 							<span style="color: red;">
 								<i class="fa fa-heart" aria-hidden="true"></i>
