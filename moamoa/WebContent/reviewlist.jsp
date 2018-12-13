@@ -416,7 +416,7 @@ button#mybtn{
 				<div class="title_box">
 					<h2>HOTEL INFORMATION&nbsp;</h2>
 				</div>
-				
+			<c:forEach items="${reviewListName}" var="hDto">
 				<div id="border">
 					<div id="title">
 						<h1>${hDto.hotelname}</h1>
@@ -433,7 +433,7 @@ button#mybtn{
 					<p>&nbsp;${hDto.summary}</p>
 				</div>
 			</div>
-			
+		</c:forEach>
 		</section>
 		<!-- 빅데이터 분석 : 워드클라우드,텍스트마이닝 -->	
 		<section class="box sec_bg">

@@ -32,6 +32,13 @@
  		SELECT * FROM  (SELECT * FROM moamoa2 WHERE hotelname = #{hotelname} AND review_neg is not null )
 		moamoa2  where ROWNUM BETWEEN 1 AND 20
  	</select>
+ 	
+ 	<select id="reviewListName" parameterType="String" resultType="com.moamoa.dto.hotelDTO">
+ 		
+ 		SELECT * FROM moamoa2 
+		WHERE hotelname = #{hotelname}  AND Hoteladdr is not null
+		
+ 	</select>
  
  
  <!-- member insert   -->

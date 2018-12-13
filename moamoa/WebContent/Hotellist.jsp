@@ -355,16 +355,16 @@ input {
 									<a href="reviewlist.bizpoll?hotelname=${htlDTO.hotelname}">${htlDTO.hotelname}</a>
 								</div>
 								<div id="htl_addr">
-										<h2>${htlDTO.hoteladdr }</h2>
+										<h2>${htlDTO.hoteladdr}</h2>
 								</div>
 							</div>
 							
 							<div id="list_img">
-								<img src="${htlDTO.hotelimg }"> 
+								<img src="${htlDTO.hotelimg}"> 
 							</div>
 							
 							<div id="content">
-								<p>${htlDTO.summary }</p>
+								<p>${htlDTO.summary}</p>
 							</div>
 						</div>
 					</a>

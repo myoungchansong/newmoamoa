@@ -114,6 +114,8 @@ public class hotelDAO {
 	
 	public List<hotelDTO> reviewListName(String hotelname){
 		sqlSession = sqlSessionFactory.openSession();
+		System.out.println("1111111111111111111111111111111111111");
+		System.out.println(hotelname);
 		List<hotelDTO> list = new ArrayList<>();
 		
 		try {

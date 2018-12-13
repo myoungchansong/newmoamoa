@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.moamoa.dao.hotelDAO;
 import com.moamoa.dto.hotelDTO;
+import com.moamoa.dto.memberDTO;
 
 public class WordCloudAction implements Action{
 
@@ -19,11 +20,20 @@ public class WordCloudAction implements Action{
 		
 		String hotelname = request.getParameter("hotelname");
 		System.out.println(hotelname);
+	
+		
+		
+		
 		
 		hotelDAO hDao = hotelDAO.getInstance();
 		
-		/*int hotelnumber = hDao.wordcloud(hotelname);
-		System.out.println(hotelnumber);*/
+		
+		//호텔 정보
+		List<hotelDTO>reviewListName = hDao.reviewListName(hotelname);
+		
+		
+		request.setAttribute("reviewListName", reviewListName);
+		
 		
 //		호텔 리뷰 
 		List<hotelDTO> reviewListpos = hDao.reviewListpos(hotelname);
