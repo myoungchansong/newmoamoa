@@ -346,11 +346,10 @@ input {
 		<div id="hotelborder">
 			<c:choose>	
 				<c:when test="${!empty htlDTO.hotelname}">
-					<a href="reviewlist.bizpoll?hotelname=${htlDTO.hotelname}" id="border_a">
-						<div id="border">
+						<div id="border" OnClick="location.href ='reviewlist.bizpoll?hotelname=${htlDTO.hotelname}'" style="cursor:pointer;">
 							<div class="title_wrap">
 								<div id="title">
-									<a href="reviewlist.bizpoll?hotelname=${htlDTO.hotelname}">${htlDTO.hotelname}</a>
+									<a href="#">${htlDTO.hotelname}</a>
 								</div>
 								<div id="htl_addr">
 										<h2>${htlDTO.hoteladdr}</h2>
@@ -366,7 +365,6 @@ input {
 							</div>
 						</div>
 						
-					</a>
 				</c:when>
 			</c:choose>	
 		
