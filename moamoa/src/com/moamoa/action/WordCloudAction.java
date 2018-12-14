@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.moamoa.dao.hotelDAO;
 import com.moamoa.dto.HotelKeywordDTO;
+import com.moamoa.dto.SgDTO;
 import com.moamoa.dto.hotelDTO;
 import com.moamoa.dto.memberDTO;
 
@@ -22,9 +23,6 @@ public class WordCloudAction implements Action{
 		String hotelname = request.getParameter("hotelname");
 		System.out.println(hotelname);
 	
-		
-		
-		
 		
 		hotelDAO hDao = hotelDAO.getInstance();
 		
@@ -50,7 +48,10 @@ public class WordCloudAction implements Action{
 		request.setAttribute("hotelkeyword", hotelkeyword);
 		
 		
-		
+		//구내 호텔 평점 비교 그래프 
+		String result = null;
+		result= hDao.scoregraph(hotelname);
+		request.setAttribute("scoregraph", result);
 		
 		
 		

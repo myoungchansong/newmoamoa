@@ -58,7 +58,12 @@
 		
  	</select>
  
- 
+ 	<select id="scoregraph" parameterType="String" resultType="String">
+ 		
+   		   SELECT scoregraph FROM scoreavg
+           WHERE HOTELNAME = #{hotelname} 
+		
+ 	</select>
  
  
  

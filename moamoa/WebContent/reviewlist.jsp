@@ -259,8 +259,8 @@
     height: 90%;
 }
 .graphwrap img{
-	width: 96%;
-    height: 86%;
+	width: 98%;
+    height: 95%;
     margin: 5% auto;
 }
 .graphimg{
@@ -545,20 +545,21 @@ button#mybtn{
 					<h2>ALL & GRAPH<span>_서울시 구별 호텔 평점 평균 비교 그래프</span>&nbsp;</h2>					
 				</div>
 				<div id="chart_div" class="graphimg"style="width:1200px; height: 700px;"></div>
-				
-				<%-- <div class="graphwrap">
-					<img alt="" src="${path}/img/scoreavg.png">
-				</div> --%>
+			
 			</div>
 		</section>
+		<!--구내 호텔 평점평균 그래프  -->
 		<section class="box sec_gbg2"> 	
 			<div id="sec_scoregraph" class="hotellist">
+			
 				<div class="title_box">
-					<h2>PART & GRAPH<span>_종로구 호텔 평점 평균 비교 그래프</span>&nbsp;</h2>
+					<h2>PART & GRAPH<span>_구내 호텔 평점 평균 비교 그래프</span>&nbsp;</h2>
 				</div>
+			
 				<div class="graphwrap">
-					<img alt="" src="${path}/img/sechotelavg.png">
+					<img src="${path}/scoregraph/${scoregraph}">
 				</div>
+				
 			</div>
 		</section>
 		

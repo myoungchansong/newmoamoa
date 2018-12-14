@@ -15,13 +15,13 @@ public class hotelDTO {
 	
 	private String hotel_seq;
 	private String hoteladdrgu;
-	
+	private String scoregaph;
 	
 	public hotelDTO() {
 		super();
 	}
 
-	
+
 	public hotelDTO(String hotelname, String hoteladdr, String summary, String hotelimg) {
 		super();
 		this.hotelname = hotelname;
@@ -70,6 +70,16 @@ public class hotelDTO {
 		this.review_neg = review_neg;
 		this.review_pos = review_pos;
 		this.write_date = write_date;
+	}
+
+
+	public String getScoregaph() {
+		return scoregaph;
+	}
+
+
+	public void setScoregaph(String scoregaph) {
+		this.scoregaph = scoregaph;
 	}
 
 
@@ -207,7 +217,11 @@ public class hotelDTO {
 	public String toString() {
 		return "hotelDTO [hotelbno=" + hotelbno + ", hotelname=" + hotelname + ", hoteladdr=" + hoteladdr + ", writer="
 				+ writer + ", score=" + score + ", title=" + title + ", review_neg=" + review_neg + ", review_pos="
-				+ review_pos + ", write_date=" + write_date + ", summary=" + summary + ", hotelimg=" + hotelimg + "]";
+				+ review_pos + ", write_date=" + write_date + ", summary=" + summary + ", hotelimg=" + hotelimg
+				+ ", hotel_seq=" + hotel_seq + ", hoteladdrgu=" + hoteladdrgu + ", scoregaph=" + scoregaph + "]";
 	}
+
+
+	
 
 }
