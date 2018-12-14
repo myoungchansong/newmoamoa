@@ -175,7 +175,7 @@
 #summary p{margin-bottom:5px;}
 
 .sec_bg{
-	background-image: url(img/wcbgimg.jpg);
+	/* background-image: url(img/wcbgimg.jpg); */
 	background-repeat: no-repeat;
 	background-size: cover;
     opacity: 0.7;
@@ -372,7 +372,11 @@ button#mybtn{
 	#wrap_ma{
 		margin-right: 49px;
 	}
-
+	#wc_pos{
+		width: 100px;
+		height: 100px;
+		border: 1px solid;
+	}
 </style>
 <script type="text/javascript">
         window.onload = function () {

@@ -22,8 +22,8 @@
     <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js" type="text/JavaScript"></script>
  <script src="https://d3js.org/d3.v3.min.js"></script>
     <script>
-    var width = 960,
-            height = 500
+    var width = 100,
+            height = 100
 
         var svg = d3.select("body").append("svg")
             .attr("width", width)
