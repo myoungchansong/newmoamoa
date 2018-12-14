@@ -28,6 +28,8 @@ import com.moamoa.action.HotelListAction;
 import com.moamoa.action.IndexAction;
 import com.moamoa.action.ReplyDeleteAction;
 import com.moamoa.action.ReplyInsertAction;
+import com.moamoa.action.WcnegAction;
+import com.moamoa.action.WcposAction;
 import com.moamoa.action.WordCloudAction;
 import com.moamoa.action.deleteAction;
 import com.moamoa.action.deleteplayAction;
@@ -203,6 +205,12 @@ public class BizpollFrontController extends HttpServlet {
 		/*====================reviewlist================================*/
 		else if(command.equals("/reviewlist.bizpoll")) {
 			action = new WordCloudAction();
+			forward = action.excute(request, response);
+		}else if(command.equals("/wordcloudpos.bizpoll")) {
+			action = new WcposAction();
+			forward = action.excute(request, response);
+		}else if(command.equals("/wordcloudneg.bizpoll")) {
+			action = new WcnegAction();
 			forward = action.excute(request, response);
 		}
 		

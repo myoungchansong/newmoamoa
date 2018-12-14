@@ -8,12 +8,12 @@
 <!-- review insert -->
 
 	<insert id="hotelinsert" parameterType="com.moamoa.dto.hotelDTO">
-		INSERT INTO moamoa(hotelbno , hotelname, hoteladdr, summary, hotelimg)
+		INSERT INTO moamoa2(hotelbno , hotelname, hoteladdr, summary, hotelimg)
 		VALUES(seq_moamoa.nextval, #{hotelname}, #{hoteladdr}, #{summary}, #{hotelimg})
 	</insert>
  
  	<insert id="hotelupdate" parameterType="com.moamoa.dto.hotelDTO">
- 		INSERT INTO moamoa(writer, score, title, review_neg, review_pos, Write_date)
+ 		INSERT INTO moamoa2(writer, score, title, review_neg, review_pos, Write_date)
 		VALUES(#{writer}, #{score}, #{title}, #{review_neg}, #{review_pos}, #{write_date}) 
  	</insert>
  	
@@ -49,7 +49,6 @@
 		
  	</select>
    
-
  
  	<select id="keywordneg" parameterType="String" resultType="com.moamoa.dto.HotelKeywordDTO">
  		
@@ -64,6 +63,24 @@
            WHERE HOTELNAME = #{hotelname} 
 		
  	</select>
+ 
+ 
+	 <select id="wcpos" parameterType="String" resultType="String">
+ 		
+
+		SELECT pos FROM Wordcloud
+		WHERE hotelname = #{hotelname}
+		
+ 	</select>
+   
+ 
+ 	<select id="wcneg" parameterType="String" resultType="String">
+ 		
+   		SELECT neg FROM Wordcloud
+		WHERE hotelname = #{hotelname}
+
+ 	</select>
+ 
  
  
  
@@ -132,7 +149,7 @@
 	  	SELECT * FROM ( SELECT rownum rnum,
 	 	 	a.*
 	 	 	FROM (SELECT *
-	 	 			FROM moamoa
+	 	 			FROM moamoa2
 	 	 			WHERE hotelname is not null
 	 	 		]]>		
 	 	 			<if test= 'flag =="1"'>
@@ -159,7 +176,7 @@
   	<select id="hotellistcountPaging" resultType="int">
   		<![CDATA[
 			SELECT count(hotelname) 
-			FROM moamoa 
+			FROM moamoa2 
 			WHERE ROWNUM > 0 AND hotelname is not null
 		]]>
   	

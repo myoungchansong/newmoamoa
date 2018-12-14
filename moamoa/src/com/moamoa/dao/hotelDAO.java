@@ -155,6 +155,7 @@ public class hotelDAO {
 		try {
 			System.out.println("===>hotelname:"+hotelname);
 			result = sqlSession.selectOne("scoregraph", hotelname);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -164,4 +165,52 @@ public class hotelDAO {
 		
 		
 	}
+	
+	
+	
+	
+	
+	public String wcpos(String hotelname) {
+		
+		sqlSession = sqlSessionFactory.openSession();
+		
+		String result = null;
+			try {
+				System.out.println("===>wcpos:"+hotelname);
+				result = sqlSession.selectOne("wcpos", hotelname);
+				System.out.println(result);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				sqlSession.close();
+			}
+		
+		
+		return result;
+	}
+	
+	
+	
+	public String wcneg(String hotelname) {
+		sqlSession = sqlSessionFactory.openSession();
+		
+		String result = null;
+			try {
+				System.out.println("===>wcneg:"+hotelname);
+				result = sqlSession.selectOne("wcneg", hotelname);
+				System.out.println(result);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				sqlSession.close();
+			}
+		
+		
+		return result;
+	}
+	
+	
+	
+	
+	
 }

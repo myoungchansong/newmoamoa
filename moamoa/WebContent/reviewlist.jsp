@@ -410,15 +410,38 @@ button#mybtn{
         }
         
         
-        
-        
-        
-        
-        
-        
-        
-        
     </script>
+      <script type="text/javascript">
+	$(document).ready(function(){
+		wc_pos();
+		wc_neg();
+	});
+	 function wc_pos(){
+		var flag= $("#hname").val();
+		$.ajax({
+			type :"post",
+			url : "wordcloudpos.bizpoll",
+			data: "hotelname="+flag,
+			success:function(result){
+				$("#wc_pos").html(result);
+			}
+		});
+	} 
+	 
+	function wc_neg(){
+		var flag= $("#hname").val();
+		$.ajax({
+			type :"post",
+			url : "wordcloudneg.bizpoll",
+			data: "hotelname="+flag,
+			success:function(result){
+				$("#wc_neg").html(result);
+			}
+		});
+	}
+	
+</script>
+ 
 </head>
 <body>
 	<div id="allwrap">
@@ -441,6 +464,7 @@ button#mybtn{
 				<div id="border">
 					<div id="title">
 						<h1>${hDto.hotelname}</h1>
+						<input type="hidden" value="${hDto.hotelname}" id="hname">
 					</div>
 					<div id="content">
 						<p>_${hDto.hoteladdr}</p>
@@ -465,7 +489,7 @@ button#mybtn{
 				<section id="wordC_sec_pos">
 					<div class="wordcloudimg">
 						<div class="wordtype">- 긍정 -</div>
-						<img src="${path}/img/posimg.png">
+						<div id="wc_pos"></div>
 					</div>
 					<div class="wc_title">Word Count_</div>
 					<!--  긍정     -->
@@ -502,7 +526,7 @@ button#mybtn{
 				<section id="wordC_sec_neg">
 					<div class="wordcloudimg">
 						<div class="wordtype">- 부정 -</div>
-						<img src="${path}/img/negimg.png">
+						<div id="wc_neg"></div>
 					</div>
 					<div class="wc_title">Word Count_</div>
 					<table id="customers_neg">
@@ -690,5 +714,7 @@ button#mybtn{
 
 
 </script>
+ 
+
 </html>
 <%@ include file= "include/footer.jsp" %>
