@@ -541,15 +541,6 @@
 					}
 				});
 		
-		
-		
-		
-			
-			
-				
-		
-		
-		
 		/* 패스워드 유효성 검사및 정규식*/
 			
 			$("#input_pw").blur(function() {
@@ -612,8 +603,6 @@
 					});
 		
 			
-			
-			
 			/* 동의 버튼 2개 클릭시 버튼 활성화  */
 			
 			$(".ckboxs").on("click",function(){
@@ -641,10 +630,6 @@
 				}
 			});		
 			
-			
-			
-			
-		
 		/*확인 버튼을 클릭했을 때 유효성 체크  */
 		$("#btn_next").on("click",function(){
 			/*input의 id와 pw값을 입력. */
@@ -663,23 +648,6 @@
 		
 		});
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		/* enter 눌렀을때 다음칸으로 넘어가기  */
 		var input1= document.getElementById("input_id");
 		var input2= document.getElementById("input_nik");
@@ -695,25 +663,22 @@
 		input2.addEventListener("keyup", function(event) {
 		    event.preventDefault();
 		    if (event.keyCode === 13) {
-		        input2.focus();
+		        input3.focus();
 		    }
 		});
 		input3.addEventListener("keyup", function(event) {
 		    event.preventDefault();
 		    if (event.keyCode === 13) {
-		    	 input3.focus();
+		    	 input4.focus();
 		    }
 		});
 		input4.addEventListener("keyup",function(event){
 			event.preventDefault();
 			if(event.keyCode === 13){
-				document.getElementById(btn_next).click();
+				document.getElementById(cbox1).click();
 			}
 		});
 			
-		
-		
-	
 
 	});
 	
@@ -792,14 +757,6 @@
 						<span id="err_check_msg">ID와 PW를 모두 입력해 주세요.</span>
 					</div>
 					
-					
-					
-					
-					
-					
-					
-					
-					
 					<div id="ckbWrap">
 						<label for="cbox1" class="container"> MoaMoa의 서비스, 호텔리뷰 업데이트 등의 최신 소식을 받아보세요.
 						  <input type="checkbox" id="cbox1" class="ckboxs">
@@ -817,15 +774,6 @@
 					<div id="nowlogin">
 						<a href="#">지금 로그인하기</a>
 					</div>
-					
-					
-					
-					
-					
-					
-					
-					
-					
 					
 				</section>
 			</div>
