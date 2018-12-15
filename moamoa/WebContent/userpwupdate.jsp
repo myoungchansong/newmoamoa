@@ -281,16 +281,11 @@ $(document).ready(function(){
 	
 	$("#update").on("click",function(){
 		var pw = $("#input_newpw").val();
-		var pw2 = $("#input_pw").val();
-		if(pw == pw2){
-			alert("현재 비밀번호와 동일합니다");
-			return false;
-		} else if(pw !=''){
+		
+		if(pw !=''){
 			alert("비밀번호가  변경되었습니다");
 			$("#pw_form").submit();
-			
-		}
-		else{
+		}else{
 			alert("값이 없습니다 확인해주세요");
 			
 		}
@@ -310,10 +305,10 @@ $(document).ready(function(){
 	<section id="headersection">
 		<div id="myinfo">
 			<h1>내 정보</h1>
-			<a href="update.bizpoll" style="color: black;">회원 정보 수정</a>
+			<a href="update.bizpoll" >회원 정보 수정</a>
 			<a href="pwdate.bizpoll" style="color: #2196F3; text-decoration: underline; font-weight: bold;">비밀번호 수정</a>
-			<a href="nikupdate.bizpoll" style="color: black;">닉네임 수정</a>
-			<a href="deleterule.bizpoll"  style="color: black;">회원 회원 탈퇴</a>
+			<a href="nikupdate.bizpoll">닉네임 수정</a>
+			<a href="deleterule.bizpoll">회원 회원 탈퇴</a>
 		</div>
 	</section>
 	
