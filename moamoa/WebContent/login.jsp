@@ -456,7 +456,7 @@
 				<section>
 					<form action="" method="POST" name="frm_login" id="frm_login">
 						<div id="insert_id">
-							<label for="insert_id" id="insert_label" id="hdid"> ID/이메일	주소를 입력해주세요.</label> 
+							<label for="insert_id" id="insert_label" id="hdid"> E-mail 주소를 입력해주세요.</label> 
 							<input type="text" id="input_id" name="inputid">
 						</div>
 		
