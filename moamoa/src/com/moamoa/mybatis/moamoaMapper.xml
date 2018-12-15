@@ -150,7 +150,7 @@
 	 	 	a.*
 	 	 	FROM (SELECT *
 	 	 			FROM moamoa2
-	 	 			WHERE hotelname is not null
+	 	 			WHERE hoteladdr is not null
 	 	 		]]>		
 	 	 			<if test= 'flag =="1"'>
 	 	 			<![CDATA[AND hotelname LIKE '%'|| #{keyword}||'%']]>
@@ -177,7 +177,7 @@
   		<![CDATA[
 			SELECT count(hotelname) 
 			FROM moamoa2 
-			WHERE ROWNUM > 0 AND hotelname is not null
+			WHERE ROWNUM > 0 AND hoteladdr is not null
 		]]>
   	
   		<if test= 'flag =="1"'>
