@@ -13,7 +13,7 @@ public class WcnegAction implements Action{
 	@Override
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String url="indexneg.jsp";
+		/*String url="indexneg.jsp";
 		
 		String hotelname = request.getParameter("hotelname");
 		System.out.println("====================neg"+hotelname);
@@ -29,7 +29,20 @@ public class WcnegAction implements Action{
 		forward.setPath(url);
 		forward.setRedirect(false);
 		
-		return forward;
+		return forward;*/
+		
+		
+		String hotelname = request.getParameter("hotelname");
+		System.out.println("====================neg"+hotelname);
+		
+		hotelDAO DAO = hotelDAO.getInstance();
+		String filename = DAO.wcneg(hotelname);
+		
+		System.out.println("actionneg======"+filename);
+		response.setContentType("text/html;charset=UTF-8");
+		response.getWriter().write(filename);
+		
+		return null;
 	}
 
 }

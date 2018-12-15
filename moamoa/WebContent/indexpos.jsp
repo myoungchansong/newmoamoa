@@ -4,13 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="utf-8" http-equiv="encoding">
  <meta charset="utf-8" />
 <title>Insert title here</title>
 <style>
-    @font-face {
-        font-family: 'overwatch';
-        src: url('fonts/koverwatch.woff2');
-    }
+  
     *, body{
     z-index: 99;
     }
@@ -19,11 +17,11 @@
 
 </head>
 <body>
+ 	<script src="https://d3js.org/d3.v3.min.js" charset="utf-8" type="text/JavaScript"></script>
     <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js" type="text/JavaScript"></script>
- <script src="https://d3js.org/d3.v3.min.js"></script>
     <script>
-    var width = 100,
-            height = 100
+    var width = 500,
+            height = 500
 
         var svg = d3.select("body").append("svg")
             .attr("width", width)
@@ -42,7 +40,7 @@
        
         var svg = d3.select("svg")
                     .append("g")
-                    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
+                    .attr("transform", "translate(" + (width / 2) + "," + (height / 2) + ")")
 
         function showCloud(data) {
             d3.layout.cloud().size([width, height])

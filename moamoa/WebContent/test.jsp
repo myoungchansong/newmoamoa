@@ -4,11 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta content="utf-8" http-equiv="encoding">
  <meta charset="utf-8" />
 <title>Insert title here</title>
 <style>
-    
+   
     
     *, body{
     z-index: 99;
@@ -19,16 +18,16 @@
 
 </head>
 <body>
-<script src="https://d3js.org/d3.v3.min.js" charset="utf-8" type="text/JavaScript"></script>
-    <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js" type="text/JavaScript"> </script>
+<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="http://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js" type="text/JavaScript"> </script>
     <script>
 
         var width = 500,
-        height = 500
+        height = 300
 	    var svg = d3.select('body').append("svg")
 	        .attr("width", width)
 	        .attr("height", height);
-	    d3.csv("wordcloud/${neg}", function (data) {
+	    d3.csv("wordcloud/neg_3.csv", function (data) {
 	        showCloud(data)
 	        setInterval(function(){
 	             showCloud(data)
@@ -42,7 +41,7 @@
 	   
 	    var svg = d3.select("svg")
 	                .append("g")
-	                .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+	                .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
 	
 	    function showCloud(data) {
 	        d3.layout.cloud().size([width, height])
@@ -65,7 +64,7 @@
 	            cloud.enter()
 	                .append("text")
 	                .style("font-family", "overwatch")
-	                .style("fill","#FF3636")
+	                .style("fill","#003399")
 	                .style("fill-opacity", .5)
 	                .attr("text-anchor", "middle") 
 	                .attr('font-size', 1)
