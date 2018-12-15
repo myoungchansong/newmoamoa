@@ -24,25 +24,24 @@
 	}
 	#board_wrap{
 	    margin: 1% auto 3%;
-	    width: 55%;
+	    width: 70%;
 	    margin-left: 15%;
-	    height: 700px;
+	    height: 761px;
 	}
 	
 	/* index */
 	#board #con_wrap{
 		background-color: white;
-		padding-top: 10px;
+		padding-top: 26px;
 	}
 	#board .index_section{
 	    position: relative;
     	width: 100%;
     	min-width: 1200px;
-    	padding: 20px 0;
+    	padding: 30px 0;
     	box-sizing: border-box;
 	}
 	#board .section_con{
-	    margin-left: auto;
 	   	margin-right: auto;
 	   	position: relative;
 	    max-width: 1200px;
