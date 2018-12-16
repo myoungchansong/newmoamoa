@@ -468,7 +468,7 @@
 					var idVal= $.trim(email);
 					var regMail = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
 					if(!regMail.test(idVal)){
-						$("#input_id").next().text("E-MAIL형식이 올바르시 않습니다").css("display", "block").css("color", "red");
+						$("#input_id").next().text("E-MAIL형식이 올바르지 않습니다").css("display", "block").css("color", "red");
 						$("#insert_label").css("color", "red");
 						$("#insert_id").css("border", "1px solid red");
 						$("#input_id").select();
