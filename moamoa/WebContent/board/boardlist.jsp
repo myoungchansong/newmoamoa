@@ -23,9 +23,9 @@
 		text-decoration:none;
 	}
 	#board_wrap{
-	    margin: 1% auto 3%;
-	    width: 70%;
-	    margin-left: 15%;
+	   margin: 1% auto 3%;
+	    width: 60%;
+	    margin-left: 20%;
 	    height: 761px;
 	}
 	
