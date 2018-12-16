@@ -19,7 +19,7 @@ public class BoardUpadatePlayAction implements Action{
 	@Override
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-String url ="boardList.bizpoll";
+		String url ="boardList.bizpoll";
 		
 		//Multipart를 사용하기 위해서는  
 		//cos.jar라는 라이브러리가 필요함. -> 라이브러리 추가
@@ -123,7 +123,7 @@ String url ="boardList.bizpoll";
 			filename = "no";
 		}
 		 int bno = Integer.parseInt(sBno);
-		 bDto = new BoardDTO(bno, title, content, writer, nik, pfilename, pfilesize);//파일자체가 들어가는게 아니라 이름만 들어가있는 거임 
+		 bDto = new BoardDTO(bno, title, content, writer, nik, filename, filesize);//파일자체가 들어가는게 아니라 이름만 들어가있는 거임 
 		 bDao.boardUpdate(bDto);
 		
 		ActionForward forward = new ActionForward();

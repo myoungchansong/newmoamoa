@@ -295,7 +295,7 @@
 	
 	/*상세리뷰 섹션 */
 	#hotelreview{
-		height:804px;
+		height:880px;
 		border-bottom: 1px solid #BDBDBD;
 		background-color: rgba(33,33,33,0.4);
 		padding: 0px 80px 100px;
