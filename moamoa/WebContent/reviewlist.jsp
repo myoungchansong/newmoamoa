@@ -299,6 +299,7 @@
 		border-bottom: 1px solid #BDBDBD;
 		background-color: rgba(33,33,33,0.4);
 		padding: 0px 80px 100px;
+	
 	}
 	/*상세 리뷰 섹션 긍정 부정 리뷰창 */
 	.reviewtype{
@@ -310,7 +311,7 @@
 
 	/*긍정리뷰 전체 wrap  */
 	.reviewWrap{
-		display: inline-block;
+		width: 100%;
 	}
 	/*상세리뷰창box */
 	.rpbox{
@@ -401,10 +402,6 @@
 	._wrap{
 		display: inline-block;
 		width: 48%;
-	}
-	/*상세리뷰 긍정 margin  */
-	#wrap_ma{
-		margin-right: 49px;
 	}
 	/*top 버튼  */
 	button#mybtn{
@@ -789,54 +786,53 @@
 				<div class="title_box">
 					<h2>DETAIL REVIEW&nbsp;</h2>
 				</div>
-		
-		<!--긍정리뷰  -->		
-			<div class="reviewWrap">
-				<div class="_wrap" id="wrap_ma">
+
+				<!--긍정리뷰  -->
+
+				<div class="_wrap">
 					<div id="reviewpos">긍정</div>
-					<div class="reviewtype">
+					<div class="reviewtype" id="review_pos" style="width: 90%; margin-left: 10%;">
 						<div class="rpbox">
-						
-				<c:forEach items="${reviewListpos}" var="hDto">
-							<div class="rpcontent">
-								<div class="rpctheader">
-									<div class="rpcttitle"> | ${hDto.title}</div>
-									<div class="rpctwriter"> 작성자 | ${hDto.writer}</div>									
+							<c:forEach items="${reviewListpos}" var="hDto">
+								<div class="rpcontent">
+									<div class="rpctheader">
+										<div class="rpcttitle">| ${hDto.title}</div>
+										<div class="rpctwriter">작성자 | ${hDto.writer}</div>
+									</div>
+									<div class="rpctheader2">
+										<div class="rpctdate">작성일 | ${hDto.write_date}</div>
+										<div class="rpctscore">평점 | ${hDto.score}</div>
+									</div>
+									<div class="rpct_content">&nbsp;${hDto.review_pos}</div>
 								</div>
-								<div class="rpctheader2">
-									<div class="rpctdate">작성일 | ${hDto.write_date}</div>
-									<div class="rpctscore">평점 | ${hDto.score}</div>
-								</div>
-								<div class="rpct_content">&nbsp;${hDto.review_pos}</div>
-							</div>
-				</c:forEach>	
-						</div>	
+							</c:forEach>
 						</div>
 					</div>
-			
-			<!--부정리뷰 -->
+				</div>
+
+				<!--부정리뷰 -->
+
 				<div class="_wrap">
-					<div id="reviewneg">부정</div>		
-					<div class="reviewtype">
+					<div id="reviewneg">부정</div>
+					<div class="reviewtype"  id="review_neg" style="width: 90%; margin: 0px 5%;" >
 						<div class="rpbox">
-						
-				<c:forEach items="${reviewListneg}" var="hDto">
-							<div class="rpcontent">
-								<div class="rpctheader">
-									<div class="rpcttitle"> | ${hDto.title}</div>
-									<div class="rpctwriter"> 작성자 | ${hDto.writer}</div>
+
+							<c:forEach items="${reviewListneg}" var="hDto">
+								<div class="rpcontent">
+									<div class="rpctheader">
+										<div class="rpcttitle">| ${hDto.title}</div>
+										<div class="rpctwriter">작성자 | ${hDto.writer}</div>
+									</div>
+									<div class="rpctheader2">
+										<div class="rpctdate">작성일 | ${hDto.write_date}</div>
+										<div class="rpctscore">평점 | ${hDto.score}</div>
+									</div>
+									<div class="rpct_content">&nbsp;${hDto.review_neg}</div>
 								</div>
-								<div class="rpctheader2">
-									<div class="rpctdate">작성일 | ${hDto.write_date}</div>
-									<div class="rpctscore">평점 | ${hDto.score}</div>
-								</div>
-								<div class="rpct_content">&nbsp;${hDto.review_neg}</div>
-							</div>
-				</c:forEach>
-						</div>	
+							</c:forEach>
+						</div>
 					</div>
 				</div>
-			</div>	
 			</div>
 		</section>
 			
